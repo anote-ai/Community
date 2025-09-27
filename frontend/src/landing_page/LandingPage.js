@@ -56,8 +56,6 @@ import HolidayParty from "./landing_page_events/fall2025/HolidayParty";
 import Databricks from "./landing_page_events/fall2025/Databricks";
 import AIDayFall2025 from "./landing_page_events/fall2025/AIDayFall2025";
 import Footer from "./landing_page_components/Footer";
-import Banner from "./landing_page_components/Banner";
-import Navbar from "./landing_page_components/Navbar";
 import { Helmet } from "react-helmet";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
