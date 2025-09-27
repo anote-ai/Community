@@ -5,7 +5,7 @@ import {
   communityJobsPath,
   communityResourcesPath,
   communityContentPath,
-  communityPartnershipsPath,
+  communityNewsPath,
   communityAgentRegistryPath,
   communityCoffeeChatsPath,
   communityReferralsPath,
@@ -15,29 +15,21 @@ import ArmorHubs from "./ArmorHubs";
 
 // Palette tuned for dark bg (#141414 / bg-gray-900)
 const PALETTE = [
-  "#A6F0C6", // mint
-  "#85D1FF", // sky
-  "#B6B3FD", // lavender
-  "#E7A2EF", // pastel purple
-  "#FCB3A7", // coral
-  "#FFC45A", // orange
-  "#FFF57D", // yellow
-  "#FDE1B5", // beige
-  "#C0E0DE", // cerulean
+    "#A7D8FF", // Pale sky blue
 ];
 
 export default function ArmorMain() {
   const sections = [
     { title: "Events", path: communityEventsPath, blurb: "Find upcoming meet‑ups, hackathons, and workshops in your city and online." },
     { title: "Members", path: communityMembersPath, blurb: "Browse and connect with AI builders, researchers, and operators." },
-    { title: "AI Courses", path: communityResourcesPath, blurb: "Self‑paced learning tracks, open‑source tools, and curated reading lists." },
-    { title: "Content Library", path: communityContentPath, blurb: "Technical blogs, slide decks, and demo videos from community experts." },
-    // { title: "AI Partnerships", path: communityPartnershipsPath, blurb: "Funding calls, accelerator programs, and corporate partnerships you can tap into." },
+    { title: "Courses", path: communityResourcesPath, blurb: "Self‑paced learning tracks, open‑source tools, and curated reading lists." },
+    { title: "Content", path: communityContentPath, blurb: "Technical blogs, slide decks, and demo videos from community experts." },
     { title: "Agents", path: communityAgentRegistryPath, blurb: "Community based domain specific agents gallery for daily use cases." },
     { title: "Coffee Chats", path: communityCoffeeChatsPath, blurb: "Schedule 1‑on‑1s with Anote alumni working in your dream roles." },
     { title: "Job Referrals", path: communityReferralsPath, blurb: "Warm intros to hiring managers and recruiters inside top AI orgs." },
-    { title: "AI Job Board", path: communityJobsPath, blurb: "Curated openings in applied AI, ML research, and data science—updated daily." },
-    { title: "Local Hubs", path: communityRegionalHubsPath, blurb: "Find regional organizers and roadmap milestones across ARMOR." },
+    { title: "Job Board", path: communityJobsPath, blurb: "Curated openings in applied AI, ML research, and data science—updated daily." },
+    { title: "News", path: communityNewsPath, blurb: "Stay up to date with the latest AI news and announcements." },
+    // { title: "Local Hubs", path: communityRegionalHubsPath, blurb: "Find regional organizers and roadmap milestones across ARMOR." },
   ];
 
   // Gradient inline style generator

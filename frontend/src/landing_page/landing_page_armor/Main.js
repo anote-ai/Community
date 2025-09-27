@@ -52,15 +52,15 @@ import ArmorHubs from "./ArmorHubs";
 const navigation = [
     { name: "Home", path: communityHomePath, icon: FaHome },
     { name: "Events", path: communityEventsPath, icon: FaCalendarAlt },
-    { name: "Agents", path: communityAgentRegistryPath, icon: FaRobot },
-    // { name: "AI News", path: communityNewsPath, icon: FaNewspaper },
+    { name: "Members", path: communityMembersPath, icon: FaUsers },
     { name: "Courses", path: communityResourcesPath, icon: FaBook },
     { name: "Content", path: communityContentPath, icon: FaUserCircle },
-    { name: "Members", path: communityMembersPath, icon: FaUsers },
+    { name: "Agents", path: communityAgentRegistryPath, icon: FaRobot },
     // { name: "Partnerships",   path: communityPartnershipsPath, icon: FaNewspaper },
     { name: "Coffee Chats", path: communityCoffeeChatsPath, icon: FaCoffee },
     { name: "Job Referrals", path: communityReferralsPath, icon: FaHandshake },
-    { name: "Job Opportunities", path: communityJobsPath, icon: FaBriefcase },
+    { name: "Job Board", path: communityJobsPath, icon: FaBriefcase },
+    { name: "News", path: communityNewsPath, icon: FaNewspaper },
     // { name: "Regional Hubs",    path: communityRegionalHubsPath,   icon: FaGlobe },
 ];
 

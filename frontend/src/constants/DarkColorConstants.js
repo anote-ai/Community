@@ -1,12 +1,12 @@
 export const DarkColorConstants = [
-    // Primary Tones (Bright and contrasting against bg-gray-900)
-    "#A6F0C6", // Light mint
-    "#85D1FF", // Light sky blue
-    "#B6B3FD", // Lighter lavender-blue
-    "#E7A2EF", // Pastel purple
-    "#FCB3A7", // Light coral
-    "#FFC45A", // Lighter orange
-    "#FFF57D", // Muted yellow
-    "#FDE1B5", // Warm beige
-    "#C0E0DE", // Soft cerulean
+    // Light to medium spectrum: blue → teal → green
+    "#A7D8FF", // Pale sky blue
+    "#8ECFFF", // Soft blue
+    "#6FC2FF", // Light azure
+    "#57B5F0", // Clear blue
+    "#4CC9D9", // Aqua teal
+    "#58D5C9", // Seafoam teal
+    "#6FE1B4", // Mint green
+    "#89E6A5", // Soft green
+    "#A2F0A2", // Pastel green
 ];

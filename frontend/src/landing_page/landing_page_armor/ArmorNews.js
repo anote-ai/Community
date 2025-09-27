@@ -635,7 +635,7 @@ function ArticleCard({ item }) {
       )}
 
       <footer className="relative z-20 mt-auto flex items-center justify-between text-xs text-gray-400 pt-2 pointer-events-none">
-        <span>{prettyDate}</span>
+        {/* <span>{prettyDate}</span> */}
         {/* decorative arrow since whole card is link */}
         {url && (
           <span className="inline-flex items-center gap-1 text-yellow-400 group-hover:text-yellow-300 font-medium">
