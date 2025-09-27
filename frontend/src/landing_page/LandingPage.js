@@ -127,7 +127,7 @@ function LandingPage() {
   return (
     <div>
       <Helmet>
-        <title>Anote - AI Community Portal</title>
+        <title>Anote - AI Community</title>
         {robotMetaTag}
       </Helmet>
 
