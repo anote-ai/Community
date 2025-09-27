@@ -1,0 +1,8 @@
+text,model_answer,human_answer
+"Hi there, You have won a free vacation! Claim now!",spam,spam
+"Dear customer, Your account balance is low.",not spam,not spam
+Congratulations! You've won a million dollars!,spam,spam
+Urgent notice: Last chance to update your personal information.,spam,not spam
+"Hi, How are you doing? Let's catch up soon.",not spam,not spam
+Important notice: Your package has been delivered.,not spam,spam
+

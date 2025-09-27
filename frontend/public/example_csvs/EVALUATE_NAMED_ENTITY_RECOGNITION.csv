@@ -1,0 +1,11 @@
+model_answer,text,human_answer
+Barack Obama:Person,Barack Obama was the 44th President of the USA.,Barack Obama:Person
+Elon Musk:Person,Elon Musk founded SpaceX.,Elon Musk:Person
+Eiffel Tower:Location,The Eiffel Tower is in Paris.,Eiffel Tower:Location
+Microsoft:Organization,Microsoft was founded by Bill Gates.,Microsoft:Organization
+Great Wall of China:Location,The Great Wall of China is visible from space.,Great Wall of China:Location
+Steve Jobs:Person,Steve Jobs was the CEO of Apple.,Steve Jobs:Person
+Mount Everest:Location,Mount Everest is the tallest mountain.,Mount Everest:Location
+Albert Einstein:Person,Albert Einstein was a theoretical physicist.,Albert Einstein:Person
+Amazon:Organization,Amazon is an e-commerce giant.,Amazon:Organization
+New York:Location,New York is known as the Big Apple.,New York:Location
