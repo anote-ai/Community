@@ -103,7 +103,7 @@ export default function AnoteAIAcademy() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
       />
-      <div className="absolute inset-0 opacity-60" style={{background:"linear-gradient(180deg, rgba(17,24,39,0.6) 0%, rgba(17,24,39,0.95) 60%, #0a0f1f 100%)"}} />
+      <div className="absolute inset-0 opacity-60" />
 
       {/* CONTENT WRAPPER */}
       <div className="relative max-w-6xl mx-auto px-6 pt-14 pb-16">
@@ -117,7 +117,7 @@ export default function AnoteAIAcademy() {
           <p className="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
             An 8‑week, beginner‑friendly program for enterprise AI leaders. Get a dedicated coach, weekly expert talks, and a practical AI roadmap you can ship at work.
           </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm max-w-3xl mx-auto">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm w-[80%] max-w-4xl mx-auto">
             {[
               ["$500", "One‑time Fee"],
               ["2", "In Person Meetups"],
@@ -133,9 +133,15 @@ export default function AnoteAIAcademy() {
           {/* Single CTA — the only one on the page */}
           <a
             href="#academy-form"
-            className="mt-7 inline-flex rounded-2xl px-6 py-3 bg-[#DEFE47] text-black font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
+            className="mt-7 inline-flex rounded-xl px-6 py-3 bg-[#DEFE47] text-black font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
           >
-            Register interest
+            Register Interest
+          </a>
+                    <a
+            href="#syllabus"
+            className="mt-7 mx-6 inline-flex rounded-xl px-6 py-3 text-[#defe47] border border-[#defe47] font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
+          >
+            View Syllabus
           </a>
           <div className="mt-4 text-sm text-gray-300">
             Seats remaining: <span className="text-[#DEFE47] font-semibold">{seatsRemaining}</span> / {seatsCap}
@@ -166,7 +172,7 @@ export default function AnoteAIAcademy() {
         {/* </section> */}
 
         {/* FEATURES */}
-        <section className="mt-12 grid md:grid-cols-3 gap-4">
+        <section className="mt-12 grid md:grid-cols-3 gap-4 w-[80%] max-w-4xl mx-auto">
           {[
             {
               title: "Dedicated 1:1 Coaching",
@@ -189,7 +195,7 @@ export default function AnoteAIAcademy() {
         </section>
 
         {/* SYLLABUS — single inline accordion */}
-        <section className="mt-12">
+        <section id="syllabus" className="mt-12 w-[80%] max-w-4xl mx-auto">
           <h2 className="text-xl font-semibold text-white/90">Weekly Syllabus and Talks</h2>
           <div className="mt-4 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5">
             {weeks.map((w, i) => (

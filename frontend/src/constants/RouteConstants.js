@@ -120,6 +120,7 @@ export const communityBase        = "/community";
 // pages
 export const communityHomePath    = `${communityBase}/home`;          // index
 export const communityEventsPath  = `${communityBase}/events`;
+export const communityAcademyPath  = `${communityBase}/academy`;
 export const communityAgentRegistryPath  = `${communityBase}/agents`;
 export const communityMembersPath = `${communityBase}/members`;
 export const communityNewsPath    = `${communityBase}/news`;

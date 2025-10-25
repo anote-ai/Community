@@ -10,6 +10,7 @@ import {
   communityCoffeeChatsPath,
   communityReferralsPath,
   communityRegionalHubsPath,
+  communityAcademyPath
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
 
@@ -20,6 +21,7 @@ const PALETTE = [
 
 export default function ArmorMain() {
   const sections = [
+    { title: "Academy", path: communityAcademyPath, blurb: "Join Anote's AI Academy for enterprise AI leaders." },
     { title: "Events", path: communityEventsPath, blurb: "Find upcoming meet‑ups, hackathons, and workshops in your city and online." },
     { title: "Members", path: communityMembersPath, blurb: "Browse and connect with AI builders, researchers, and operators." },
     { title: "Courses", path: communityResourcesPath, blurb: "Self‑paced learning tracks, open‑source tools, and curated reading lists." },

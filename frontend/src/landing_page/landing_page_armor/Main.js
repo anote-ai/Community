@@ -34,6 +34,7 @@ import {
     communityReferralsPath,
     communityRegionalHubsPath,
     communityAgentRegistryPath,
+    communityAcademyPath
 } from "../../constants/RouteConstants"; // ← adjust import path
 import ArmorEvents from "./ArmorEvents";
 import ArmorMain from "./ArmorMain";
@@ -51,6 +52,7 @@ import ArmorAIAcademy from "./ArmorAIAcademy";
 
 // ─── Nav config ──────────────────────────────────────────────────
 const navigation = [
+    { name: "Academy", path: communityAcademyPath, icon: FaGlobe },
     { name: "Home", path: communityHomePath, icon: FaHome },
     { name: "Events", path: communityEventsPath, icon: FaCalendarAlt },
     { name: "Members", path: communityMembersPath, icon: FaUsers },
@@ -205,7 +207,7 @@ function Sidebar({ onClose }) {
                 </Link>
                 {navigation.map((item) => {
                     const isActive =
-                        item.path === "/home"
+                        item.path === "/academy"
                             ? location.pathname === "/"
                             : location.pathname.startsWith(item.path);
                     const Icon = item.icon;
@@ -274,6 +276,7 @@ export default function Main() {
                 <Routes>
                     {/* <Route path="*" element={<ArmorMain />} /> */}
                     <Route path="*" element={<ArmorAIAcademy />} />
+                    <Route path="/home" element={<ArmorMain />} />
                     <Route path="/events" element={<ArmorEvents />} />
                     <Route path="/agents" element={<ArmorAgentRegistry />} />
                     <Route path="/members" element={<ArmorMembers />} />
@@ -289,7 +292,7 @@ export default function Main() {
                     />
                     <Route path="/regionalhubs" element={<ArmorHubs />} />
                     {/* Fallback */}
-                    <Route path="/home" element={<ArmorMain />} />
+                    <Route path="/academy" element={<ArmorAIAcademy />} />
                 </Routes>
             </Layout>
         </Wrapper>
