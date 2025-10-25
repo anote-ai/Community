@@ -29,7 +29,7 @@ export default function ArmorMain() {
     { title: "Agents", path: communityAgentRegistryPath, blurb: "Community based domain specific agents gallery for daily use cases." },
     { title: "Coffee Chats", path: communityCoffeeChatsPath, blurb: "Schedule 1‑on‑1s with Anote alumni working in your dream roles." },
     { title: "Job Referrals", path: communityReferralsPath, blurb: "Warm intros to hiring managers and recruiters inside top AI orgs." },
-    { title: "Job Board", path: communityJobsPath, blurb: "Curated openings in applied AI, ML research, and data science—updated daily." },
+    // { title: "Job Board", path: communityJobsPath, blurb: "Curated openings in applied AI, ML research, and data science—updated daily." },
     { title: "News", path: communityNewsPath, blurb: "Stay up to date with the latest AI news and announcements." },
     // { title: "Local Hubs", path: communityRegionalHubsPath, blurb: "Find regional organizers and roadmap milestones across ARMOR." },
   ];
