@@ -9,7 +9,7 @@ The **Anote Community Portal** is the hub for AI builders, researchers, operator
 
 ---
 
-## 🚀 Features
+## Features
 
 ### 📅 Events
 - Discover upcoming **meet-ups, hackathons, and workshops**.
@@ -49,14 +49,14 @@ The **Anote Community Portal** is the hub for AI builders, researchers, operator
 
 
 ## 🤝 Get Involved
-- Join events in your city or online.  
-- Contribute content, agents, or open-source tools.  
-- Apply for **job referrals** or post to the **job board**.  
-- Share your AI journey with the community.  
+- Join events in your city or online.
+- Contribute content, agents, or open-source tools.
+- Apply for **job referrals** or post to the **job board**.
+- Share your AI journey with the community.
 
 ---
 
 ## 📬 Contact
-For questions, partnerships, or contributions:  
-**Email**: [nvidra@anote.ai](mailto:nvidra@anote.ai)  
-**Website**: [https://anote.ai](https://community.anote.ai)  
+For questions, partnerships, or contributions:
+**Email**: [nvidra@anote.ai](mailto:nvidra@anote.ai)
+**Website**: [https://anote.ai](https://community.anote.ai)
