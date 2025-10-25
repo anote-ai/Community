@@ -47,6 +47,7 @@ import ArmorCoffeeChats from "./ArmorCoffeeChats";
 import ArmorReferrals from "./ArmorReferrals";
 import ArmorAgentRegistry from "./ArmorAgentRegistry";
 import ArmorHubs from "./ArmorHubs";
+import ArmorAIAcademy from "./ArmorAIAcademy";
 
 // ─── Nav config ──────────────────────────────────────────────────
 const navigation = [
@@ -271,7 +272,8 @@ export default function Main() {
         <Wrapper>
             <Layout>
                 <Routes>
-                    <Route path="*" element={<ArmorMain />} />
+                    {/* <Route path="*" element={<ArmorMain />} /> */}
+                    <Route path="*" element={<ArmorAIAcademy />} />
                     <Route path="/events" element={<ArmorEvents />} />
                     <Route path="/agents" element={<ArmorAgentRegistry />} />
                     <Route path="/members" element={<ArmorMembers />} />
