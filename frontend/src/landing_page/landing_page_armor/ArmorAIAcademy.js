@@ -131,8 +131,14 @@ export default function AnoteAIAcademy() {
             ))}
           </div>
           {/* Single CTA — the only one on the page */}
-          <a
+          {/* <a
             href="#academy-form"
+            className="mt-7 inline-flex rounded-xl px-6 py-3 bg-[#DEFE47] text-black font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
+          >
+            Register Interest
+          </a> */}
+          <a
+            href={`mailto:nvidra@anote.ai?subject=Anote%20AI%20Academy%20Interest`}
             className="mt-7 inline-flex rounded-xl px-6 py-3 bg-[#DEFE47] text-black font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
           >
             Register Interest
@@ -218,7 +224,7 @@ export default function AnoteAIAcademy() {
         </section>
 
         {/* REGISTRATION FORM (Google Apps Script) */}
-        <AcademyRegistrationForm />
+        {/* <AcademyRegistrationForm /> */}
       </div>
 
       {/* FOOTER STRIP */}
@@ -230,111 +236,111 @@ export default function AnoteAIAcademy() {
 }
 
 // ----- Registration Form (Apps Script target) -----
-function AcademyRegistrationForm() {
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    job_title: "",
-    company_name: "",
-    email_address: "",
-    linkedin_url: "",
-    event_sheet: "Anote AI Academy Winter 2026",
-    event_title: "Anote AI Academy — Winter Cohort (First Edition)",
-    event_date: "Wednesdays, Jan 5 – Mar 6, 2026",
-    event_time: "Evening (ET)",
-    event_dateTimeStart: "2026-01-07T19:00:00-05:00", // first Wed placeholder
-    event_dateTimeEnd: "2026-03-04T21:00:00-05:00",   // last Wed placeholder
-    event_location: "Hybrid (Virtual + NYC kickoff/graduation)",
-  });
+// function AcademyRegistrationForm() {
+//   const [formData, setFormData] = useState({
+//     first_name: "",
+//     last_name: "",
+//     job_title: "",
+//     company_name: "",
+//     email_address: "",
+//     linkedin_url: "",
+//     event_sheet: "Anote AI Academy Winter 2026",
+//     event_title: "Anote AI Academy — Winter Cohort (First Edition)",
+//     event_date: "Wednesdays, Jan 5 – Mar 6, 2026",
+//     event_time: "Evening (ET)",
+//     event_dateTimeStart: "2026-01-07T19:00:00-05:00", // first Wed placeholder
+//     event_dateTimeEnd: "2026-03-04T21:00:00-05:00",   // last Wed placeholder
+//     event_location: "Hybrid (Virtual + NYC kickoff/graduation)",
+//   });
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [submissionError, setSubmissionError] = useState("");
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [submitted, setSubmitted] = useState(false);
+//   const [submissionError, setSubmissionError] = useState("");
 
-  // TODO: replace with your Academy Sheet endpoint
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbygdbgHUNF-eSIW75nHR4MkQiCXheujnDUrXxZgDhxRsxZFSPggX4rNfoJ2M1fyQhpUAA/exec";
+//   // TODO: replace with your Academy Sheet endpoint
+//   const scriptURL =
+//     "https://script.google.com/macros/s/AKfycbygdbgHUNF-eSIW75nHR4MkQiCXheujnDUrXxZgDhxRsxZFSPggX4rNfoJ2M1fyQhpUAA/exec";
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({ ...prev, [name]: value }));
+//   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setSubmissionError("");
-    try {
-      await fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      setTimeout(() => {
-        setIsLoading(false);
-        setSubmitted(true);
-      }, 500);
-    } catch (error) {
-      console.error("Error submitting the form:", error);
-      setIsLoading(false);
-      setSubmissionError("Failed to submit. Please check your connection.");
-    }
-  };
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setIsLoading(true);
+//     setSubmissionError("");
+//     try {
+//       await fetch(scriptURL, {
+//         method: "POST",
+//         mode: "no-cors",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(formData),
+//       });
+//       setTimeout(() => {
+//         setIsLoading(false);
+//         setSubmitted(true);
+//       }, 500);
+//     } catch (error) {
+//       console.error("Error submitting the form:", error);
+//       setIsLoading(false);
+//       setSubmissionError("Failed to submit. Please check your connection.");
+//     }
+//   };
 
-  return (
-    <section id="academy-form" className="relative text-white mt-12">
-      <div className="max-w-3xl mx-auto">
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 shadow-xl">
-          <h3 className="text-2xl font-semibold">Register for the AI Academy</h3>
-          <p className="text-sm text-white/70 mt-1">Wednesdays · Jan 5 – Mar 6, 2026 · $500</p>
+//   return (
+//     <section id="academy-form" className="relative text-white mt-12">
+//       <div className="max-w-3xl mx-auto">
+//         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 shadow-xl">
+//           <h3 className="text-2xl font-semibold">Register for the AI Academy</h3>
+//           <p className="text-sm text-white/70 mt-1">Wednesdays · Jan 5 – Mar 6, 2026 · $500</p>
 
-          {isLoading ? (
-            <div className="text-center py-12">
-              <h4 className="text-2xl font-bold text-blue-300 mb-2">⏳ Submitting…</h4>
-              <p className="text-white/70">Please wait while we confirm your registration.</p>
-            </div>
-          ) : !submitted ? (
-            <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Field label="First Name" name="first_name" value={formData.first_name} onChange={handleChange} required />
-              <Field label="Last Name" name="last_name" value={formData.last_name} onChange={handleChange} required />
-              <Field label="Job Title" name="job_title" value={formData.job_title} onChange={handleChange} required />
-              <Field label="Company Name" name="company_name" value={formData.company_name} onChange={handleChange} required />
-              <Field label="Email Address" name="email_address" type="email" value={formData.email_address} onChange={handleChange} required />
-              <Field label="LinkedIn URL" name="linkedin_url" type="url" value={formData.linkedin_url} onChange={handleChange} required />
+//           {isLoading ? (
+//             <div className="text-center py-12">
+//               <h4 className="text-2xl font-bold text-blue-300 mb-2">⏳ Submitting…</h4>
+//               <p className="text-white/70">Please wait while we confirm your registration.</p>
+//             </div>
+//           ) : !submitted ? (
+//             <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+//               <Field label="First Name" name="first_name" value={formData.first_name} onChange={handleChange} required />
+//               <Field label="Last Name" name="last_name" value={formData.last_name} onChange={handleChange} required />
+//               <Field label="Job Title" name="job_title" value={formData.job_title} onChange={handleChange} required />
+//               <Field label="Company Name" name="company_name" value={formData.company_name} onChange={handleChange} required />
+//               <Field label="Email Address" name="email_address" type="email" value={formData.email_address} onChange={handleChange} required />
+//               <Field label="LinkedIn URL" name="linkedin_url" type="url" value={formData.linkedin_url} onChange={handleChange} required />
 
-              {/* hidden fields */}
-              <input type="hidden" name="event_sheet" value={formData.event_sheet} />
-              <input type="hidden" name="event_title" value={formData.event_title} />
-              <input type="hidden" name="event_date" value={formData.event_date} />
-              <input type="hidden" name="event_time" value={formData.event_time} />
-              <input type="hidden" name="event_dateTimeStart" value={formData.event_dateTimeStart} />
-              <input type="hidden" name="event_dateTimeEnd" value={formData.event_dateTimeEnd} />
-              <input type="hidden" name="event_location" value={formData.event_location} />
+//               {/* hidden fields */}
+//               <input type="hidden" name="event_sheet" value={formData.event_sheet} />
+//               <input type="hidden" name="event_title" value={formData.event_title} />
+//               <input type="hidden" name="event_date" value={formData.event_date} />
+//               <input type="hidden" name="event_time" value={formData.event_time} />
+//               <input type="hidden" name="event_dateTimeStart" value={formData.event_dateTimeStart} />
+//               <input type="hidden" name="event_dateTimeEnd" value={formData.event_dateTimeEnd} />
+//               <input type="hidden" name="event_location" value={formData.event_location} />
 
-              <div className="md:col-span-2 mt-2">
-                <button type="submit" className="w-full bg-[#DEFE47] text-black font-semibold py-3 rounded-xl hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-white/30">
-                  Register Now
-                </button>
-                <p className="text-center mt-3 text-sm text-white/70">
-                  Questions? <a href="mailto:nvidra@anote.ai" className="text-[#DEFE47] underline">nvidra@anote.ai</a>
-                </p>
-                {submissionError && <p className="mt-3 text-center text-red-400">{submissionError}</p>}
-              </div>
-            </form>
-          ) : (
-            <div className="text-center py-12">
-              <h4 className="text-3xl font-bold text-green-400 mb-3">✅ Success!</h4>
-              <p className="text-lg mb-2">You’re registered for <b>{formData.event_title}</b></p>
-              <p className="text-lg mb-2">📅 {formData.event_date} — {formData.event_time}</p>
-              <p className="text-md text-white/70">You should receive a confirmation email shortly.</p>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
+//               <div className="md:col-span-2 mt-2">
+//                 <button type="submit" className="w-full bg-[#DEFE47] text-black font-semibold py-3 rounded-xl hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-white/30">
+//                   Register Now
+//                 </button>
+//                 <p className="text-center mt-3 text-sm text-white/70">
+//                   Questions? <a href="mailto:nvidra@anote.ai" className="text-[#DEFE47] underline">nvidra@anote.ai</a>
+//                 </p>
+//                 {submissionError && <p className="mt-3 text-center text-red-400">{submissionError}</p>}
+//               </div>
+//             </form>
+//           ) : (
+//             <div className="text-center py-12">
+//               <h4 className="text-3xl font-bold text-green-400 mb-3">✅ Success!</h4>
+//               <p className="text-lg mb-2">You’re registered for <b>{formData.event_title}</b></p>
+//               <p className="text-lg mb-2">📅 {formData.event_date} — {formData.event_time}</p>
+//               <p className="text-md text-white/70">You should receive a confirmation email shortly.</p>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 // ----- Small UI helpers -----
 function Field({ label, name, value, onChange, type = "text", required }) {
