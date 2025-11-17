@@ -30,7 +30,7 @@ function HolidayParty() {
     email_address: "",
     linkedin_url: "",
     event_sheet: "Holiday Party",
-    event_title: "AI Holiday Party: Fall 2025",
+    event_title: "Anote Holiday Party 2025",
     event_date: "12/12",
     event_time: "6:00 PM EST to 8:30 PM EST",
     event_dateTimeStart: "2025-12-12T18:00:00-04:00",
@@ -43,9 +43,9 @@ function HolidayParty() {
 const [submitted, setSubmitted] = useState(false);
 const [submissionError, setSubmissionError] = useState("");
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbygdbgHUNF-eSIW75nHR4MkQiCXheujnDUrXxZgDhxRsxZFSPggX4rNfoJ2M1fyQhpUAA/exec"; // Replace with your Web App URL
+  // const scriptURL = "https://script.google.com/macros/s/AKfycbygdbgHUNF-eSIW75nHR4MkQiCXheujnDUrXxZgDhxRsxZFSPggX4rNfoJ2M1fyQhpUAA/exec"; // Replace with your Web App URL
   // const scriptURL = "https://script.google.com/macros/s/AKfycbyIlSXrM57J4VdUyHd1iAeGbfzGqFVyTvMmxzW-PcXI1l85pBSsQ7fe_2_b5eDCR9qhIw/exec";
-
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxhQIa1Gmzu2O3W8HGfF9_HKlQ2-Xuqo3nuwaOFa8gyLMdjQ3auB8uOYJId9w0YsWUm/exec";
   const handleSubmit = async (e) => {
   e.preventDefault();
   setIsLoading(true); // start loading immediately
@@ -79,7 +79,7 @@ const [submissionError, setSubmissionError] = useState("");
   <div className="w-screen bg-gray-900 text-white flex items-center justify-center">
     <div className="w-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-8">
       <h1 className="text-3xl md:text-5xl font-bold mb-8 text-center">
-        Anote's Holiday Party Fall 2025
+        Anote's Holiday Party 2025
       </h1>
 
       <div className="registration-container bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-lg mx-4 mb-4">
@@ -94,7 +94,7 @@ const [submissionError, setSubmissionError] = useState("");
               Holiday Party Registration
             </h2>
             <p className="text-sm text-gray-400 mb-6 text-center">
-              Join our waitlist for the Anote Holiday Party Fall 2025.
+              Confirm your registration for Anote's Holiday Party.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
