@@ -52,13 +52,13 @@ const eventsData = [
     title: "AI Day Fall 2025",
     description: "Anote's Cornell Tech, Break Through Tech, and Internal Project Presentations."
   },
-    {
-    path: databricksPath,
-    image: "/events_images/databricks.png",
-    date: "October 23, 2025",
-    title: "Databricks Meetup NYC",
-    description: "Anote and Databricks host a halloween themed AI startup meetup in NYC."
-  },
+  //   {
+  //   path: databricksPath,
+  //   image: "/events_images/databricks.png",
+  //   date: "October 23, 2025",
+  //   title: "Databricks Meetup NYC",
+  //   description: "Anote and Databricks host a halloween themed AI startup meetup in NYC."
+  // },
   {
     path: paleBlueDotPath,
     image: "/events_images/palebluedot.png",
