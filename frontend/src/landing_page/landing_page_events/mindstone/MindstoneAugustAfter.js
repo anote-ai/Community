@@ -56,8 +56,8 @@ function MindstoneAugustAfter() {
            Anote / Mindstone AI Event
         </div>
         <div className="flex flex-col mx-auto md:flex-row justify-center text-center mt-4">
-            <button
-              className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center"
+<button
+              className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center inline-flex bg-yellow-500 text-gray-900 border-2 border-yellow-500 py-2 px-6 focus:outline-none hover:bg-yellow-300 rounded text-sm md:text-lg font-bold"
               onClick={() => {
                 window.location.assign("https://community.mindstone.com/events/ny_ai_august_24_meetup");
               }}

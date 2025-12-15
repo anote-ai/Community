@@ -600,9 +600,9 @@ function Agenda() {
             </tbody>
           </table>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center">
+        {/* <div className="flex flex-col sm:flex-row justify-center">
         <button
-          className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center"
+          className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center bg-[#defe47]"
           onClick={() => {
             window.open(
               "https://www.youtube.com/watch?v=ftx72fY5s2I",
@@ -618,7 +618,7 @@ function Agenda() {
         >
           Contact Team
         </a>
-      </div>
+      </div> */}
       </div>
     </div>
   );

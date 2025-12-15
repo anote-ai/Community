@@ -27,11 +27,11 @@
 .agenda-table tr:nth-child(even) {
   background-color: #1f2937;
 }
-
+*/
 .agenda-table a {
   color: #28b2fb;
   text-decoration: underline;
-} */
+}
 
 .agenda-container {
   margin: 20px;
@@ -67,6 +67,7 @@ body {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  color: white;
 }
 
 .agenda-table th {

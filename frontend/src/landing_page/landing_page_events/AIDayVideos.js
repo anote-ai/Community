@@ -87,9 +87,9 @@ function AIDayVideos() {
           <div className="text-xl sm:text-2xl lg:text-4xl mb-4 font-medium lg:font-bold font-['Helvetica_Neue']">
           AI Talks from the Anote Team
         </div>
-        <div className="flex flex-col mx-auto md:flex-row justify-center text-center mt-4">
-            <button
-              className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center"
+        {/* <div className="flex flex-col mx-auto md:flex-row justify-center text-center mt-4">
+<button
+              className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center inline-flex bg-yellow-500 text-gray-900 border-2 border-yellow-500 py-2 px-6 focus:outline-none hover:bg-yellow-300 rounded text-sm md:text-lg font-bold"
               onClick={() => {
                 window.open(
                   "https://www.youtube.com/watch?v=ftx72fY5s2I",
@@ -111,7 +111,7 @@ function AIDayVideos() {
               View Agenda
             </button>
 
-        </div>
+        </div> */}
         </div>
         <div className="agenda-container md:mx-20">
           <table className="agenda-table ">

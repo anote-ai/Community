@@ -40,9 +40,9 @@ function AnoteMindstoneMayBostonAfter() {
           <div className="text-xl sm:text-2xl lg:text-4xl mb-4 font-medium lg:font-bold font-['Helvetica_Neue']">
            Anote / Mindstone AI Event
         </div>
-        <div className="flex flex-col mx-auto md:flex-row justify-center text-center mt-4">
+        {/* <div className="flex flex-col mx-auto md:flex-row justify-center text-center mt-4">
             <button
-              className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center"
+              className="btn-yellow mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto flex justify-center items-center "
               onClick={() => {
                 window.location.assign("https://community.mindstone.com/events/mindstone-anote-boston-may-ai-meetup");
               }}
@@ -55,7 +55,7 @@ function AnoteMindstoneMayBostonAfter() {
             >
               Contact Speakers
             </a>
-            </div>
+            </div> */}
         </div>
         <div className="agenda-container md:mx-20">
           <table className="agenda-table ">
