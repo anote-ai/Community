@@ -113,6 +113,8 @@ export const blogArticle1Path = "/blog/enhancingrag";
 export const holidayPartyPath = "/holidayparty";
 export const aiDayFall2025Path = "/aidayfall2025";
 export const databricksPath = "/databricks";
+export const jan2026Path = "/jan2026";
+export const feb2026Path = "/feb2026";
 
 // ── COMMUNITY BASE ───────────────────────────────────────────────
 export const communityBase        = "/community";

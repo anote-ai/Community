@@ -50,7 +50,9 @@ import {
   armorMainPath,
   databricksPath,
   holidayPartyPath,
-  aiDayFall2025Path
+  aiDayFall2025Path,
+  jan2026Path,
+  feb2026Path
 } from "../constants/RouteConstants";
 import HolidayParty from "./landing_page_events/fall2025/HolidayParty";
 import Databricks from "./landing_page_events/fall2025/Databricks";
@@ -89,6 +91,8 @@ import AnoteMindstoneMayNYCAfter from "./landing_page_events/mindstone/AnoteMind
 import AnoteMindstoneJuneNYCAfter from "./landing_page_events/mindstone/AnoteMindstoneJuneNYCAfter";
 import AnoteMindstoneJulyNYCBefore from "./landing_page_events/mindstone/AnoteMindstoneJulyNYCBefore";
 import AnoteMindstoneMayBostonAfter from "./landing_page_events/mindstone/AnoteMindstoneMayBostonAfter";
+import Jan2026 from "./landing_page_events/mindstone/Jan2026";
+import Feb2026 from "./landing_page_events/mindstone/Feb2026";
 // import ArmorEvents from "./landing_page_armor/ArmorEvents";
 
 function LandingPage() {
@@ -151,6 +155,8 @@ function LandingPage() {
           <Route path={mindstoneDecemberPath} index element={<MindstoneDecemberAfter />} />
           <Route path={mindstoneFebruaryPath} index element={<MindstoneFebruaryAfter />} />
           <Route path={holidayPartyPath} index element={<HolidayParty />} />
+          <Route path={jan2026Path} index element={<Jan2026 />} />
+          <Route path={feb2026Path} index element={<Feb2026 />} />
           <Route path={aiDayFall2025Path} index element={<AIDayFall2025 />} />
           <Route path={databricksPath} index element={<Databricks />} />
           <Route path={mindstoneMarchBostonNewPath} index element={<AnoteMindstoneBostonMarchAfter />} />

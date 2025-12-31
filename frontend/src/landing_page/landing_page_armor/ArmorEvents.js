@@ -26,7 +26,9 @@ import {
   paleBlueDotPath,
   databricksPath,
   aiDayFall2025Path,
-  holidayPartyPath
+  holidayPartyPath,
+  jan2026Path,
+  feb2026Path
 } from "../../constants/RouteConstants";
 import {
   BrowserRouter as Router,
@@ -38,6 +40,20 @@ import {
 } from "react-router-dom";
 
 const eventsData = [
+    {
+    path: feb2026Path,
+    image: "/events_images/february.png",
+    date: "February 12th, 2026",
+    title: "February AI Meetup NYC",
+    description: "Network and learn at our AI Meetup in February, focused on practical AI applications."
+  },
+    {
+    path: jan2026Path,
+    image: "/events_images/january.png",
+    date: "January 15th, 2026",
+    title: "January AI Meetup NYC",
+    description: "Network and learn at our AI Meetup in January, focused on practical AI applications."
+  },
   {
     path: holidayPartyPath,
     image: "/events_images/holiday.png",
