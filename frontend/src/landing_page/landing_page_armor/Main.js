@@ -55,9 +55,9 @@ import ArmorAIAcademyOverview from "./ArmorAIAcademyOverview";
 
 // ─── Nav config ──────────────────────────────────────────────────
 const navigation = [
+    { name: "Home", path: communityHomePath, icon: FaHome },
     { name: "Academy", path: communityAcademyPath, icon: FaGlobe },
     // { name: "AI Academy", path: communityAcademyOverviewPath, icon: FaLanguage },
-    { name: "Home", path: communityHomePath, icon: FaHome },
     { name: "Events", path: communityEventsPath, icon: FaCalendarAlt },
     { name: "Members", path: communityMembersPath, icon: FaUsers },
     { name: "Courses", path: communityResourcesPath, icon: FaBook },
@@ -279,7 +279,8 @@ export default function Main() {
             <Layout>
                 <Routes>
                     {/* <Route path="*" element={<ArmorMain />} /> */}
-                    <Route path="*" element={<ArmorAIAcademy />} />
+                    <Route path="*" element={<ArmorMain />} />
+                    <Route path="/academy" element={<ArmorAIAcademy />} />
                     <Route path="/academyoverview" element={<ArmorAIAcademyOverview />} />
                     <Route path="/home" element={<ArmorMain />} />
                     <Route path="/events" element={<ArmorEvents />} />

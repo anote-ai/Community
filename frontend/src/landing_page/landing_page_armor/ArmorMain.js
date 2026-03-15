@@ -106,12 +106,67 @@ export default function ArmorMain() {
       <div className="relative z-10">
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-6 pt-10 sm:pt-16">
+  <div
+    className="relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-14"
+    style={{
+      background:
+        "linear-gradient(135deg, rgba(40,178,251,0.08) 0%, rgba(17,24,39,0.98) 35%, rgba(17,24,39,0.98) 70%, rgba(222,254,71,0.08) 100%)",
+    }}
+  >
+    {/* subtle accent blur */}
+    <div
+      className="absolute top-0 left-0 h-40 w-40 rounded-full blur-3xl opacity-20"
+      style={{ backgroundColor: ACCENT_BLUE }}
+    />
+    <div
+      className="absolute bottom-0 right-0 h-40 w-40 rounded-full blur-3xl opacity-10"
+      style={{ backgroundColor: ACCENT_YELLOW }}
+    />
+
+    <div className="relative max-w-4xl">
+      {/* <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-gray-200">
+        <span
+          className="h-2 w-2 rounded-full"
+          style={{ backgroundColor: ACCENT_YELLOW }}
+        />
+        Human-Centered AI Community
+      </div> */}
+
+      <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+        Anote’s AI Community Portal
+      </h1>
+
+      <p className="mt-5 max-w-2xl text-base sm:text-lg text-gray-300 leading-relaxed">
+        A place to learn, meet ambitious people, explore opportunities, and
+        build with others across the Anote community.
+      </p>
+
+      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <Link
+            to={communityEventsPath}
+            className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-black transition hover:opacity-90"
+            style={{ backgroundColor: ACCENT_YELLOW }}
+          >
+            Explore AI Events
+          </Link>
+
+        <Link
+          to={communityAcademyPath}
+          className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
+        >
+          Visit the AI Academy
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+        {/* <section className="max-w-7xl mx-auto px-6 pt-10 sm:pt-16">
           <div
             className="relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-14 shadow-2xl"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(40,178,251,0.10) 0%, rgba(17,24,39,0.96) 45%, rgba(222,254,71,0.08) 100%)",
-            }}
+            // style={{
+            //   background:
+            //     "linear-gradient(135deg, rgba(40,178,251,0.10) 0%, rgba(17,24,39,0.96) 45%, rgba(222,254,71,0.08) 100%)",
+            // }}
           >
             <div className="max-w-4xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-gray-200 backdrop-blur">
@@ -124,7 +179,7 @@ export default function ArmorMain() {
 
               <h1 className="mt-5 text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
                 Anote’s{" "}
-                <span style={{ color: ACCENT_YELLOW }}>AI Community Portal</span>
+                AI Community Portal
               </h1>
 
               <p className="mt-5 max-w-3xl text-base sm:text-xl text-gray-300 leading-relaxed">
@@ -146,12 +201,12 @@ export default function ArmorMain() {
                   to={communityAcademyPath}
                   className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold border border-white/15 bg-white/5 hover:bg-white/10 transition"
                 >
-                  Visit the Academy
+                  Visit the AI Academy
                 </Link>
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Section header */}
         <section className="max-w-7xl mx-auto px-6 pt-12 sm:pt-16" id="sections">
