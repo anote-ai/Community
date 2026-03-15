@@ -51,6 +51,7 @@ import {
   databricksPath,
   holidayPartyPath,
   aiDayFall2025Path,
+  aiAcademySpring2026Path,
   jan2026Path,
   feb2026Path
 } from "../constants/RouteConstants";
@@ -94,6 +95,7 @@ import AnoteMindstoneMayBostonAfter from "./landing_page_events/mindstone/AnoteM
 import Jan2026 from "./landing_page_events/mindstone/Jan2026";
 import Feb2026 from "./landing_page_events/mindstone/Feb2026";
 // import ArmorEvents from "./landing_page_armor/ArmorEvents";
+import AIAcademySpring2026 from "./landing_page_events/fall2025/AIAcademySpring2026";
 
 function LandingPage() {
   const location = useLocation();
@@ -158,6 +160,7 @@ function LandingPage() {
           <Route path={jan2026Path} index element={<Jan2026 />} />
           <Route path={feb2026Path} index element={<Feb2026 />} />
           <Route path={aiDayFall2025Path} index element={<AIDayFall2025 />} />
+          <Route path={aiAcademySpring2026Path} index element={<AIAcademySpring2026 />} />
           <Route path={databricksPath} index element={<Databricks />} />
           <Route path={mindstoneMarchBostonNewPath} index element={<AnoteMindstoneBostonMarchAfter />} />
           <Route path={mindstoneAprilNYCPath} index element={<AnoteMindstoneAprilNYCAfter />} />

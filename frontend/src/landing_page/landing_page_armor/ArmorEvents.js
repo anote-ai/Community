@@ -26,6 +26,7 @@ import {
   paleBlueDotPath,
   databricksPath,
   aiDayFall2025Path,
+  aiAcademySpring2026Path,
   holidayPartyPath,
   jan2026Path,
   feb2026Path
@@ -55,6 +56,13 @@ const eventsData = [
   //   description: "Network and learn at our AI Meetup in January, focused on practical AI applications."
   // },
   {
+    path: aiAcademySpring2026Path,
+    image: "/events_images/aidayspring2026.png",
+    date: "March 15th, 2026",
+    title: "AI Academy Projects",
+    description: "Anote's AI Academy Spring 2026 Student Project Presentations."
+  },
+  {
     path: holidayPartyPath,
     image: "/events_images/holiday.png",
     date: "December 12th, 2025",
@@ -66,7 +74,7 @@ const eventsData = [
     image: "/events_images/aidayfall2025.png",
     date: "December 9th, 2025",
     title: "AI Day Fall 2025",
-    description: "Anote's Cornell Tech, Break Through Tech, and Internal Project Presentations."
+    description: "Anote's Cornell Tech, Break Through Tech, and Internal Talks."
   },
   //   {
   //   path: databricksPath,
