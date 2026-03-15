@@ -13,6 +13,12 @@ export default function AnoteAIAcademy() {
         "Practical techniques for discovering, analyzing, and summarizing research materials using modern AI tools.",
         "Best practices for responsible and ethical AI use, including transparency, accuracy, and human-in-the-loop decision-making.",
       ],
+      extraLinks: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/hadas-frank-ai1/",
+      },
+    ]
     },
     {
       number: 2,
@@ -27,6 +33,12 @@ export default function AnoteAIAcademy() {
         "Practical approaches for generating synthetic datasets using generative, rule-based, and hybrid methods.",
         "How to evaluate synthetic data using metrics that capture fidelity, diversity, bias, and impact on downstream model performance.",
       ],
+      extraLinks: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/rajshrij/",
+      },
+    ]
     },
     {
       number: 3,
@@ -42,11 +54,23 @@ export default function AnoteAIAcademy() {
         "Real-world examples of agents managing health, tasks, relationships, and business workflows—plus key security considerations when giving agents access to sensitive data.",
       ],
       extraLinks: [
-        {
-          label: "Life System Setup GitHub Repo",
-          href: "https://github.com/jngiam/life-system-setup",
-        },
-      ],
+      {
+        label: "MintMCP",
+        href: "https://mintmcp.com",
+      },
+      {
+        label: "Life System Setup GitHub Repo",
+        href: "https://github.com/jngiam/life-system-setup",
+      },
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=n0pk_jEAAAAJ&hl=en",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/jngiam/",
+      },
+    ]
     },
     {
       number: 4,
@@ -61,11 +85,16 @@ export default function AnoteAIAcademy() {
         "Practical prompting and debugging techniques for building features with AI as a development partner.",
         "Strategies for moving from rough ideas to functional demos using fast feedback loops and tool-assisted coding.",
       ],
+      extraLinks: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/chuxin-liu/",
+      }]
     },
     {
       number: 5,
       presenter: "Shafik Quoraishee",
-      role: "Machine learning researcher and engineer",
+      role: "Machine learning researcher at The New York Times",
       topic: "Foundations & Architectures of Multi-Modal Machine Learning",
       youtube: "https://www.youtube.com/watch?v=PH1PzuG6djs",
       description:
@@ -75,6 +104,12 @@ export default function AnoteAIAcademy() {
         "How image, text, and video modalities are combined in modern machine learning models.",
         "Practical foundations for reasoning about real-world applications of multimodal AI.",
       ],
+      extraLinks: [
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/in/shafik-quoraishee/",
+        },
+      ]
     },
     {
       number: 6,
@@ -89,6 +124,16 @@ export default function AnoteAIAcademy() {
         "A modern Agentic CMS combines research, drafting, editing, and publishing into a single continuous workflow.",
         "Robust AI products require strong foundations in structured outputs, sandboxed execution, and thoughtful user experience design.",
       ],
+      extraLinks: [
+  {
+    label: "Waldium",
+    href: "https://waldium.com",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/amruthagujjar/",
+  },
+]
     },
     {
       number: 7,
@@ -103,6 +148,20 @@ export default function AnoteAIAcademy() {
         "Production-ready RAG systems depend heavily on high-quality chunking, embeddings, retrieval methods, and continuous evaluation.",
         "Agentic RAG represents the next evolution, enabling autonomous reasoning loops, tool selection, and multi-step problem solving.",
       ],
+      extraLinks: [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/spurthi-setty/",
+  },
+  {
+    label: "Website",
+    href: "https://spurthi.ksetty.com/",
+  },
+  {
+    label: "Google Scholar",
+    href: "https://scholar.google.com/citations?user=VuU1MR8AAAAJ&hl=en",
+  }
+]
     },
     {
       number: 8,
@@ -119,6 +178,12 @@ export default function AnoteAIAcademy() {
         "Continuous experimentation and applied research are critical for integrating agentic techniques into production environments.",
         "Skills developed in human-centered AI and experimentation transfer directly to real-world data science and product roles, especially in agentic system development.",
       ],
+      extraLinks: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/katherine-jijo-a1b231242/",
+      },
+]
     },
     {
       number: 9,
@@ -133,83 +198,84 @@ export default function AnoteAIAcademy() {
         "Building practical AI systems requires more than powerful models; it requires high-quality data, evaluation frameworks, and well-designed workflows.",
         "Tools such as multi-agent systems, model benchmarking platforms, and synthetic data generation can help bridge the gap between cutting-edge AI research and real-world applications.",
       ],
+      extraLinks: [
+  {
+    label: "Anote",
+    href: "https://anote.ai",
+  },
+  {
+    label: "Google Scholar",
+    href: "https://scholar.google.com/citations?hl=en&user=W3kg9sQAAAAJ",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/natanvidra/",
+  },
+]
     },
   ];
-
-  const studentPresentations = [
-    {
-      title: "Student Presentation 1",
-      presenter: "Coming Soon",
-      topic: "Applied AI Project",
-      youtube: "#",
-      description:
-        "This card is ready for a final student project, independent demo, or technical presentation produced during the Academy.",
-    },
-    {
-      title: "Student Presentation 2",
-      presenter: "Coming Soon",
-      topic: "Agentic Workflow Demo",
-      youtube: "#",
-      description:
-        "Feature cohort work across areas like AI agents, evaluation, research tooling, synthetic data, or multimodal applications.",
-    },
-    {
-      title: "Student Presentation 3",
-      presenter: "Coming Soon",
-      topic: "Research or Product Showcase",
-      youtube: "#",
-      description:
-        "Use this section to highlight how students translate concepts from the lecture series into working projects and clear communication.",
-    },
-    {
-      title: "Student Presentation 4",
-      presenter: "Coming Soon",
-      topic: "Capstone Presentation",
-      youtube: "#",
-      description:
-        "Each presentation card can later include a thumbnail, YouTube embed, GitHub repo, and a brief summary of the work.",
-    },
-    {
-      title: "Student Presentation 5",
-      presenter: "Coming Soon",
-      topic: "AI Systems Build",
-      youtube: "#",
-      description:
-        "Great for showcasing demos that combine models, tools, data, evaluation, and user-facing applications.",
-    },
-    {
-      title: "Student Presentation 6",
-      presenter: "Coming Soon",
-      topic: "Technical Deep Dive",
-      youtube: "#",
-      description:
-        "This layout is designed to make the student showcase feel polished even before all final materials are uploaded.",
-    },
-    {
-      title: "Student Presentation 7",
-      presenter: "Coming Soon",
-      topic: "Builder Presentation",
-      youtube: "#",
-      description:
-        "Use these cards to emphasize experimentation, iteration, and the ability to build practical systems quickly.",
-    },
-    {
-      title: "Student Presentation 8",
-      presenter: "Coming Soon",
-      topic: "AI Research Demo",
-      youtube: "#",
-      description:
-        "This grid can expand easily as more student talks, projects, and follow-on fellowship outputs become available.",
-    },
-    {
-      title: "Student Presentation 9",
-      presenter: "Coming Soon",
-      topic: "Final Showcase",
-      youtube: "#",
-      description:
-        "A simple 3 by 3 gallery keeps the page easy to scan while still giving student work a meaningful place on the site.",
-    },
-  ];
+const studentPresentations = [
+  {
+    title: "Student Presentation 1",
+    presenter: "Aadi Bery",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 2",
+    presenter: "Lucy Manalang",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 3",
+    presenter: "Yidian Chen",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 4",
+    presenter: "Ebuka Uzuoma",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 5",
+    presenter: "Amelie Norris",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 6",
+    presenter: "Caleb Dickson",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 7",
+    presenter: "Aisha Ahmad",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 8",
+    presenter: "Xingtai Huang",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 9",
+    presenter: "Manish Kumbham",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 10",
+    presenter: "Saumya Singh",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 11",
+    presenter: "Ashwin Dhanasamy",
+    youtube: "#",
+  },
+  {
+    title: "Student Presentation 12",
+    presenter: "Alina Kapanova",
+    youtube: "#",
+  },
+];
 
   const highlights = [
   {
@@ -441,7 +507,7 @@ export default function AnoteAIAcademy() {
             <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#defe47]">
               Student Showcase
             </div>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Student presentations, demos, and final projects</h2>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Student presentations and final projects</h2>
             <p className="mt-4 text-base leading-7 text-white/70">
               Here are some of the featured student presentations from the inaugural AI academy cohort. Each talk highlights the practical work, demos, and projects that students produced during the program, with a focus on real-world practical AI applications.
             </p>
@@ -455,12 +521,6 @@ export default function AnoteAIAcademy() {
                 className="group rounded-[1.75rem] border border-white/10 bg-[#111827] p-6 shadow-lg transition hover:-translate-y-1 hover:border-[#28b2fb]/35"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#28b2fb]/10 text-base font-semibold text-[#28b2fb]">
-                    {index + 1}
-                  </div>
-                  <div className="rounded-full border border-[#defe47]/30 bg-[#defe47]/10 px-3 py-1 text-xs font-medium text-[#defe47]">
-                    Coming Soon
-                  </div>
                 </div>
                 <div className="mt-5">
                   <h3 className="text-lg font-semibold text-white">{presentation.title}</h3>
@@ -468,9 +528,9 @@ export default function AnoteAIAcademy() {
                   <div className="mt-1 text-sm text-white/55">{presentation.topic}</div>
                   <p className="mt-4 text-sm leading-7 text-white/70">{presentation.description}</p>
                 </div>
-                <div className="mt-6 text-sm font-medium text-white/75 transition group-hover:text-[#defe47]">
+                {/* <div className="mt-6 text-sm font-medium text-white/75 transition group-hover:text-[#defe47]">
                   Add video and details →
-                </div>
+                </div> */}
               </a>
             ))}
           </div>
