@@ -52,7 +52,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] +
+                      "https://anote.ai/" +
                         "/labels#Classify"
                     )
                   }
@@ -76,7 +76,7 @@ function Footer() {
                   // target="_blank"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/predict#Hallucinate"
+                      "https://anote.ai/" + "/predict#Hallucinate"
                     )
                   }
                 >
@@ -117,7 +117,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/Industries#Finance"
+                      "https://anote.ai/" + "/Industries#Finance"
                     )
                   }
                 >
@@ -129,7 +129,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/Industries#Healthcare"
+                      "https://anote.ai/" + "/Industries#Healthcare"
                     )
                   }
                 >
@@ -141,7 +141,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/Industries#LegalTech"
+                      "https://anote.ai/" + "/Industries#LegalTech"
                     )
                   }
                 >
@@ -153,7 +153,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/Industries#NonProfit"
+                      "https://anote.ai/" + "/Industries#NonProfit"
                     )
                   }
                 >
@@ -165,7 +165,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/Industries#Research"
+                      "https://anote.ai/" + "/Industries#Research"
                     )
                   }
                 >
@@ -242,7 +242,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/CaseStudies#OpenAds"
+                      "https://anote.ai/" + "/CaseStudies#OpenAds"
                     )
                   }
                 >
@@ -254,7 +254,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] +
+                      "https://anote.ai/" +
                         "/CaseStudies#Harvard Medical School"
                     )
                   }
@@ -267,7 +267,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/CaseStudies#Abstractive Health"
+                      "https://anote.ai/" + "/CaseStudies#Abstractive Health"
                     )
                   }
                 >
@@ -279,7 +279,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/CaseStudies#Hardy Riggings"
+                      "https://anote.ai/" + "/CaseStudies#Hardy Riggings"
                     )
                   }
                 >
@@ -291,7 +291,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/CaseStudies#MPressed"
+                      "https://anote.ai/" + "/CaseStudies#MPressed"
                     )
                   }
                 >
@@ -322,7 +322,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/faqs#FAQs"
+                      "https://anote.ai/" + "/faqs#FAQs"
                     )
                   }
                 >
@@ -343,7 +343,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/contact#Contact"
+                      "https://anote.ai/" + "/contact#Contact"
                     )
                   }
                 >
@@ -355,7 +355,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/careers#Careers"
+                      "https://anote.ai/" + "/careers#Careers"
                     )
                   }
                 >
@@ -383,7 +383,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      window.location["origin"] + "/privacypolicy#Privacy Policy"
+                      "https://anote.ai/" + "/privacypolicy#Privacy Policy"
                     )
                   }
                 >

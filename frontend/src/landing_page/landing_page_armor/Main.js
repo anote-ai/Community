@@ -66,7 +66,7 @@ const navigation = [
     // { name: "Partnerships",   path: communityPartnershipsPath, icon: FaNewspaper },
     { name: "Coffee Chats", path: communityCoffeeChatsPath, icon: FaCoffee },
     { name: "Job Referrals", path: communityReferralsPath, icon: FaHandshake },
-    { name: "Job Board", path: communityJobsPath, icon: FaBriefcase },
+    // { name: "Job Board", path: communityJobsPath, icon: FaBriefcase },
     { name: "News", path: communityNewsPath, icon: FaNewspaper },
     // { name: "Regional Hubs",    path: communityRegionalHubsPath,   icon: FaGlobe },
 ];

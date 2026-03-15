@@ -23,7 +23,7 @@ const PALETTE = [
 export default function ArmorMain() {
   const sections = [
     { title: "Academy", path: communityAcademyPath, blurb: "Explore our comprehensive AI academy learning programs." },
-    { title: "Academy Overview", path: communityAcademyOverviewPath, blurb: "Join Anote's AI Academy for enterprise AI leaders." },
+    // { title: "Academy Overview", path: communityAcademyOverviewPath, blurb: "Join Anote's AI Academy for enterprise AI leaders." },
     { title: "Events", path: communityEventsPath, blurb: "Find upcoming meet‑ups, hackathons, and workshops in your city and online." },
     { title: "Members", path: communityMembersPath, blurb: "Browse and connect with AI builders, researchers, and operators." },
     { title: "Courses", path: communityResourcesPath, blurb: "Self‑paced learning tracks, open‑source tools, and curated reading lists." },
