@@ -1,362 +1,539 @@
-import React, { useState } from "react";
-
-// Anote AI Academy — Winter Cohort (First Edition)
-// Dates: Jan 5 → Mar 6, 2026 | 8 weeks | $500 | Capped at 50 participants
-// Sessions: Every Wednesday night
-// TailwindCSS styling. No external deps required.
-
 export default function AnoteAIAcademy() {
-  // Simple capacity placeholder (replace from API if you want live numbers)
-  const seatsCap = 50;
-  const seatsRemaining = 10; // TODO: fetch from your API
-
-  // Syllabus content (inline accordion; no modal)
-  const weeks = [
+  const lectures = [
     {
-      title: "Week 1 — Foundations & Setup (Wed, Jan 7)",
-      bullets: [
-        "AI landscape for the enterprise (capabilities, risks, ROI)",
-        "Tooling setup: secure accounts, approved models, policy check",
-        "Deliverable: Personal AI learning plan + access checklist",
+      number: 1,
+      presenter: "Hadas Frank",
+      role: "AI educator and researcher",
+      topic: "Smarter Research with AI — Practical AI Demos",
+      youtube: "https://www.youtube.com/watch?v=uv2N7wMwKvU",
+      description:
+        "Hadas Frank explores how AI can enhance academic and professional research workflows without replacing critical thinking or human judgment. The session covers where applied AI creates real value in research, how to find and explore source material more efficiently, and how to use AI to summarize and synthesize information responsibly. Throughout the lecture, Hadas emphasizes that strong research still depends on rigorous thinking, careful verification, and meaningful human oversight.",
+      takeaways: [
+        "How to use AI to accelerate research workflows while preserving rigor, critical thinking, and academic integrity.",
+        "Practical techniques for discovering, analyzing, and summarizing research materials using modern AI tools.",
+        "Best practices for responsible and ethical AI use, including transparency, accuracy, and human-in-the-loop decision-making.",
       ],
-      talk: "Kickoff keynote + NYC optional meetup (welcome)",
     },
     {
-      title: "Week 2 — Prompting & Task Design (Wed, Jan 14)",
-      bullets: [
-        "Prompt patterns for reliability (CoT, ReAct, critique)",
-        "Templates for daily workflows (summaries, emails, briefs)",
-        "Deliverable: 3 prompt templates mapped to your role",
+      number: 2,
+      presenter: "Rajshri Jain",
+      role: "AI engineer and synthetic data practitioner",
+      topic: "Synthetic Data Generation and Model Evaluation",
+      youtube: "https://www.youtube.com/watch?v=uN6SMbVitNQ",
+      description:
+        "Rajshri Jain walks through the full lifecycle of synthetic data in modern AI systems, from generation techniques to rigorous evaluation frameworks. The lecture explains why synthetic data is increasingly important for privacy-preserving learning, data augmentation, and testing rare or difficult scenarios. Rajshri also shows how teams can evaluate synthetic datasets for fidelity, diversity, bias, and downstream model utility so that synthetic data improves model quality rather than creating hidden risk.",
+      takeaways: [
+        "When and why to use synthetic data for privacy, data scarcity, and coverage of rare or critical edge cases.",
+        "Practical approaches for generating synthetic datasets using generative, rule-based, and hybrid methods.",
+        "How to evaluate synthetic data using metrics that capture fidelity, diversity, bias, and impact on downstream model performance.",
       ],
-      talk: "Curated Speaker: Prompt engineering in the enterprise",
     },
     {
-      title: "Week 3 — Data Privacy & Governance (Wed, Jan 21)",
-      bullets: [
-        "PII handling, redaction, policy‑compliant usage",
-        "Choosing SaaS vs. private models; approval workflows",
-        "Deliverable: AI usage SOP draft for your team",
+      number: 3,
+      presenter: "Jiquan Ngiam",
+      role: "Founder and CEO, MintMCP",
+      topic: "How I Run My Life (and Business) on AI Agents",
+      youtube: "https://www.youtube.com/watch?v=5T6m7HRCqLQ",
+      description:
+        "Jiquan Ngiam shares how he uses AI agents to manage both personal and professional workflows. Drawing from his background at Google Brain, Stanford, and Coursera, he focuses on practical agentic systems rather than research-only ideas. The lecture covers a useful recipe for building effective agents through a runtime harness, persistent memory, and secure data access, along with real-world examples such as task tracking, personal knowledge management, health workflows, and business operations.",
+      takeaways: [
+        "A practical framework for building useful AI agents using a runtime harness, persistent memory, and data access.",
+        "Implementation patterns you can use today, including instruction files, Git-based memory, and MCPs for tool and data integration.",
+        "Real-world examples of agents managing health, tasks, relationships, and business workflows—plus key security considerations when giving agents access to sensitive data.",
       ],
-      talk: "Curated Speaker: Legal/Compliance best practices",
+      extraLinks: [
+        {
+          label: "Life System Setup GitHub Repo",
+          href: "https://github.com/jngiam/life-system-setup",
+        },
+      ],
     },
     {
-      title: "Week 4 — Automations & Agents (No‑/Low‑Code) (Wed, Jan 28)",
-      bullets: [
-        "Automate repetitive tasks with orchestrations",
-        "Connectors: docs, email, spreadsheets, ticketing",
-        "Deliverable: 1 working automation in your environment",
+      number: 4,
+      presenter: "Chuxin Liu",
+      role: "Vice President, J.P. Morgan Chase",
+      topic: "Vibe Coding — Practical Applications of AI",
+      youtube: "https://www.youtube.com/watch?v=rstBRsu3U14",
+      description:
+        "Chuxin Liu walks through practical vibe coding techniques for building real-world AI applications quickly and effectively. The lecture focuses on how developers can go from idea to prototype through conversational development workflows, iterative prompting, and tight feedback loops with AI tools. Chuxin shares concrete advice on structuring prompts, debugging with AI, and turning rough concepts into working demos that can evolve into useful products.",
+      takeaways: [
+        "How to use vibe coding workflows to rapidly prototype and iterate on AI-powered applications.",
+        "Practical prompting and debugging techniques for building features with AI as a development partner.",
+        "Strategies for moving from rough ideas to functional demos using fast feedback loops and tool-assisted coding.",
       ],
-      talk: "Curated Speaker: Real automations that drive ROI",
     },
     {
-      title: "Week 5 — Retrieval & Knowledge (RAG) (Wed, Feb 4)",
-      bullets: [
-        "Organizing knowledge bases for accuracy",
-        "Chunking, embeddings, evaluation basics",
-        "Deliverable: Mini knowledge bot on approved content",
+      number: 5,
+      presenter: "Shafik Quoraishee",
+      role: "Machine learning researcher and engineer",
+      topic: "Foundations & Architectures of Multi-Modal Machine Learning",
+      youtube: "https://www.youtube.com/watch?v=PH1PzuG6djs",
+      description:
+        "Shafik provides a technical deep dive into multi-modal machine learning, focusing on the architectures that power image understanding, video generation, and cross-modal reasoning. The lecture helps participants understand how systems combine text, image, and video inputs in practice, and why multimodal design is becoming central to modern AI products. The session is especially useful for students who want a clearer systems-level view of how next-generation models are actually built.",
+      takeaways: [
+        "Understanding the core architectures that enable multi-modal AI systems.",
+        "How image, text, and video modalities are combined in modern machine learning models.",
+        "Practical foundations for reasoning about real-world applications of multimodal AI.",
       ],
-      talk: "Curated Speaker: Production RAG patterns",
     },
     {
-      title: "Week 6 — Evaluation & Safety (Wed, Feb 11)",
-      bullets: [
-        "Define success metrics; detect regressions",
-        "Guardrails, monitoring, and human‑in‑the‑loop",
-        "Deliverable: Eval checklist + dashboard starter",
+      number: 6,
+      presenter: "Amrutha Gujjar",
+      role: "Founder, Waldium",
+      topic: "Waldium and Agentic AI",
+      youtube: "https://www.youtube.com/watch?v=9o_lrZIDixg",
+      description:
+        "Amrutha Gujjar introduces Waldium, an AI-powered Agentic CMS designed to act like a real content teammate instead of a one-off generation tool. The lecture shows how modern AI systems can become context-aware collaborators that research, draft, edit, and publish with increasing autonomy. Amrutha also covers practical architecture choices including knowledge base onboarding, multi-agent workflows, sandboxed execution, structured outputs, streaming UX, and integrations such as Slack bots and MCP.",
+      takeaways: [
+        "Agentic AI systems can act as true collaborators by learning company context and operating autonomously.",
+        "A modern Agentic CMS combines research, drafting, editing, and publishing into a single continuous workflow.",
+        "Robust AI products require strong foundations in structured outputs, sandboxed execution, and thoughtful user experience design.",
       ],
-      talk: "Curated Speaker: Measuring AI quality at scale",
     },
     {
-      title: "Week 7 — Integration & Change Management (Wed, Feb 18)",
-      bullets: [
-        "Rollout plans, training, enablement",
-        "Stakeholder mapping; risk/issue logs",
-        "Deliverable: Team rollout plan (v1)",
+      number: 7,
+      presenter: "Spurthi Setty",
+      role: "AI researcher and engineer",
+      topic: "RAG and Fine Tuning",
+      youtube: "https://www.youtube.com/watch?v=h6QA2VVB1gE",
+      description:
+        "Spurthi Setty provides a deep dive into Retrieval-Augmented Generation and fine-tuning as two core building blocks for production-ready AI systems. The lecture explains how RAG connects language models to external knowledge sources to improve factual grounding and reduce hallucinations, while fine-tuning is used to shape tone, behavior, and output format. Spurthi also covers chunking, embeddings, hybrid search, re-ranking, vector databases, evaluation with Ragas, and the move toward more autonomous agentic RAG systems.",
+      takeaways: [
+        "RAG is the default architecture for connecting LLMs to external knowledge, while fine-tuning is best used for behavior, tone, and structured output control.",
+        "Production-ready RAG systems depend heavily on high-quality chunking, embeddings, retrieval methods, and continuous evaluation.",
+        "Agentic RAG represents the next evolution, enabling autonomous reasoning loops, tool selection, and multi-step problem solving.",
       ],
-      talk: "Curated Speaker: Leading AI programs",
     },
     {
-      title: "Week 8 — The Future of AI (Wed, Feb 25)",
-      bullets: [
-        "Where AI is headed: trends to watch",
-        "Automation, agents, and beyond",
-        "Deliverable: Personal AI roadmap for next 6 months",
+      number: 8,
+      presenter: "Katherine Jijo",
+      role: "AI researcher and systems thinker",
+      topic: "Autonomous Agents and System-Centric AI",
+      youtube: "https://www.youtube.com/watch?v=moPa_evDDIM",
+      description:
+        "Katherine Jijo presents a foundational perspective on autonomous agents, framing them as a shift from model-centric AI to system-centric AI. Instead of focusing only on model accuracy, the lecture emphasizes end-to-end systems that prioritize action, execution, reliability, and measurable outcomes. Katherine explores how multi-agent systems coordinate through specialized roles, structured communication, and orchestration, and why continuous experimentation is essential to deploying agentic workflows successfully.",
+      takeaways: [
+        "Autonomous agents represent a shift from model-level optimization to system-level design focused on action and execution.",
+        "Multi-agent architectures require specialized agents, structured communication, and an orchestrator to coordinate complex workflows.",
+        "Evaluation of agentic systems should focus on system metrics such as task completion, reliability, and failure recovery rather than only model accuracy.",
+        "Continuous experimentation and applied research are critical for integrating agentic techniques into production environments.",
+        "Skills developed in human-centered AI and experimentation transfer directly to real-world data science and product roles, especially in agentic system development.",
       ],
-      talk: "Curated Speaker: Future trends in AI",
     },
     {
-      title: "Week 9 — Showcase & Next Steps (Wed, Mar 4)",
-      bullets: [
-        "Capstone demos; feedback loop",
-        "Career pathways & continued learning",
-        "Deliverable: Capstone + personal development roadmap",
+      number: 9,
+      presenter: "Natan Vidra",
+      role: "Founder and CEO, Anote",
+      topic: "Human-Centered AI and Building Practical AI Systems",
+      youtube: "https://www.youtube.com/watch?v=PFwxIIWR1iM",
+      description:
+        "In the final lecture of the AI Academy series, Natan Vidra presents an overview of Human-Centered AI and how it informs the design of practical, reliable AI systems. The lecture focuses on the gap between powerful foundation models and real-world deployment, explaining why strong workflows, evaluation, structured data, and human expertise are required to bridge that gap. It also highlights Anote’s ecosystem, including the Human-Centered AI platform, Autonomous Intelligence framework, Model Leaderboard, and Synthetic Data API, as examples of how these ideas become real products.",
+      takeaways: [
+        "Human-Centered AI integrates human expertise into the AI lifecycle to improve model reliability, evaluation, and performance in real-world settings.",
+        "Building practical AI systems requires more than powerful models; it requires high-quality data, evaluation frameworks, and well-designed workflows.",
+        "Tools such as multi-agent systems, model benchmarking platforms, and synthetic data generation can help bridge the gap between cutting-edge AI research and real-world applications.",
       ],
-      talk: "NYC optional graduation event (celebration)",
     },
   ];
 
+  const studentPresentations = [
+    {
+      title: "Student Presentation 1",
+      presenter: "Coming Soon",
+      topic: "Applied AI Project",
+      youtube: "#",
+      description:
+        "This card is ready for a final student project, independent demo, or technical presentation produced during the Academy.",
+    },
+    {
+      title: "Student Presentation 2",
+      presenter: "Coming Soon",
+      topic: "Agentic Workflow Demo",
+      youtube: "#",
+      description:
+        "Feature cohort work across areas like AI agents, evaluation, research tooling, synthetic data, or multimodal applications.",
+    },
+    {
+      title: "Student Presentation 3",
+      presenter: "Coming Soon",
+      topic: "Research or Product Showcase",
+      youtube: "#",
+      description:
+        "Use this section to highlight how students translate concepts from the lecture series into working projects and clear communication.",
+    },
+    {
+      title: "Student Presentation 4",
+      presenter: "Coming Soon",
+      topic: "Capstone Presentation",
+      youtube: "#",
+      description:
+        "Each presentation card can later include a thumbnail, YouTube embed, GitHub repo, and a brief summary of the work.",
+    },
+    {
+      title: "Student Presentation 5",
+      presenter: "Coming Soon",
+      topic: "AI Systems Build",
+      youtube: "#",
+      description:
+        "Great for showcasing demos that combine models, tools, data, evaluation, and user-facing applications.",
+    },
+    {
+      title: "Student Presentation 6",
+      presenter: "Coming Soon",
+      topic: "Technical Deep Dive",
+      youtube: "#",
+      description:
+        "This layout is designed to make the student showcase feel polished even before all final materials are uploaded.",
+    },
+    {
+      title: "Student Presentation 7",
+      presenter: "Coming Soon",
+      topic: "Builder Presentation",
+      youtube: "#",
+      description:
+        "Use these cards to emphasize experimentation, iteration, and the ability to build practical systems quickly.",
+    },
+    {
+      title: "Student Presentation 8",
+      presenter: "Coming Soon",
+      topic: "AI Research Demo",
+      youtube: "#",
+      description:
+        "This grid can expand easily as more student talks, projects, and follow-on fellowship outputs become available.",
+    },
+    {
+      title: "Student Presentation 9",
+      presenter: "Coming Soon",
+      topic: "Final Showcase",
+      youtube: "#",
+      description:
+        "A simple 3 by 3 gallery keeps the page easy to scan while still giving student work a meaningful place on the site.",
+    },
+  ];
+
+  const highlights = [
+  {
+    title: "Dedicated 1:1 Coaching",
+    body: "Every participant is paired with a dedicated AI coach for one-on-one guidance, feedback, and project mentorship throughout the program.",
+  },
+  {
+    title: "Weekly Expert Talks",
+    body: "Each week features a cohort call with a curated expert speaker and live Q&A, helping participants move from theory to real-world AI practice.",
+  },
+  {
+    title: "Strong Community",
+    body: "Participants join a broader network of students, fellows, and mentors interested in practical AI, research, and product development.",
+  },
+];
+
+  const getYoutubeId = (url) => {
+    if (!url) return "";
+    const match = url.match(/v=([^&]+)/);
+    return match ? match[1] : "";
+  };
 
   return (
-    <section className="relative w-full text-white overflow-hidden">
-      {/* BACKGROUND */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      />
-      <div className="absolute inset-0 opacity-60" />
-
-      {/* CONTENT WRAPPER */}
-      <div className="relative max-w-6xl mx-auto px-6 pt-14 pb-16">
-        {/* HERO */}
-        <header className="text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white rounded-full px-3 py-1 text-xs tracking-wide">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#DEFE47]" />
-            Winter Cohort · Jan 5 → Mar 6, 2026 · Wednesdays · First Edition
-          </div>
-          <h1 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">Anote AI Academy</h1>
-          <p className="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
-            An 8‑week, beginner‑friendly program for enterprise AI leaders. Get a dedicated coach, weekly expert talks, and a practical AI roadmap you can ship at work.
-          </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm w-[80%] max-w-4xl mx-auto">
-            {[
-              ["$500", "One‑time Fee"],
-              ["2", "In Person Meetups"],
-              ["7 PM EST", "every Wednesday"],
-              ["1:1", "AI Coach"],
-            ].map(([title, sub]) => (
-              <div key={title} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-                <div className="text-white/90 font-medium text-lg">{title}</div>
-                <div className="text-white/50 text-xs">{sub}</div>
+    <div className="min-h-screen bg-[#111827] text-white">
+      <section className="relative overflow-hidden border-b border-white/10 bg-[#111827]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(40,178,251,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(222,254,71,0.12),transparent_30%),radial-gradient(circle_at_bottom_center,rgba(255,255,255,0.04),transparent_35%)]" />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
+          <div className="grid gap-12 lg:items-center">
+            <div>
+              <div className="inline-flex items-center rounded-full border border-[#28b2fb]/30 bg-[#28b2fb]/10 px-4 py-1.5 text-sm font-medium text-[#28b2fb]">
+                Anote AI Academy
               </div>
-            ))}
-          </div>
-          {/* Single CTA — the only one on the page */}
-          {/* <a
-            href="#academy-form"
-            className="mt-7 inline-flex rounded-xl px-6 py-3 bg-[#DEFE47] text-black font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
-          >
-            Register Interest
-          </a> */}
-          <a
-            href={`mailto:nvidra@anote.ai?subject=Anote%20AI%20Academy%20Interest`}
-            className="mt-7 inline-flex rounded-xl px-6 py-3 bg-[#DEFE47] text-black font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
-          >
-            Register Interest
-          </a>
-                    <a
-            href="#syllabus"
-            className="mt-7 mx-6 inline-flex rounded-xl px-6 py-3 text-[#defe47] border border-[#defe47] font-semibold shadow hover:shadow-lg hover:opacity-90 transition"
-          >
-            View Syllabus
-          </a>
-          <div className="mt-4 text-sm text-gray-300">
-            Seats remaining: <span className="text-[#DEFE47] font-semibold">{seatsRemaining}</span> / {seatsCap}
-          </div>
-        </header>
+              <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                A modern AI education program built around real systems, real builders, and real-world application.
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-white/75">
+                Welcome to Anote’s AI Academy. The AI Academy Fellowship represents a new paradigm in AI education by combining hands-on project work, community support, and direct exposure to how practical AI products are actually built. This inaugural program brings together selected individuals who are excited about building innovative AI solutions across research, evaluation, agents, multimodal systems, synthetic data, RAG, and Human-Centered AI.
+              </p>
 
-        {/* SESSION TIMELINE */}
-        {/* <section className="mt-12"> */}
-          {/* <h2 className="text-xl font-semibold text-white/90">Schedule</h2>
-          <p className="text-white/60 text-sm">Every Wednesday evening · Jan 7 – Feb 25 (ET)</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {sessionDates.map((d) => (
-              <div key={d.date} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-white/80">
-                <span className="font-medium text-white">{d.label}</span>
-                <span className="mx-2 text-white/40">•</span>
-                <span>{d.date}</span>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#lectures"
+                  className="rounded-2xl bg-[#defe47] px-6 py-3 text-sm font-semibold text-[#111827] transition hover:translate-y-[-1px] hover:shadow-xl"
+                >
+                  Explore the Lecture Series
+                </a>
+                <a
+                  href="#student-showcase"
+                  className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  View Student Showcase
+                </a>
               </div>
-            ))}
-          </div> */}
-                      {/* <div className="px-5 py-4">
-              <div className="font-medium">Coaching & Community</div>
-              <ul className="mt-2 list-disc list-inside text-white/90 space-y-1">
-                <li>Every participant is paired with a dedicated coach for 1:1 guidance.</li>
-                <li>Weekly cohort call featuring a curated speaker and live Q&A.</li>
-                <li>Optional in‑person NYC meetup in Week 1 (kickoff) and Week 8 (graduation).</li>
-              </ul>
-            </div> */}
-        {/* </section> */}
-
-        {/* FEATURES */}
-        <section className="mt-12 grid md:grid-cols-3 gap-4 w-[80%] max-w-4xl mx-auto">
-          {[
-            {
-              title: "Dedicated 1:1 Coaching",
-              body: "Every participant is paired with a dedicated AI coach for 1 on 1 guidance and mentorship.",
-            },
-            {
-              title: "Weekly Expert Talks",
-              body: "Weekly cohort call featuring a curated speaker and live Q&A to go from theory to practice.",
-            },
-            {
-              title: "Hybrid Community",
-              body: "Optional in‑person NYC meetup in Week 1 (kickoff) and Week 9 (graduation) to network and celebrate.",
-            },
-          ].map((f) => (
-            <div key={f.title} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <div className="text-white font-semibold">{f.title}</div>
-              <div className="mt-2 text-white/70 text-sm">{f.body}</div>
             </div>
-          ))}
-        </section>
+          </div>
+        </div>
+            </section>
 
-        {/* SYLLABUS — single inline accordion */}
-        <section id="syllabus" className="mt-12 w-[80%] max-w-4xl mx-auto">
-          <h2 className="text-xl font-semibold text-white/90">Weekly Syllabus and Talks</h2>
-          <div className="mt-4 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5">
-            {weeks.map((w, i) => (
-              <details key={i} className="group">
-                <summary className="cursor-pointer list-none px-5 py-4 flex items-center justify-between">
-                  <span className="font-medium">{w.title}</span>
-                  <span className="text-white/40 group-open:rotate-45 transition">＋</span>
-                </summary>
-                <div className="px-5 pb-4">
-                  <ul className="list-disc list-inside text-white/90 space-y-1">
-                    {w.bullets.map((b, bi) => (
-                      <li key={bi}>{b}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-2 text-sm text-white/60">{w.talk}</div>
+      {/* <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+          <div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-sm">
+              <div className="rounded-[1.5rem] border border-white/10 bg-[#0f172a] p-7">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <div className="text-sm font-medium uppercase tracking-[0.22em] text-white/45">
+                      Academy Overview
+                    </div>
+                    <h2 className="mt-2 text-2xl font-semibold text-white">What makes this program different</h2>
+                  </div>
+                  <div className="rounded-xl border border-[#defe47]/30 bg-[#defe47]/10 px-3 py-1 text-xs font-medium text-[#defe47]">
+                    Inaugural Cohort
+                  </div>
                 </div>
-              </details>
+
+                <p className="mt-5 text-sm leading-7 text-white/72">
+                  Anote AI Academy is designed to help ambitious students and builders understand not just what modern AI can do, but how effective AI systems are designed, evaluated, deployed, and improved in practice.
+                </p>
+
+                <div className="mt-6 grid gap-3">
+                  {overviewPillars.map((pillar) => (
+                    <div
+                      key={pillar}
+                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3"
+                    >
+                      <div className="mt-1 h-2.5 w-2.5 rounded-full bg-[#28b2fb]" />
+                      <div className="text-sm leading-6 text-white/80">{pillar}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="https://anote.ai/airesearchfellowship"
+                  className="mt-6 inline-flex rounded-2xl border border-[#28b2fb]/30 bg-[#28b2fb]/10 px-5 py-3 text-sm font-semibold text-[#28b2fb] transition hover:bg-[#28b2fb]/15"
+                >
+                  Learn about the next cohort
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      <section className="border-b border-white/10 bg-[#0f172a]">
+        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#defe47]">
+              Why AI Academy
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+              Built for people who want to create useful AI, not just talk about it.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-white/70">
+              An beginner‑friendly program for enterprise AI leaders. Get a dedicated coach, weekly expert talks, and a practical AI roadmap you can ship at work. Participants are exposed to the ideas, tools and practices behind modern AI systems, while also seeing how those systems connect to real products and research.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {highlights.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[1.75rem] border border-white/10 bg-[#111827] p-6 shadow-lg"
+              >
+                {/* <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#28b2fb]/10 text-lg font-semibold text-[#28b2fb]">
+                  •
+                </div> */}
+                <h3 className="mt-5 text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/70">{item.body}</p>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* REGISTRATION FORM (Google Apps Script) */}
-        {/* <AcademyRegistrationForm /> */}
-      </div>
+      <section id="lectures" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="max-w-3xl">
+          <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#28b2fb]">
+            Lecture Series
+          </div>
+          <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Recorded lectures from leading builders and researchers</h2>
+          <p className="mt-4 text-base leading-7 text-white/70">
+            The lecture series covers a broad set of practical AI topics, from research workflows and synthetic data to AI agents, multimodal architectures, RAG, evaluation, and Human-Centered AI. Each lecture below includes the full recording, a detailed description, and key takeaways.
+          </p>
+        </div>
 
-      {/* FOOTER STRIP */}
-      <div className="relative border-t border-white/10 py-6 text-center text-sm text-white/60">
-        Anote AI Academy · Winter Cohort (First Edition) · Jan 5 → Mar 6, 2026 · $500 · Capped at 50 · Sessions every Wednesday night
-      </div>
-    </section>
-  );
-}
+        <div className="mt-12 space-y-10">
+          {lectures.map((lecture) => (
+            <article
+              key={lecture.number}
+              className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#0f172a] shadow-2xl"
+            >
+              <div className="grid">
+                <div className="border-b border-white/10 lg:border-b-0 lg:border-r lg:border-white/10">
+                  <div className="aspect-video w-full bg-black">
+                    <iframe
+                      className="h-full w-full"
+                      src={`https://www.youtube.com/embed/${getYoutubeId(lecture.youtube)}`}
+                      title={lecture.topic}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
 
-// ----- Registration Form (Apps Script target) -----
-// function AcademyRegistrationForm() {
-//   const [formData, setFormData] = useState({
-//     first_name: "",
-//     last_name: "",
-//     job_title: "",
-//     company_name: "",
-//     email_address: "",
-//     linkedin_url: "",
-//     event_sheet: "Anote AI Academy Winter 2026",
-//     event_title: "Anote AI Academy — Winter Cohort (First Edition)",
-//     event_date: "Wednesdays, Jan 5 – Mar 6, 2026",
-//     event_time: "Evening (ET)",
-//     event_dateTimeStart: "2026-01-07T19:00:00-05:00", // first Wed placeholder
-//     event_dateTimeEnd: "2026-03-04T21:00:00-05:00",   // last Wed placeholder
-//     event_location: "Hybrid (Virtual + NYC kickoff/graduation)",
-//   });
+                <div className="p-6 lg:p-8">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="rounded-full border border-[#defe47]/30 bg-[#defe47]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#defe47]">
+                      Lecture {lecture.number}
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/70">
+                      {lecture.presenter}
+                    </span>
+                    {lecture.role ? (
+                      <span className="rounded-full border border-[#28b2fb]/25 bg-[#28b2fb]/10 px-3 py-1 text-xs font-medium text-[#28b2fb]">
+                        {lecture.role}
+                      </span>
+                    ) : null}
+                  </div>
 
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [submitted, setSubmitted] = useState(false);
-//   const [submissionError, setSubmissionError] = useState("");
+                  <h3 className="mt-4 text-2xl font-semibold text-white">{lecture.topic}</h3>
+                  <p className="mt-4 text-sm leading-7 text-white/75">{lecture.description}</p>
 
-//   // TODO: replace with your Academy Sheet endpoint
-//   const scriptURL =
-//     "https://script.google.com/macros/s/AKfycbygdbgHUNF-eSIW75nHR4MkQiCXheujnDUrXxZgDhxRsxZFSPggX4rNfoJ2M1fyQhpUAA/exec";
+                  <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                    <div className="text-sm font-semibold uppercase tracking-[0.16em] text-white/85">
+                      Key Takeaways
+                    </div>
+                    <ul className="mt-4 space-y-3">
+                      {lecture.takeaways.map((takeaway) => (
+                        <li key={takeaway} className="flex items-start gap-3 text-sm leading-7 text-white/78">
+                          <span className="mt-2 h-2 w-2 rounded-full bg-[#28b2fb]" />
+                          <span>{takeaway}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({ ...prev, [name]: value }));
-//   };
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href={lecture.youtube}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-xl bg-[#defe47] px-4 py-2.5 text-sm font-semibold text-[#111827] transition hover:translate-y-[-1px]"
+                    >
+                      Watch on YouTube
+                    </a>
+                    {lecture.extraLinks?.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setIsLoading(true);
-//     setSubmissionError("");
-//     try {
-//       await fetch(scriptURL, {
-//         method: "POST",
-//         mode: "no-cors",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(formData),
-//       });
-//       setTimeout(() => {
-//         setIsLoading(false);
-//         setSubmitted(true);
-//       }, 500);
-//     } catch (error) {
-//       console.error("Error submitting the form:", error);
-//       setIsLoading(false);
-//       setSubmissionError("Failed to submit. Please check your connection.");
-//     }
-//   };
+      <section id="student-showcase" className="border-y border-white/10 bg-[#0f172a]">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#defe47]">
+              Student Showcase
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Student presentations, demos, and final projects</h2>
+            <p className="mt-4 text-base leading-7 text-white/70">
+              In addition to the main lecture series, the website can feature student presentations from the cohort in a clean 3 by 3 gallery. This creates space to showcase final demos, technical explainers, research talks, and practical AI projects developed throughout the program.
+            </p>
+          </div>
 
-//   return (
-//     <section id="academy-form" className="relative text-white mt-12">
-//       <div className="max-w-3xl mx-auto">
-//         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6 shadow-xl">
-//           <h3 className="text-2xl font-semibold">Register for the AI Academy</h3>
-//           <p className="text-sm text-white/70 mt-1">Wednesdays · Jan 5 – Mar 6, 2026 · $500</p>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {studentPresentations.map((presentation, index) => (
+              <a
+                key={presentation.title + index}
+                href={presentation.youtube}
+                className="group rounded-[1.75rem] border border-white/10 bg-[#111827] p-6 shadow-lg transition hover:-translate-y-1 hover:border-[#28b2fb]/35"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#28b2fb]/10 text-base font-semibold text-[#28b2fb]">
+                    {index + 1}
+                  </div>
+                  <div className="rounded-full border border-[#defe47]/30 bg-[#defe47]/10 px-3 py-1 text-xs font-medium text-[#defe47]">
+                    Coming Soon
+                  </div>
+                </div>
+                <div className="mt-5">
+                  <h3 className="text-lg font-semibold text-white">{presentation.title}</h3>
+                  <div className="mt-2 text-sm font-medium text-[#28b2fb]">{presentation.presenter}</div>
+                  <div className="mt-1 text-sm text-white/55">{presentation.topic}</div>
+                  <p className="mt-4 text-sm leading-7 text-white/70">{presentation.description}</p>
+                </div>
+                <div className="mt-6 text-sm font-medium text-white/75 transition group-hover:text-[#defe47]">
+                  Add video and details →
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
-//           {isLoading ? (
-//             <div className="text-center py-12">
-//               <h4 className="text-2xl font-bold text-blue-300 mb-2">⏳ Submitting…</h4>
-//               <p className="text-white/70">Please wait while we confirm your registration.</p>
-//             </div>
-//           ) : !submitted ? (
-//             <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-//               <Field label="First Name" name="first_name" value={formData.first_name} onChange={handleChange} required />
-//               <Field label="Last Name" name="last_name" value={formData.last_name} onChange={handleChange} required />
-//               <Field label="Job Title" name="job_title" value={formData.job_title} onChange={handleChange} required />
-//               <Field label="Company Name" name="company_name" value={formData.company_name} onChange={handleChange} required />
-//               <Field label="Email Address" name="email_address" type="email" value={formData.email_address} onChange={handleChange} required />
-//               <Field label="LinkedIn URL" name="linkedin_url" type="url" value={formData.linkedin_url} onChange={handleChange} required />
+      {/* <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#28b2fb]">
+              Testimonials
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Community, clarity, and momentum</h2>
+            <p className="mt-4 text-base leading-7 text-white/70">
+              Testimonials can reinforce that the Academy is not only educational, but energizing and deeply practical. The placeholders below are ready to be replaced with real fellow and attendee quotes.
+            </p>
+          </div>
 
-//               {/* hidden fields */}
-//               <input type="hidden" name="event_sheet" value={formData.event_sheet} />
-//               <input type="hidden" name="event_title" value={formData.event_title} />
-//               <input type="hidden" name="event_date" value={formData.event_date} />
-//               <input type="hidden" name="event_time" value={formData.event_time} />
-//               <input type="hidden" name="event_dateTimeStart" value={formData.event_dateTimeStart} />
-//               <input type="hidden" name="event_dateTimeEnd" value={formData.event_dateTimeEnd} />
-//               <input type="hidden" name="event_location" value={formData.event_location} />
+          <div className="grid gap-6">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.quote + index}
+                className="rounded-[1.75rem] border border-white/10 bg-[#0f172a] p-6 shadow-lg"
+              >
+                <div className="mb-4 text-3xl text-[#defe47]">“</div>
+                <p className="text-lg leading-8 text-white/86">{testimonial.quote}</p>
+                <div className="mt-6 border-t border-white/10 pt-4">
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-white/55">{testimonial.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
 
-//               <div className="md:col-span-2 mt-2">
-//                 <button type="submit" className="w-full bg-[#DEFE47] text-black font-semibold py-3 rounded-xl hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-white/30">
-//                   Register Now
-//                 </button>
-//                 <p className="text-center mt-3 text-sm text-white/70">
-//                   Questions? <a href="mailto:nvidra@anote.ai" className="text-[#DEFE47] underline">nvidra@anote.ai</a>
-//                 </p>
-//                 {submissionError && <p className="mt-3 text-center text-red-400">{submissionError}</p>}
-//               </div>
-//             </form>
-//           ) : (
-//             <div className="text-center py-12">
-//               <h4 className="text-3xl font-bold text-green-400 mb-3">✅ Success!</h4>
-//               <p className="text-lg mb-2">You’re registered for <b>{formData.event_title}</b></p>
-//               <p className="text-lg mb-2">📅 {formData.event_date} — {formData.event_time}</p>
-//               <p className="text-md text-white/70">You should receive a confirmation email shortly.</p>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// ----- Small UI helpers -----
-function Field({ label, name, value, onChange, type = "text", required }) {
-  const id = `field-${name}`;
-  return (
-    <div>
-      <label htmlFor={id} className="block text-sm mb-1 text-white/80">{label}</label>
-      <input
-        id={id}
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        required={required}
-        className="w-full px-4 py-2 rounded-xl bg-[#0b1121] text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#28B2FB]"
-      />
+      <section className="border-t border-white/10 bg-[#0f172a]">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(40,178,251,0.12),rgba(222,254,71,0.08))] p-8 shadow-2xl lg:p-12">
+            <div className="grid gap-8">
+              <div>
+                <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#defe47]">
+                  Get Involved
+                </div>
+                <h2 className="mt-3 text-3xl font-semibold sm:text-4xl text-white">
+                  Ready to join the next cohort?
+                </h2>
+                <p className="mt-4 max-w-3xl text-base leading-7 text-white/78">
+                  The Anote AI Academy is an entry point into a broader community of ambitious builders, researchers, and students who want to work on meaningful AI systems. If you want to go deeper, apply to the Anote AI Research Fellowship and get involved in the next stage of the program.
+                </p>
+              </div>
+              <div>
+                <a
+                  href="https://anote.ai/airesearchfellowship"
+                  className="inline-flex rounded-2xl bg-[#defe47] px-6 py-3 text-sm font-semibold text-[#111827] transition hover:translate-y-[-1px] hover:shadow-xl"
+                >
+                  Apply to the Anote AI Research Fellowship
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
