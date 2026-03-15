@@ -443,7 +443,7 @@ export default function AnoteAIAcademy() {
             </div>
             <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Student presentations, demos, and final projects</h2>
             <p className="mt-4 text-base leading-7 text-white/70">
-              In addition to the main lecture series, the website can feature student presentations from the cohort in a clean 3 by 3 gallery. This creates space to showcase final demos, technical explainers, research talks, and practical AI projects developed throughout the program.
+              Here are some of the featured student presentations from the inaugural AI academy cohort. Each talk highlights the practical work, demos, and projects that students produced during the program, with a focus on real-world practical AI applications.
             </p>
           </div>
 
