@@ -47,7 +47,7 @@ export default function AnoteAIAcademy() {
       topic: "How I Run My Life (and Business) on AI Agents",
       youtube: "https://www.youtube.com/watch?v=5T6m7HRCqLQ",
       description:
-        "Jiquan Ngiam shares how he uses AI agents to manage both personal and professional workflows. Drawing from his background at Google Brain, Stanford, and Coursera, he focuses on practical agentic systems rather than research-only ideas. The lecture covers a useful recipe for building effective agents through a runtime harness, persistent memory, and secure data access, along with real-world examples such as task tracking, personal knowledge management, health workflows, and business operations.",
+        "Jiquan Ngiam shares how he uses AI agents to manage both personal and professional workflows. Drawing from his background at Google Brain, Stanford, and Coursera, he focuses on practical agentic systems rather than research-only ideas. The lecture covers a useful recipe for building effective agents through a runtime harness, persistent memory, and secure data access, along with realworld examples such as task tracking, personal knowledge management, health workflows, and business operations.",
       takeaways: [
         "A practical framework for building useful AI agents using a runtime harness, persistent memory, and data access.",
         "Implementation patterns you can use today, including instruction files, Git-based memory, and MCPs for tool and data integration.",
@@ -309,10 +309,10 @@ const studentPresentations = [
                 Anote AI Academy
               </div>
               <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                A modern AI education program built around real systems, real builders, and real-world application.
+                A modern AI education program built around real systems, real builders, and real world application.
               </h1>
               <p className="mt-6 text-lg leading-8 text-white/75">
-                Welcome to Anote’s AI Academy. The AI Academy Fellowship represents a new paradigm in AI education by combining hands-on project work, community support, and direct exposure to how practical AI products are actually built. This inaugural program brings together selected individuals who are excited about building innovative AI solutions across research, evaluation, agents, multimodal systems, synthetic data, RAG, and Human-Centered AI.
+                Welcome to Anote’s AI Academy. The AI Academy represents a new paradigm in AI education by combining hands-on project work, community support, and direct exposure to how practical AI products are actually built. The AI Academy brings together selected individuals who are excited about building innovative AI solutions across research, evaluation, agents, multimodal systems, synthetic data, RAG, and Human-Centered AI.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">

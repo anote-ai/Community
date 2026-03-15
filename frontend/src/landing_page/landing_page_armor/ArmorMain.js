@@ -11,93 +11,235 @@ import {
   communityReferralsPath,
   communityRegionalHubsPath,
   communityAcademyPath,
-  communityAcademyOverviewPath
+  communityAcademyOverviewPath,
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
 
-// Palette tuned for dark bg (#141414 / bg-gray-900)
-const PALETTE = [
-    "#A7D8FF", // Pale sky blue
-];
+const ACCENT_YELLOW = "#defe47";
+const ACCENT_BLUE = "#28b2fb";
+const BG_DARK = "#111827";
 
 export default function ArmorMain() {
   const sections = [
-    { title: "Academy", path: communityAcademyPath, blurb: "Explore our comprehensive AI academy learning programs." },
-    // { title: "Academy Overview", path: communityAcademyOverviewPath, blurb: "Join Anote's AI Academy for enterprise AI leaders." },
-    { title: "Events", path: communityEventsPath, blurb: "Find upcoming meet‑ups, hackathons, and workshops in your city and online." },
-    { title: "Members", path: communityMembersPath, blurb: "Browse and connect with AI builders, researchers, and operators." },
-    { title: "Courses", path: communityResourcesPath, blurb: "Self‑paced learning tracks, open‑source tools, and curated reading lists." },
-    { title: "Content", path: communityContentPath, blurb: "Technical blogs, slide decks, and demo videos from community experts." },
-    { title: "Agents", path: communityAgentRegistryPath, blurb: "Community based domain specific agents gallery for daily use cases." },
-    { title: "Coffee Chats", path: communityCoffeeChatsPath, blurb: "Schedule 1‑on‑1s with Anote alumni working in your dream roles." },
-    { title: "Job Referrals", path: communityReferralsPath, blurb: "Warm intros to hiring managers and recruiters inside top AI orgs." },
-    // { title: "Job Board", path: communityJobsPath, blurb: "Curated openings in applied AI, ML research, and data science—updated daily." },
-    { title: "News", path: communityNewsPath, blurb: "Stay up to date with the latest AI news and announcements." },
-    // { title: "Local Hubs", path: communityRegionalHubsPath, blurb: "Find regional organizers and roadmap milestones across ARMOR." },
+    {
+      title: "Academy",
+      path: communityAcademyPath,
+      blurb: "Explore hands-on AI learning programs, lectures, projects, and community-driven education.",
+      // featured: true,
+    },
+    {
+      title: "Events",
+      path: communityEventsPath,
+      blurb: "Find upcoming meetups, hackathons, workshops, and gatherings online and in person.",
+    },
+    {
+      title: "Members",
+      path: communityMembersPath,
+      blurb: "Browse and connect with AI builders, researchers, founders, and operators.",
+    },
+    {
+      title: "Courses",
+      path: communityResourcesPath,
+      blurb: "Access self-paced learning tracks, open-source tools, and curated technical resources.",
+    },
+    {
+      title: "Content",
+      path: communityContentPath,
+      blurb: "Read blogs, explore decks, and watch demos from community experts and contributors.",
+    },
+    {
+      title: "Agents",
+      path: communityAgentRegistryPath,
+      blurb: "Discover domain-specific community agents built for real workflows and practical use cases.",
+    },
+    {
+      title: "Coffee Chats",
+      path: communityCoffeeChatsPath,
+      blurb: "Book 1-on-1 conversations with Anote alumni and community members in roles you admire.",
+    },
+    {
+      title: "Job Referrals",
+      path: communityReferralsPath,
+      blurb: "Get warm introductions to recruiters, hiring teams, and AI organizations.",
+    },
+    {
+      title: "News",
+      path: communityNewsPath,
+      blurb: "Stay current with major updates, launches, and trends across the AI ecosystem.",
+    },
   ];
 
-  // Gradient inline style generator
-  const gradientStyle = (i) => {
-    const c1 = PALETTE[i % PALETTE.length];
-    const c2 = PALETTE[(i + 1) % PALETTE.length];
-    return { backgroundImage: `linear-gradient(135deg, ${c1}, ${c2})` };
-  };
+  const cardStyles = (featured = false) =>
+    featured
+      ? {
+          background:
+            "linear-gradient(135deg, rgba(40,178,251,0.16) 0%, rgba(222,254,71,0.18) 100%)",
+          border: "1px solid rgba(255,255,255,0.12)",
+        }
+      : {
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%)",
+          border: "1px solid rgba(255,255,255,0.08)",
+        };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen space-y-12 pb-24">
-      {/* ─── Hero / Intro ──────────────────────────────────────── */}
-      <section className="max-w-5xl mx-auto px-6 pt-6 text-center space-y-2">
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-          Anote's AI Community Portal
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          A nationwide, community‑driven initiative accelerating human‑centered AI through events, open resources, and real‑world collaboration.
-        </p>
-        {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:nvidra@anote.ai?subject=Anote%20Community%20Lead" className="px-8 py-4 rounded-md bg-[#defe47] text-black font-bold hover:opacity-90 transition ring-2 ring-[#defe47]/20">Become a Community Lead</a>
-          <a href="mailto:nvidra@anote.ai?subject=Anote%20Sponsorship" className="px-8 py-4 rounded-md bg-gray-800 border border-gray-600 hover:bg-gray-700 transition font-semibold">Become a Sponsor</a>
-        </div> */}
-      </section>
+    <div
+      className="min-h-screen text-white pb-24 overflow-hidden"
+      style={{ backgroundColor: BG_DARK }}
+    >
+      {/* Background glows */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="absolute -top-24 -left-24 h-72 w-72 rounded-full blur-3xl opacity-20"
+          style={{ backgroundColor: ACCENT_BLUE }}
+        />
+        <div
+          className="absolute top-32 right-0 h-80 w-80 rounded-full blur-3xl opacity-10"
+          style={{ backgroundColor: ACCENT_YELLOW }}
+        />
+        <div
+          className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full blur-3xl opacity-10"
+          style={{ backgroundColor: ACCENT_BLUE }}
+        />
+      </div>
 
-      {/* ─── Section Grid ─────────────────────────────────────── */}
-      {/* <section className="mx-auto px-6" id="sections">
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {sections.map((s, i) => (
-            <Link key={s.title} to={s.path} style={gradientStyle(i)}
-              className="relative overflow-hidden rounded-3xl p-7 min-h-[11rem] flex flex-col justify-end shadow-xl transition-transform hover:scale-[1.03] hover:shadow-2xl">
-              <h3 className="text-2xl text-[#111827] font-bold drop-shadow-sm mb-1">{s.title}</h3>
-              <p className="text-sm text-[#111827] opacity-90 leading-snug max-w-xs">{s.blurb}</p>
-              <span className="absolute inset-0" aria-hidden></span>
-            </Link>
-          ))}
-        </div>
-      </section> */}
-      {/* ─── Section Grid ─────────────────────────────────────── */}
-<section className="mx-auto px-6" id="sections">
-  <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-    {sections.map((s, i) => (
-      <Link
-        key={s.title}
-        to={s.path}
-        style={gradientStyle(i)}
-        /* fixed height + top-to-bottom layout */
-        className="relative overflow-hidden rounded-3xl p-7 flex flex-col justify-between shadow-xl transition-transform hover:scale-[1.03] hover:shadow-2xl"
-      >
-        <h3 className="text-2xl font-bold text-[#111827]">{s.title}</h3>
+      <div className="relative z-10">
+        {/* Hero */}
+        <section className="max-w-7xl mx-auto px-6 pt-10 sm:pt-16">
+          <div
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-14 shadow-2xl"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(40,178,251,0.10) 0%, rgba(17,24,39,0.96) 45%, rgba(222,254,71,0.08) 100%)",
+            }}
+          >
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-gray-200 backdrop-blur">
+                <span
+                  className="h-2 w-2 rounded-full"
+                  style={{ backgroundColor: ACCENT_YELLOW }}
+                />
+                Human-Centered AI Community
+              </div>
 
-        {/* Spacer keeps blurb near the bottom, but consistent across cards */}
-        <p className="text-sm text-[#111827] leading-snug max-w-xs">
-          {s.blurb}
-        </p>
+              <h1 className="mt-5 text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                Anote’s{" "}
+                <span style={{ color: ACCENT_YELLOW }}>AI Community Portal</span>
+              </h1>
 
-        {/* invisible overlay for clickable area */}
-        <span className="absolute inset-0" aria-hidden />
-      </Link>
-    ))}
-  </div>
-</section>
+              <p className="mt-5 max-w-3xl text-base sm:text-xl text-gray-300 leading-relaxed">
+                A home for ambitious builders, researchers, and operators
+                exploring AI through education, events, collaboration, and
+                real world projects.
+              </p>
 
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#sections"
+                  className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-black transition hover:scale-[1.02]"
+                  style={{ backgroundColor: ACCENT_YELLOW }}
+                >
+                  Explore the Portal
+                </a>
 
+                <Link
+                  to={communityAcademyPath}
+                  className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold border border-white/15 bg-white/5 hover:bg-white/10 transition"
+                >
+                  Visit the Academy
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section header */}
+        <section className="max-w-7xl mx-auto px-6 pt-12 sm:pt-16" id="sections">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <p
+                className="text-sm font-semibold uppercase tracking-[0.2em]"
+                style={{ color: ACCENT_BLUE }}
+              >
+                Explore
+              </p>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-bold">
+                Everything in one place
+              </h2>
+            </div>
+            <div className="hidden sm:block text-sm text-gray-400">
+              Education, community, resources, and opportunity
+            </div>
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {sections.map((section) => (
+              <Link
+                key={section.title}
+                to={section.path}
+                className={`group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+                  section.featured ? "xl:col-span-2" : ""
+                }`}
+                style={cardStyles(section.featured)}
+              >
+                {/* subtle top accent line */}
+                <div
+                  className="absolute left-0 top-0 h-1 w-full opacity-90"
+                  style={{
+                    background: section.featured
+                      ? `linear-gradient(90deg, ${ACCENT_BLUE}, ${ACCENT_YELLOW})`
+                      : `linear-gradient(90deg, ${ACCENT_BLUE}, transparent)`,
+                  }}
+                />
+
+                <div className="relative flex h-full min-h-[220px] flex-col justify-between">
+                  <div>
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-2xl font-bold text-white tracking-tight">
+                        {section.title}
+                      </h3>
+
+                      <div
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition group-hover:translate-x-1"
+                        style={{
+                          color: section.featured ? ACCENT_YELLOW : ACCENT_BLUE,
+                        }}
+                      >
+                        →
+                      </div>
+                    </div>
+
+                    <p className="mt-4 max-w-md text-sm sm:text-base leading-relaxed text-gray-300">
+                      {section.blurb}
+                    </p>
+                  </div>
+
+                  <div className="mt-8 flex items-center justify-between">
+                    <span
+                      className="text-sm font-medium"
+                      style={{
+                        color: section.featured ? ACCENT_YELLOW : "white",
+                      }}
+                    >
+                      Open section
+                    </span>
+
+                    {section.featured && (
+                      <span
+                        className="rounded-full px-3 py-1 text-xs font-semibold text-black"
+                        style={{ backgroundColor: ACCENT_YELLOW }}
+                      >
+                        Featured
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

@@ -53,7 +53,7 @@ function Footer() {
                   onClick={() =>
                     window.location.assign(
                       "https://anote.ai/" +
-                        "/labels#Classify"
+                        "/labels"
                     )
                   }
                 >
@@ -109,7 +109,7 @@ function Footer() {
               style={{ fontFamily: "Arial" }}
               className="font-medium text-yellow-500 text-base lg:text-xl mb-3"
             >
-              Industries
+              Community
             </h2>
             <nav className="list-none mb-10">
               <li className="mb-3">
@@ -117,11 +117,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/Industries#Finance"
+                      "https://community.anote.ai/community/events"
                     )
                   }
                 >
-                  Finance
+                  Events
                 </a>
               </li>
               <li className="mb-3">
@@ -129,11 +129,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/Industries#Healthcare"
+                      "https://community.anote.ai/community/members"
                     )
                   }
                 >
-                  Healthcare
+                  Members
                 </a>
               </li>
               <li className="mb-3">
@@ -141,11 +141,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/Industries#LegalTech"
+                      "https://community.anote.ai/community/content"
                     )
                   }
                 >
-                  Legal
+                  Content
                 </a>
               </li>
               <li className="mb-3">
@@ -153,11 +153,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/Industries#NonProfit"
+                      "https://community.anote.ai/community/agents"
                     )
                   }
                 >
-                  Non Profit
+                  Agents
                 </a>
               </li>
               <li className="mb-3">
@@ -165,11 +165,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/Industries#Research"
+                      "https://community.anote.ai/community/news"
                     )
                   }
                 >
-                  Research
+                  News
                 </a>
               </li>
             </nav>
@@ -242,7 +242,7 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/CaseStudies#OpenAds"
+                      "https://anote.ai/" + "/customers/openads"
                     )
                   }
                 >
@@ -254,12 +254,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" +
-                        "/CaseStudies#Harvard Medical School"
+                      "https://anote.ai/customers/harvard-medical-school"
                     )
                   }
                 >
-                  Harvard Med
+                  Harvard Medical
                 </a>
               </li>
               <li className="mb-3">
@@ -267,11 +266,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/CaseStudies#Abstractive Health"
+                      "https://anote.ai/customers/weillcornell"
                     )
                   }
                 >
-                  Abstractive Health
+                  Weill Cornell
                 </a>
               </li>
               <li className="mb-3">
@@ -279,11 +278,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/CaseStudies#Hardy Riggings"
+                      "https://anote.ai/customers/nist"
                     )
                   }
                 >
-                  Hardy Riggings
+                  NIST
                 </a>
               </li>
               <li className="mb-3">
@@ -291,11 +290,11 @@ function Footer() {
                   className="text-gray-300 hover:text-turquoise-300 hover:cursor-pointer"
                   onClick={() =>
                     window.location.assign(
-                      "https://anote.ai/" + "/CaseStudies#MPressed"
+                      "https://anote.ai/customers/rutgers"
                     )
                   }
                 >
-                  MPressed
+                  Rutgers
                 </a>
               </li>
             </nav>
