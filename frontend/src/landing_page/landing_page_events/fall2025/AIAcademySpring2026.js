@@ -182,7 +182,7 @@ function AIAcademyPresentationsSpring2026() {
     { presenter: "Xingtai Huang", videoId: "uZZHzlgNUvc" },
     { presenter: "Manish Kumbham", videoId: "HslwlnjBod4" },
     { presenter: "Saumya Singh", videoId: "WzXoCWBrOAc" },
-    { presenter: "Alina Kapanova", videoId: "WzXoCWBrOAc" },
+    { presenter: "Alina Kapanova", videoId: "3i1f8ccEyBE" },
     { presenter: "Katherine Jijo", videoId: "moPa_evDDIM" },
   ];
 
