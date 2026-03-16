@@ -165,28 +165,6 @@ export default function AnoteAIAcademy() {
     },
     {
       number: 8,
-      presenter: "Katherine Jijo",
-      role: "AI researcher and systems thinker",
-      topic: "Autonomous Agents and System-Centric AI",
-      youtube: "https://www.youtube.com/watch?v=moPa_evDDIM",
-      description:
-        "Katherine Jijo presents a foundational perspective on autonomous agents, framing them as a shift from model-centric AI to system-centric AI. Instead of focusing only on model accuracy, the lecture emphasizes end-to-end systems that prioritize action, execution, reliability, and measurable outcomes. Katherine explores how multi-agent systems coordinate through specialized roles, structured communication, and orchestration, and why continuous experimentation is essential to deploying agentic workflows successfully.",
-      takeaways: [
-        "Autonomous agents represent a shift from model-level optimization to system-level design focused on action and execution.",
-        "Multi-agent architectures require specialized agents, structured communication, and an orchestrator to coordinate complex workflows.",
-        "Evaluation of agentic systems should focus on system metrics such as task completion, reliability, and failure recovery rather than only model accuracy.",
-        "Continuous experimentation and applied research are critical for integrating agentic techniques into production environments.",
-        "Skills developed in human-centered AI and experimentation transfer directly to real-world data science and product roles, especially in agentic system development.",
-      ],
-      extraLinks: [
-      {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com/in/katherine-jijo-a1b231242/",
-      },
-]
-    },
-    {
-      number: 9,
       presenter: "Natan Vidra",
       role: "Founder and CEO, Anote",
       topic: "Human-Centered AI and Building Practical AI Systems",
@@ -218,62 +196,62 @@ const studentPresentations = [
   {
     title: "Fellow Presentation 1",
     presenter: "Aadi Bery",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=4T3O3XIWYfM",
   },
   {
     title: "Fellow Presentation 2",
     presenter: "Lucy Manalang",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=v9ngvTpkrZI",
   },
   {
     title: "Fellow Presentation 3",
     presenter: "Yidian Chen",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=cwv2H2QTqVc",
   },
   {
     title: "Fellow Presentation 4",
     presenter: "Ebuka Uzuoma",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=uMxERHuWETk",
   },
   {
     title: "Fellow Presentation 5",
     presenter: "Amelie Norris",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=gdJW7gqMW2E",
   },
   {
     title: "Fellow Presentation 6",
     presenter: "Caleb Dickson",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=PvTBhrVrqfc",
   },
   {
     title: "Fellow Presentation 7",
     presenter: "Aisha Ahmad",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=_2b8qKP9TdI",
   },
   {
     title: "Fellow Presentation 8",
     presenter: "Xingtai Huang",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=uZZHzlgNUvc",
   },
   {
     title: "Fellow Presentation 9",
     presenter: "Manish Kumbham",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=HslwlnjBod4",
   },
   {
     title: "Fellow Presentation 10",
     presenter: "Saumya Singh",
-    youtube: "#",
+    youtube: "https://www.youtube.com/watch?v=WzXoCWBrOAc",
   },
   {
     title: "Fellow Presentation 11",
-    presenter: "Ashwin Dhanasamy",
-    youtube: "#",
+    presenter: "Alina Kapanova",
+    youtube: "https://www.youtube.com/watch?v=3i1f8ccEyBE",
   },
   {
     title: "Fellow Presentation 12",
-    presenter: "Alina Kapanova",
-    youtube: "#",
+    presenter: "Katherine Jijo",
+    youtube: "https://www.youtube.com/watch?v=moPa_evDDIM",
   },
 ];
 
@@ -500,7 +478,7 @@ const studentPresentations = [
           ))}
         </div>
       </section>
-
+{/*
       <section id="student-showcase" className="border-y border-white/10 bg-[#0f172a]">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="max-w-3xl">
@@ -513,29 +491,115 @@ const studentPresentations = [
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {studentPresentations.map((presentation, index) => (
-              <a
-                key={presentation.title + index}
-                href={presentation.youtube}
-                className="group rounded-[1.75rem] border border-white/10 bg-[#111827] p-6 shadow-lg transition hover:-translate-y-1 hover:border-[#28b2fb]/35"
-              >
-                <div className="flex items-center justify-between">
-                </div>
-                <div className="mt-5">
-                  <h3 className="text-lg font-semibold text-white">{presentation.title}</h3>
-                  <div className="mt-2 text-sm font-medium text-[#28b2fb]">{presentation.presenter}</div>
-                  <div className="mt-1 text-sm text-white/55">{presentation.topic}</div>
-                  <p className="mt-4 text-sm leading-7 text-white/70">{presentation.description}</p>
-                </div>
-                {/* <div className="mt-6 text-sm font-medium text-white/75 transition group-hover:text-[#defe47]">
-                  Add video and details →
-                </div> */}
-              </a>
-            ))}
-          </div>
+<div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+  {studentPresentations.map((presentation, index) => {
+    const videoId = presentation.youtube.split("v=")[1];
+
+    return (
+      <div
+        key={presentation.title + index}
+        className="group rounded-[1.75rem] border border-white/10 bg-[#111827] p-5 shadow-lg transition hover:-translate-y-1 hover:border-[#28b2fb]/35"
+      >
+
+        <div className="relative w-full overflow-hidden rounded-xl pb-[56.25%]">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title={presentation.presenter}
+            className="absolute top-0 left-0 h-full w-full rounded-xl"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
-      </section>
+
+        <div className="mt-5">
+          <h3 className="text-lg font-semibold text-white">
+            {presentation.title}
+          </h3>
+
+          <div className="mt-2 text-sm font-medium text-[#28b2fb]">
+            {presentation.presenter}
+          </div>
+
+        </div>
+
+      </div>
+    );
+  })}
+</div>
+        </div>
+      </section> */}
+      <section
+  id="student-showcase"
+  className="border-y border-white/10 bg-[#0f172a]"
+>
+  <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <div className="mx-auto max-w-3xl text-center lg:text-left">
+      <div className="inline-flex items-center rounded-full border border-[#28b2fb]/30 bg-[#28b2fb]/10 px-4 py-1 text-sm font-medium uppercase tracking-[0.18em] text-[#defe47]">
+        Fellow Showcase
+      </div>
+
+      <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        Fellow Presentations and Final Projects
+      </h2>
+
+      <p className="mt-5 text-base leading-8 text-white/70 sm:text-lg">
+        Featured presentations from the inaugural AI Academy cohort, showcasing
+        practical AI work, research explorations, technical demos, and final
+        projects developed throughout the program.
+      </p>
+    </div>
+
+    <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      {studentPresentations.map((presentation, index) => {
+        const videoId = presentation.youtube.split("v=")[1]?.split("&")[0];
+
+        return (
+          <div
+            key={presentation.title + index}
+            className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.28)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#28b2fb]/40 hover:shadow-[0_20px_60px_rgba(0,0,0,0.38)]"
+          >
+            <div className="border-b border-white/10 px-5 pb-4 pt-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#defe47]">
+                Fellow Presentation {index + 1}
+              </div>
+
+              <h3 className="mt-2 text-xl font-semibold text-white">
+                {presentation.presenter}
+              </h3>
+            </div>
+
+            <div className="p-5">
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black pb-[56.25%] shadow-inner">
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  title={presentation.presenter}
+                  className="absolute left-0 top-0 h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="mt-4 flex items-center justify-between gap-4">
+                {/* <div className="text-sm text-white/55">
+                  AI Academy Cohort Project
+                </div> */}
+
+                <a
+                  href={presentation.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-medium text-[#28b2fb] transition hover:text-[#defe47]"
+                >
+                  Watch on YouTube →
+                </a>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
