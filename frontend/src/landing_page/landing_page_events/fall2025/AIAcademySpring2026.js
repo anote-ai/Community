@@ -5,7 +5,7 @@ function AIAcademyPresentationsSpring2026() {
   const agendaItems = [
     {
       topic: "AI Academy Presentation 1",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -13,7 +13,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 2",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -21,7 +21,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 3",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -29,7 +29,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 4",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -37,7 +37,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 5",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -45,7 +45,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 6",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -53,7 +53,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 7",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -61,7 +61,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 8",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -69,7 +69,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 9",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -77,7 +77,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 10",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -85,7 +85,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 11",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:
@@ -93,7 +93,7 @@ function AIAcademyPresentationsSpring2026() {
     },
     {
       topic: "AI Academy Presentation 12",
-      theme: "Student Project Presentation",
+      theme: "Fellow Project Presentation",
       videoUrl: "#",
       videoUrlEmbed: "",
       description:

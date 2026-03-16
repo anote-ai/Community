@@ -216,62 +216,62 @@ export default function AnoteAIAcademy() {
   ];
 const studentPresentations = [
   {
-    title: "Student Presentation 1",
+    title: "Fellow Presentation 1",
     presenter: "Aadi Bery",
     youtube: "#",
   },
   {
-    title: "Student Presentation 2",
+    title: "Fellow Presentation 2",
     presenter: "Lucy Manalang",
     youtube: "#",
   },
   {
-    title: "Student Presentation 3",
+    title: "Fellow Presentation 3",
     presenter: "Yidian Chen",
     youtube: "#",
   },
   {
-    title: "Student Presentation 4",
+    title: "Fellow Presentation 4",
     presenter: "Ebuka Uzuoma",
     youtube: "#",
   },
   {
-    title: "Student Presentation 5",
+    title: "Fellow Presentation 5",
     presenter: "Amelie Norris",
     youtube: "#",
   },
   {
-    title: "Student Presentation 6",
+    title: "Fellow Presentation 6",
     presenter: "Caleb Dickson",
     youtube: "#",
   },
   {
-    title: "Student Presentation 7",
+    title: "Fellow Presentation 7",
     presenter: "Aisha Ahmad",
     youtube: "#",
   },
   {
-    title: "Student Presentation 8",
+    title: "Fellow Presentation 8",
     presenter: "Xingtai Huang",
     youtube: "#",
   },
   {
-    title: "Student Presentation 9",
+    title: "Fellow Presentation 9",
     presenter: "Manish Kumbham",
     youtube: "#",
   },
   {
-    title: "Student Presentation 10",
+    title: "Fellow Presentation 10",
     presenter: "Saumya Singh",
     youtube: "#",
   },
   {
-    title: "Student Presentation 11",
+    title: "Fellow Presentation 11",
     presenter: "Ashwin Dhanasamy",
     youtube: "#",
   },
   {
-    title: "Student Presentation 12",
+    title: "Fellow Presentation 12",
     presenter: "Alina Kapanova",
     youtube: "#",
   },
@@ -326,7 +326,7 @@ const studentPresentations = [
                   href="#student-showcase"
                   className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  View Student Showcase
+                  View Fellow Showcase
                 </a>
               </div>
             </div>
@@ -505,11 +505,11 @@ const studentPresentations = [
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="max-w-3xl">
             <div className="text-sm font-medium uppercase tracking-[0.22em] text-[#defe47]">
-              Student Showcase
+              Fellow Showcase
             </div>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Student presentations and final projects</h2>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Fellow Presentations and final projects</h2>
             <p className="mt-4 text-base leading-7 text-white/70">
-              Here are some of the featured student presentations from the inaugural AI academy cohort. Each talk highlights the practical work, demos, and projects that students produced during the program, with a focus on real-world practical AI applications.
+              Here are some of the featured Fellow Presentations from the inaugural AI academy cohort. Each talk highlights the practical work, demos, and projects that fellows produced during the program, with a focus on real-world practical AI applications.
             </p>
           </div>
 
