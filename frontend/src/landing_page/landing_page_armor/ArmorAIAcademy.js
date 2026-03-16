@@ -532,8 +532,8 @@ const studentPresentations = [
   id="student-showcase"
   className="border-y border-white/10 bg-[#0f172a]"
 >
-  <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-    <div className="mx-auto max-w-3xl text-center lg:text-left">
+  <div className="px-6 py-20 lg:px-8">
+    <div className="text-center lg:text-left">
       <div className="inline-flex items-center rounded-full border border-[#28b2fb]/30 bg-[#28b2fb]/10 px-4 py-1 text-sm font-medium uppercase tracking-[0.18em] text-[#defe47]">
         Fellow Showcase
       </div>
