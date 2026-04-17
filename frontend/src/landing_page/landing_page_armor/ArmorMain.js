@@ -17,8 +17,6 @@ import {
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
 import ImpactDashboard from "./ImpactDashboard";
-import NewsletterSignup from "./NewsletterSignup";
-import LearningPathQuiz from "./LearningPathQuiz";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -102,7 +100,6 @@ export default function ArmorMain() {
       className="min-h-screen text-white pb-24 overflow-hidden"
       style={{ backgroundColor: BG_DARK }}
     >
-      <LearningPathQuiz />
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -225,7 +222,6 @@ export default function ArmorMain() {
         </section> */}
 
         <ImpactDashboard />
-        <NewsletterSignup />
 
         {/* Section header */}
         <section className="max-w-7xl mx-auto px-6 pt-12 sm:pt-16" id="sections">
