@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { FaPlay } from "react-icons/fa";
+import ShareButton from "./ShareButton";
 
 function ArmorAgentRegistry() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -1344,7 +1345,12 @@ function ArmorAgentRegistry() {
 
           <div className="p-5">
             <h3 className="text-xl font-bold text-white mb-1">{agent.title}</h3>
-            <p className="text-sm text-gray-400">{agent.subtitle}</p>
+            <p className="text-sm text-gray-400 mb-3">{agent.subtitle}</p>
+            <ShareButton
+              title={agent.title}
+              description={agent.subtitle}
+              url={`${window.location.origin}/community/agents`}
+            />
           </div>
         </div>
       ))

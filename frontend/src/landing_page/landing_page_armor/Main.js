@@ -52,6 +52,8 @@ import ArmorAgentRegistry from "./ArmorAgentRegistry";
 import ArmorHubs from "./ArmorHubs";
 import ArmorAIAcademy from "./ArmorAIAcademy";
 import ArmorAIAcademyOverview from "./ArmorAIAcademyOverview";
+import AmbassadorProgram from "./AmbassadorProgram";
+import StartAChapter from "./StartAChapter";
 
 // ─── Nav config ──────────────────────────────────────────────────
 const navigation = [
@@ -297,6 +299,8 @@ export default function Main() {
                         element={<ArmorGrantsPartnerships />}
                     />
                     <Route path="/regionalhubs" element={<ArmorHubs />} />
+                    <Route path="/ambassador" element={<AmbassadorProgram />} />
+                    <Route path="/start-a-chapter" element={<StartAChapter />} />
                     {/* Fallback */}
                     <Route path="/academy" element={<ArmorAIAcademy />} />
                 </Routes>

@@ -136,6 +136,8 @@ export const communityPartnershipsPath = `${communityBase}/partnerships`;
 export const communityReferralsPath   = `${communityBase}/referrals`;
 export const communityCoffeeChatsPath = `${communityBase}/coffeechats`;
 export const communityRegionalHubsPath = `${communityBase}/regionalhubs`;
+export const communityAmbassadorPath = `${communityBase}/ambassador`;
+export const communityStartChapterPath = `${communityBase}/start-a-chapter`;
 
 // ── CUSTOMERS BASE ───────────────────────────────────────────────
 export const customersBase = "/customers";
