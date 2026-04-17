@@ -17,7 +17,6 @@ import {
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
 import ImpactDashboard from "./ImpactDashboard";
-import NewsletterSignup from "./NewsletterSignup";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -223,7 +222,6 @@ export default function ArmorMain() {
         </section> */}
 
         <ImpactDashboard />
-        <NewsletterSignup />
 
         {/* Section header */}
         <section className="max-w-7xl mx-auto px-6 pt-12 sm:pt-16" id="sections">
