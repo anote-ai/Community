@@ -12,8 +12,13 @@ import {
   communityRegionalHubsPath,
   communityAcademyPath,
   communityAcademyOverviewPath,
+  communityAmbassadorPath,
+  communityStartChapterPath,
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
+import ImpactDashboard from "./ImpactDashboard";
+import NewsletterSignup from "./NewsletterSignup";
+import LearningPathQuiz from "./LearningPathQuiz";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -67,6 +72,16 @@ export default function ArmorMain() {
       path: communityNewsPath,
       blurb: "Stay current with major updates, launches, and trends across the AI ecosystem.",
     },
+    {
+      title: "Ambassador Program",
+      path: communityAmbassadorPath,
+      blurb: "Refer members, earn recognition, and unlock exclusive perks as an Anote community ambassador.",
+    },
+    {
+      title: "Start a Chapter",
+      path: communityStartChapterPath,
+      blurb: "Bring Anote's AI community to your city. Apply to become a local chapter organizer.",
+    },
   ];
 
   const cardStyles = (featured = false) =>
@@ -87,6 +102,7 @@ export default function ArmorMain() {
       className="min-h-screen text-white pb-24 overflow-hidden"
       style={{ backgroundColor: BG_DARK }}
     >
+      <LearningPathQuiz />
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -207,6 +223,9 @@ export default function ArmorMain() {
             </div>
           </div>
         </section> */}
+
+        <ImpactDashboard />
+        <NewsletterSignup />
 
         {/* Section header */}
         <section className="max-w-7xl mx-auto px-6 pt-12 sm:pt-16" id="sections">
