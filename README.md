@@ -87,4 +87,4 @@ For full setup details, CI/CD, and contribution guidelines, see [CODEBASE_SETUP.
 ## 📬 Contact
 For questions, partnerships, or contributions:  
 **Email**: [nvidra@anote.ai](mailto:nvidra@anote.ai)  
-**Website**: [https://anote.ai](https://community.anote.ai)  
+**Website**: [https://community.anote.ai](https://community.anote.ai)  
