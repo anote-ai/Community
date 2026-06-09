@@ -9,6 +9,34 @@ The **Anote Community Portal** is the hub for AI builders, researchers, operator
 
 ---
 
+## 🛠️ Getting Started
+
+This repository contains the `frontend/` directory — a React application.
+
+**Prerequisites:** Node.js 18+
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/anote-ai/Community.git
+cd Community
+
+# 2. Install dependencies
+cd frontend && npm install --legacy-peer-deps
+
+# 3. Set up environment variables
+cp .env.example .env
+# Edit .env and fill in REACT_APP_BACK_END_HOST and REACT_APP_FRONT_END_HOST
+
+# 4. Start the dev server
+npm start
+```
+
+The app will be available at `http://localhost:3000`.
+
+For full setup details, CI/CD, and contribution guidelines, see [CODEBASE_SETUP.md](./CODEBASE_SETUP.md).
+
+---
+
 ## 🚀 Features
 
 ### 📅 Events
@@ -59,4 +87,4 @@ The **Anote Community Portal** is the hub for AI builders, researchers, operator
 ## 📬 Contact
 For questions, partnerships, or contributions:  
 **Email**: [nvidra@anote.ai](mailto:nvidra@anote.ai)  
-**Website**: [https://anote.ai](https://community.anote.ai)  
+**Website**: [https://community.anote.ai](https://community.anote.ai)  
