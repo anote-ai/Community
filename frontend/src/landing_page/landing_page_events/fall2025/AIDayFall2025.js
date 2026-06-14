@@ -194,6 +194,7 @@
 
 import AIDayVideo from "../AIDayVideo";
 import "../../landing_page_styles/Agenda.css";
+import SEO from "../../../util/SEO";
 
 function AIDayFall2025() {
     var agendaItems = [
@@ -251,6 +252,21 @@ function AIDayFall2025() {
 
   return (
     <div className="w-screen bg-gray-900 mb-20">
+      <SEO
+        title="AI Day Fall 2025"
+        description="Anote's Cornell Tech and Break Through AI Talks on fine-tuning LLMs and multimodal AI systems."
+        path="/aidayfall2025"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "AI Day Fall 2025",
+          "startDate": "2025-12-09",
+          "location": { "@type": "Place", "name": "Cornell Tech, New York, NY" },
+          "organizer": { "@type": "Organization", "name": "Anote AI", "url": "https://anote.ai" },
+          "description": "Anote's Cornell Tech and Break Through AI Talks on fine-tuning LLMs and multimodal AI systems.",
+          "url": "https://community.anote.ai/aidayfall2025"
+        }}
+      />
       <div className="pt-10">
       <div className="text-white justify-center flex flex-col text-center pt-24">
           <div className="text-4xl sm:text-5xl mt-8 mb-4 text-center font-medium lg:font-bold bg-clip-text text-transparent bg-gradient-to-b from-turquoise-500 to-blue-400">

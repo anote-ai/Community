@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { FaPlay } from "react-icons/fa";
 import ShareButton from "./ShareButton";
+import SEO from "../../util/SEO";
 
 function ArmorAgentRegistry() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -1257,6 +1258,11 @@ function ArmorAgentRegistry() {
 
   return (
     <div className="min-h-screen px-5 lg:px-32 py-24">
+      <SEO
+        title="AI Agents Gallery"
+        description="Discover domain-specific community agents built for real workflows and practical use cases."
+        path="/community/agents"
+      />
       <h1 className="text-center text-5xl font-extrabold text-white mb-6 tracking-tight">Agent Registry</h1>
 
       {/* Category selector */}

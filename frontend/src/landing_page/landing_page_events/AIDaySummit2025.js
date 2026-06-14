@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../landing_page_styles/Registrations.css";
+import SEO from "../../util/SEO";
 import AIDaySummit2025Agenda from "./AIDaySummit2025Agenda";
 import AIDaySummit2025PartnerLogos from "./AIDaySummit2025PartnerLogos";
 import AIDaySummit2025PreferredPartnerLogos from "./AIDaySummit2025PreferredPartnerLogos";
@@ -57,6 +58,21 @@ function Registration() {
 
   return (
     <div>
+    <SEO
+      title="AI Day Summit 2025"
+      description="Learn how to make AI more accessible at AI Day Summit 2025 in New York City."
+      path="/aidaysummit2025"
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "AI Day Summit 2025",
+        "startDate": "2025-02-12",
+        "location": { "@type": "Place", "name": "New York, NY" },
+        "organizer": { "@type": "Organization", "name": "Anote AI", "url": "https://anote.ai" },
+        "description": "Learn how to make AI more accessible at AI Day Summit 2025.",
+        "url": "https://community.anote.ai/aidaysummit2025"
+      }}
+    />
     <div className="w-screen bg-gray-900 text-white min-h-screen flex items-center justify-center">
       {/* <div className="registration-container bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-lg mx-4 mb-4">
         <h2 className="text-3xl font-bold mb-4 text-center">

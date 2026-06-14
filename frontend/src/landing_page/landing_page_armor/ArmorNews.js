@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
+import SEO from "../../util/SEO";
 
 /* ------------------------------------------------------------------
  * ArmorNews – Improved, more intuitive UI + more robust data loading
@@ -209,6 +210,11 @@ export default function ArmorNews({
 
   return (
     <div className="mx-auto max-w-6xl p-6">
+      <SEO
+        title="AI News"
+        description="Stay current with major updates, launches, and trends across the AI ecosystem."
+        path="/community/news"
+      />
       <Header count={filtered.length} page={currentPage} pages={totalPages} />
 
       {/* Controls */}

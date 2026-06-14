@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../../util/SEO";
 
 // Curated AI Learning Resources
 const resources = [
@@ -66,6 +67,11 @@ const resources = [
 export default function ArmorCourses() {
   return (
     <section className="w-full bg-gray-900 min-h-screen py-14 px-4">
+      <SEO
+        title="Courses"
+        description="Access self-paced learning tracks, open-source tools, and curated technical resources."
+        path="/community/resources"
+      />
       <div className="max-w-6xl mx-auto">
         {/* headline ---------------------------------------------------- */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 text-center">
