@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 // Google Sheets config
 const SHEET_ID = "1Tr9-EvVLRroabQN7r5Xdu1W9gGKve4_WF4Lp8mZcEU4";
-const API_KEY = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
+const API_KEY = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY ?? "";
 const SHEET_NAME = "AI Jobs With Anote Referrals";
 
 export default function ArmorReferrals() {
