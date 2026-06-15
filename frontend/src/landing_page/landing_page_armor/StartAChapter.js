@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SEO from "../../util/SEO";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -58,6 +59,11 @@ export default function StartAChapter() {
 
   return (
     <div className="min-h-screen text-white pb-24" style={{ backgroundColor: BG_DARK }}>
+      <SEO
+        title="Start a Chapter"
+        description="Bring Anote's AI community to your city. Apply to become a local chapter organizer."
+        path="/community/start-a-chapter"
+      />
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div

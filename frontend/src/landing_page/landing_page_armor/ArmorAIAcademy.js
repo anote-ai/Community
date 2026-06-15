@@ -1,3 +1,5 @@
+import SEO from "../../util/SEO";
+
 export default function AnoteAIAcademy() {
   const lectures = [
     {
@@ -278,6 +280,11 @@ const studentPresentations = [
 
   return (
     <div className="min-h-screen bg-[#111827] text-white">
+      <SEO
+        title="AI Academy"
+        description="Explore hands-on AI learning programs, lectures, projects, and community-driven education."
+        path="/community/academy"
+      />
       <section className="relative overflow-hidden border-b border-white/10 bg-[#111827]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(40,178,251,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(222,254,71,0.12),transparent_30%),radial-gradient(circle_at_bottom_center,rgba(255,255,255,0.04),transparent_35%)]" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaEnvelope, FaLinkedin } from "react-icons/fa";
+import SEO from "../../util/SEO";
 
 const SHEET_ID   = "1Tr9-EvVLRroabQN7r5Xdu1W9gGKve4_WF4Lp8mZcEU4";
 const API_KEY    = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
@@ -52,6 +53,11 @@ export default function ArmorCoffeeChats() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
+      <SEO
+        title="Coffee Chats"
+        description="Book 1-on-1 conversations with Anote alumni and community members in roles you admire."
+        path="/community/coffeechats"
+      />
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
         <h1 className="text-3xl font-bold text-white">Coffee Chats with Anote Community Members</h1>
