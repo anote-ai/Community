@@ -8,6 +8,8 @@ export default function NewsletterSignup() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  if (localStorage.getItem("newsletterSubscribed")) return null;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
