@@ -18,6 +18,7 @@ import {
 import ArmorHubs from "./ArmorHubs";
 import ImpactDashboard from "./ImpactDashboard";
 import SEO from "../../util/SEO";
+import NewsletterSignup from "./NewsletterSignup";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -226,6 +227,8 @@ export default function ArmorMain() {
             </div>
           </div>
         </section> */}
+
+        <NewsletterSignup />
 
         <ImpactDashboard />
 
