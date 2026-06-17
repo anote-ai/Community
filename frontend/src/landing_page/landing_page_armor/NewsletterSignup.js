@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ACCENT_YELLOW = "#defe47";
+const STORAGE_KEY = "newsletterSubscribed";
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-  if (localStorage.getItem("newsletterSubscribed")) return null;
+  useEffect(() => {
+    if (submitted) {
+      const t = setTimeout(() => setVisible(false), 3000);
+      return () => clearTimeout(t);
+    }
+  }, [submitted]);
+
+  if (!visible || localStorage.getItem(STORAGE_KEY)) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,75 +29,64 @@ export default function NewsletterSignup() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email }),
       }).catch(() => {});
-      localStorage.setItem("newsletterSubscribed", "true");
+      localStorage.setItem(STORAGE_KEY, "true");
       setSubmitted(true);
     } finally {
       setLoading(false);
     }
   };
 
-  if (submitted) {
-    return (
-      <section className="max-w-7xl mx-auto px-6 pt-8 pb-4">
-        <div className="rounded-2xl border border-white/10 bg-white/5 px-8 py-7 flex items-center gap-4">
-          <span className="text-2xl">🎉</span>
-          <div>
-            <p className="font-semibold text-white">You're in!</p>
-            <p className="text-sm text-gray-400">
-              Welcome to the Anote AI community newsletter.
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="max-w-7xl mx-auto px-6 pt-8 pb-4">
-      <div
-        className="rounded-2xl border border-white/10 px-8 py-7"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(40,178,251,0.08) 0%, rgba(222,254,71,0.05) 100%)",
-        }}
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center gap-6 justify-between">
-          <div>
-            <h3 className="text-lg font-bold text-white">Stay in the loop</h3>
-            <p className="mt-1 text-sm text-gray-400">
-              Weekly AI news, events, and resources — straight to your inbox.
-            </p>
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-gray-900/95 backdrop-blur-sm px-6 py-4">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4 justify-between">
+        {submitted ? (
+          <div className="flex items-center gap-3 text-white">
+            <span className="text-xl">🎉</span>
+            <span className="font-semibold">You're in! Welcome to the community.</span>
           </div>
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3 min-w-0 flex-1 sm:max-w-md"
-          >
-            <input
-              type="text"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="rounded-xl px-4 py-2.5 bg-white/10 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-white/30 w-full sm:w-28"
-            />
-            <input
-              type="email"
-              required
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="rounded-xl px-4 py-2.5 bg-white/10 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-white/30 flex-1"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="rounded-xl px-5 py-2.5 text-sm font-semibold text-black transition hover:opacity-90 shrink-0"
-              style={{ backgroundColor: ACCENT_YELLOW }}
+        ) : (
+          <>
+            <p className="text-white font-semibold text-sm sm:text-base shrink-0">
+              Join 2,000+ AI builders — get weekly AI news, events, and resources
+            </p>
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-2 flex-1 sm:max-w-lg"
             >
-              {loading ? "..." : "Subscribe"}
-            </button>
-          </form>
-        </div>
+              <input
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="rounded-lg px-3 py-2 bg-white/10 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-white/30 w-full sm:w-24"
+              />
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="rounded-lg px-3 py-2 bg-white/10 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-white/30 flex-1"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="rounded-lg px-4 py-2 text-sm font-semibold text-black transition hover:opacity-90 shrink-0"
+                style={{ backgroundColor: ACCENT_YELLOW }}
+              >
+                {loading ? "..." : "Subscribe"}
+              </button>
+            </form>
+          </>
+        )}
+        <button
+          onClick={() => setVisible(false)}
+          className="text-gray-400 hover:text-white text-lg shrink-0"
+          aria-label="Dismiss"
+        >
+          ✕
+        </button>
       </div>
-    </section>
+    </div>
   );
 }

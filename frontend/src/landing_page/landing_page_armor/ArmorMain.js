@@ -19,6 +19,7 @@ import ArmorHubs from "./ArmorHubs";
 import ImpactDashboard from "./ImpactDashboard";
 import SEO from "../../util/SEO";
 import NewsletterSignup from "./NewsletterSignup";
+import NewsletterModal from "./NewsletterModal";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -98,6 +99,7 @@ export default function ArmorMain() {
         };
 
   return (
+    <>
     <div
       className="min-h-screen text-white pb-24 overflow-hidden"
       style={{ backgroundColor: BG_DARK }}
@@ -228,8 +230,6 @@ export default function ArmorMain() {
           </div>
         </section> */}
 
-        <NewsletterSignup />
-
         <ImpactDashboard />
 
         {/* Section header */}
@@ -320,5 +320,8 @@ export default function ArmorMain() {
         </section>
       </div>
     </div>
+    <NewsletterSignup />
+    <NewsletterModal />
+  </>
   );
 }
