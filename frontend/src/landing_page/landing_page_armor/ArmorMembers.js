@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import SEO from "../../util/SEO";
 
 const SHEET_ID = "1IREd2vCxo7rDGOoDUYtzoywVGLqqUFCsu3qGsA0HsMc";
 const API_KEY = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
@@ -70,6 +71,11 @@ function ArmorMembers() {
 
   return (
     <div className="bg-gray-900 mb-20 px-8 pt-10">
+      <SEO
+        title="Members"
+        description="Browse and connect with AI builders, researchers, founders, and operators across the Anote community."
+        path="/community/members"
+      />
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 space-y-4 sm:space-y-0">
         <h1 className="text-3xl font-bold text-white">Community Members</h1>
         <input

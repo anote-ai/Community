@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { FaPlay, FaTimes, FaSortAlphaDown, FaSortAlphaUp } from "react-icons/fa";
+import SEO from "../../util/SEO";
 
 const videoData = [
 
@@ -963,6 +964,11 @@ function ArmorContent() {
 
   return (
     <div className="min-h-screen bg-gray-900 py-10 px-5 overflow-y-auto">
+      <SEO
+        title="Content"
+        description="Read blogs, explore decks, and watch demos from community experts and contributors."
+        path="/community/content"
+      />
       <h1 className="text-white text-4xl font-bold mb-10 text-center">
         Armor Video Library
       </h1>

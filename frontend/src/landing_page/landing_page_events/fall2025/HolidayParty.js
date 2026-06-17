@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AIDayVideo from "../AIDayVideo";
+import SEO from "../../../util/SEO";
 import "../../landing_page_styles/Agenda.css";
 import "../../landing_page_styles/Registrations.css";
 import AIDayVideoNew from "../AIDayVideoNew";
@@ -77,6 +78,21 @@ const [submissionError, setSubmissionError] = useState("");
 
   return (
   <div className="w-screen bg-gray-900 text-white flex items-center justify-center">
+      <SEO
+        title="Anote Holiday Party 2025"
+        description="Anote's Holiday Party celebrating the Fall team in New York City."
+        path="/holidayparty"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "Anote Holiday Party 2025",
+          "startDate": "2025-12-12",
+          "location": { "@type": "Place", "name": "New York, NY" },
+          "organizer": { "@type": "Organization", "name": "Anote AI", "url": "https://anote.ai" },
+          "description": "Anote's Holiday Party celebrating the Fall team in New York City.",
+          "url": "https://community.anote.ai/holidayparty"
+        }}
+      />
     <div className="w-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-8">
       <h1 className="text-3xl md:text-5xl font-bold mb-8 text-center">
         Anote's Holiday Party 2025

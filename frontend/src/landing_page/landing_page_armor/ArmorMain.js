@@ -17,6 +17,7 @@ import {
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
 import ImpactDashboard from "./ImpactDashboard";
+import SEO from "../../util/SEO";
 import NewsletterSignup from "./NewsletterSignup";
 
 const ACCENT_YELLOW = "#defe47";
@@ -101,6 +102,11 @@ export default function ArmorMain() {
       className="min-h-screen text-white pb-24 overflow-hidden"
       style={{ backgroundColor: BG_DARK }}
     >
+      <SEO
+        title="Home"
+        description="Join 2,000+ AI builders, researchers, and operators. Discover events, courses, agents, jobs, and more."
+        path="/community/home"
+      />
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div

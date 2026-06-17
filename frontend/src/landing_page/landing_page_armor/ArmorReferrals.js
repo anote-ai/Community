@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
+import SEO from "../../util/SEO";
 
 // Google Sheets config
 const SHEET_ID = "1Tr9-EvVLRroabQN7r5Xdu1W9gGKve4_WF4Lp8mZcEU4";
-const API_KEY = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
+const API_KEY = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY ?? "";
 const SHEET_NAME = "AI Jobs With Anote Referrals";
 
 export default function ArmorReferrals() {
@@ -61,6 +62,11 @@ export default function ArmorReferrals() {
 
   return (
     <div className="w-full bg-gray-900 mb-20 px-8 pt-10">
+      <SEO
+        title="Job Referrals"
+        description="Get warm introductions to recruiters, hiring teams, and AI organizations."
+        path="/community/referrals"
+      />
       {/* Header & Search */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 space-y-4 sm:space-y-0">
         <h1 className="text-3xl font-bold text-white">AI Jobs – Referrals</h1>

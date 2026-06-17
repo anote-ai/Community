@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { communityEventsPath, communityMembersPath } from "../../constants/RouteConstants";
+import SEO from "../../util/SEO";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -46,6 +47,11 @@ export default function AmbassadorProgram() {
 
   return (
     <div className="min-h-screen text-white pb-24" style={{ backgroundColor: BG_DARK }}>
+      <SEO
+        title="Ambassador Program"
+        description="Refer members, earn recognition, and unlock exclusive perks as an Anote community ambassador."
+        path="/community/ambassador"
+      />
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div

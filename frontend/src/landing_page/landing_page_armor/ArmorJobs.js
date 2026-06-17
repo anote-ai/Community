@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../../util/SEO";
 
 export default function AiJobsPage() {
   const [jobs, setJobs] = useState([]);
@@ -31,6 +32,11 @@ export default function AiJobsPage() {
 
   return (
     <div className="mx-auto p-6">
+      <SEO
+        title="AI Job Board"
+        description="Browse AI and ML job listings from leading companies in the AI ecosystem."
+        path="/community/jobs"
+      />
       <h1 className="text-3xl font-bold mb-8">AI Job Board</h1>
       <div className="space-y-4">
         {jobs.length === 0 ? (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SEO from "../../util/SEO";
 import {
   aiDayPath,
   panaceaPath,
@@ -310,6 +311,11 @@ const ArmorEvents = () => {
 
   return (
     <div className="bg-gray-900 py-20">
+      <SEO
+        title="Events"
+        description="Find upcoming meetups, hackathons, workshops, and gatherings online and in person."
+        path="/community/events"
+      />
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tabs */}
         <div className="mb-6 space-x-4">

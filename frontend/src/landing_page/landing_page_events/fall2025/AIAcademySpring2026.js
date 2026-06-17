@@ -169,6 +169,7 @@
 // export default AIAcademyPresentationsSpring2026;
 
 import "../../landing_page_styles/Agenda.css";
+import SEO from "../../../util/SEO";
 
 function AIAcademyPresentationsSpring2026() {
   const agendaItems = [
@@ -188,6 +189,21 @@ function AIAcademyPresentationsSpring2026() {
 
   return (
     <div className="w-full bg-[#111827] pb-24">
+      <SEO
+        title="AI Academy Spring 2026 — Student Projects"
+        description="Anote AI Academy Spring 2026 student project presentations."
+        path="/aiacademyspring2026"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "AI Academy Spring 2026 — Student Project Presentations",
+          "startDate": "2026-03-15",
+          "location": { "@type": "Place", "name": "New York, NY" },
+          "organizer": { "@type": "Organization", "name": "Anote AI", "url": "https://anote.ai" },
+          "description": "Anote AI Academy Spring 2026 student project presentations.",
+          "url": "https://community.anote.ai/aiacademyspring2026"
+        }}
+      />
       <div className="mx-auto max-w-7xl px-6 pt-24">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center rounded-full border border-[#28b2fb]/30 bg-[#28b2fb]/10 px-4 py-1 text-sm font-medium text-[#28b2fb]">
