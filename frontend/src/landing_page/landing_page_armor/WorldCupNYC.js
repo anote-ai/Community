@@ -3,14 +3,21 @@ import SEO from "../../util/SEO";
 import {
   WORLD_CUP_GAMES,
   STAGE_ORDER,
+  DEFAULT_TABLE_CAPACITY,
   formatGameDate,
   formatGameTime,
+  gameLabel,
 } from "./worldCupData";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
 const BG_DARK = "#111827";
 const STORAGE_KEY = "worldCupReservations";
+
+// Deploy frontend/google-apps-script/WorldCupRsvp.gs as a Web App (see that
+// folder's README) and paste the resulting /exec URL here. Until then,
+// "Reserve a Spot" only saves locally — no Sheet row, no email gets sent.
+const WORLD_CUP_RSVP_SCRIPT_URL = "REPLACE_WITH_YOUR_APPS_SCRIPT_WEB_APP_URL";
 
 function getReservations() {
   try {
@@ -42,10 +49,23 @@ function GameCard({ game, reserved, onReserve }) {
     if (!email) return;
     setLoading(true);
     try {
-      await fetch("https://api.anote.ai/worldcup/rsvp", {
+      // mode: "no-cors" (same pattern as the other event RSVP pages) means we
+      // can't read the response here — the Apps Script decides confirmed vs.
+      // waitlisted server-side and emails the result directly to the guest.
+      await fetch(WORLD_CUP_RSVP_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ gameId: game.id, name, email }),
+        body: JSON.stringify({
+          gameId: game.id,
+          gameLabel: gameLabel(game),
+          date: game.date,
+          time: game.time,
+          name,
+          email,
+          restaurant: game.teamA.restaurant || "TBD",
+          capacity: DEFAULT_TABLE_CAPACITY,
+        }),
       }).catch(() => {});
       onReserve(game.id);
       setOpen(false);
@@ -106,10 +126,11 @@ function GameCard({ game, reserved, onReserve }) {
 
       {reserved ? (
         <div
-          className="rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-black"
+          className="rounded-xl px-4 py-2.5 text-center text-xs font-semibold text-black"
           style={{ backgroundColor: ACCENT_YELLOW }}
         >
-          You're in! See you there 🎉
+          Request sent — check your email for a confirmation + calendar invite
+          (or a waitlist note if the table's full) 🎉
         </div>
       ) : open ? (
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">

@@ -1,3 +1,7 @@
+// Seats held per game at the watch-party restaurant. This is a placeholder —
+// update it once a real table size is confirmed with each restaurant.
+export const DEFAULT_TABLE_CAPACITY = 25;
+
 // Country code -> name / flag / suggested NYC watch-party restaurant.
 // One restaurant per country, reused across every game that country plays.
 // `verified: false` entries are best-guess suggestions (no live web access
@@ -233,4 +237,8 @@ export function formatGameTime(time24) {
   const period = h >= 12 ? "PM" : "AM";
   const hour12 = h % 12 === 0 ? 12 : h % 12;
   return `${hour12}:${String(m).padStart(2, "0")} ${period} ET`;
+}
+
+export function gameLabel(game) {
+  return `${game.teamA.name} vs ${game.teamB.name} — ${game.stage}`;
 }
