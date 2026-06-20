@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SEO from "../../util/SEO";
 import {
   WORLD_CUP_GAMES,
+  STAGE_ORDER,
   formatGameDate,
   formatGameTime,
 } from "./worldCupData";
@@ -84,6 +85,12 @@ function GameCard({ game, reserved, onReserve }) {
         <span>{formatGameTime(game.time)}</span>
       </div>
 
+      {game.workHoursConflict && (
+        <div className="mb-4 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-300">
+          ⚠️ Falls in the 9–5 workday — too big to skip, so it's listed anyway. Plan to step out or watch from your desk.
+        </div>
+      )}
+
       <div className="mb-5 text-sm">
         {game.teamA.restaurant ? (
           <p className="text-gray-300">
@@ -161,6 +168,10 @@ export default function WorldCupNYC() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   };
 
+  const gamesByStage = STAGE_ORDER
+    .map((stage) => ({ stage, games: WORLD_CUP_GAMES.filter((g) => g.stageGroup === stage) }))
+    .filter((group) => group.games.length > 0);
+
   return (
     <div className="min-h-screen text-white pb-24" style={{ backgroundColor: BG_DARK }}>
       <SEO
@@ -181,8 +192,9 @@ export default function WorldCupNYC() {
             World Cup in NYC ⚽
           </h1>
           <p className="mt-5 max-w-2xl text-base sm:text-lg text-gray-300 leading-relaxed">
-            Every 2026 World Cup game that lands outside the 9-to-5 workday, watched together
-            at a local NYC restaurant repping the team. Pick a game, reserve your spot, and show up.
+            Every 2026 World Cup game that lands outside the 9-to-5 workday — plus every Round of 16
+            game and beyond, work hours or not — watched together at a local NYC restaurant repping
+            the team. Pick a game, reserve your spot, and show up.
           </p>
           <p className="mt-4 max-w-2xl text-xs text-gray-500">
             Restaurant picks marked "suggested" are best-effort recommendations and haven't been
@@ -191,17 +203,27 @@ export default function WorldCupNYC() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {WORLD_CUP_GAMES.map((game) => (
-            <GameCard
-              key={game.id}
-              game={game}
-              reserved={reservations.includes(game.id)}
-              onReserve={handleReserve}
-            />
-          ))}
-        </div>
+      <div className="max-w-7xl mx-auto px-6 pt-12 space-y-12">
+        {gamesByStage.map(({ stage, games }) => (
+          <section key={stage}>
+            <div className="mb-5 flex items-center gap-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-white">{stage}</h2>
+              <span className="text-sm text-gray-500">
+                {games.length} game{games.length !== 1 ? "s" : ""}
+              </span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {games.map((game) => (
+                <GameCard
+                  key={game.id}
+                  game={game}
+                  reserved={reservations.includes(game.id)}
+                  onReserve={handleReserve}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );

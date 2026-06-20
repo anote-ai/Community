@@ -179,17 +179,46 @@ function buildTeam(code) {
   return { code, name: describeSlot(code), flag: "❓", restaurant: null, restaurantVerified: false, tbd: true };
 }
 
-// Final, filtered "World Cup in NYC" watch-party list: real future games,
-// outside the user's Mon–Fri 9–5 work window.
+// Stages where every game is single-elimination (one shot, no rematch). These
+// are always shown even if they land in the Mon–Fri 9–5 work window — missing
+// a semifinal or final isn't the same as missing a routine group game — but
+// they're flagged with `workHoursConflict` so the UI can call that out.
+const KNOCKOUT_STAGES_ALWAYS_SHOWN = [
+  "Round of 16",
+  "Quarter-final",
+  "Semi-final",
+  "Play-off for third place",
+  "Final",
+];
+
+export const STAGE_ORDER = [
+  "First Stage",
+  "Round of 32",
+  ...KNOCKOUT_STAGES_ALWAYS_SHOWN,
+];
+
+function stageGroup(stage) {
+  return STAGE_ORDER.find((s) => stage.startsWith(s)) || stage;
+}
+
+// Final, filtered "World Cup in NYC" watch-party list. First Stage and Round
+// of 32 games that fall Mon–Fri 9–5 are dropped (too many of those to plan
+// around); Round of 16 through the Final are always kept, since there are
+// only a handful of those all summer.
 export const WORLD_CUP_GAMES = RAW_GAMES
-  .filter((g) => isUserAvailable(g.day, g.time))
+  .filter((g) => {
+    const available = isUserAvailable(g.day, g.time);
+    return available || KNOCKOUT_STAGES_ALWAYS_SHOWN.includes(stageGroup(g.stage));
+  })
   .map((g, idx) => ({
     id: `wc-${g.date}-${idx}`,
     date: g.date,
     day: g.day,
     time: g.time,
     stage: g.stage,
+    stageGroup: stageGroup(g.stage),
     venue: g.venue,
+    workHoursConflict: !isUserAvailable(g.day, g.time),
     teamA: buildTeam(g.teamA),
     teamB: buildTeam(g.teamB),
   }));
