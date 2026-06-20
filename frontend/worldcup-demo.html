@@ -6,6 +6,8 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { background-color: #111827; }
+  .game-card { background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); }
+  .accent-bar { background: linear-gradient(90deg, #28b2fb, #defe47); }
 </style>
 </head>
 <body class="text-white pb-24">
@@ -27,140 +29,209 @@
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 pt-12 space-y-12" id="sections"></div>
+  <!-- Cards are pre-rendered as static HTML below so they show up even if
+       the inline script is blocked/sandboxed by whatever is previewing this
+       file. The script only adds the Reserve -> form -> confirmation
+       interactivity on top, via event delegation on #sections. -->
+  <div class="max-w-7xl mx-auto px-6 pt-12 space-y-12" id="sections">
+
+    <section>
+      <div class="mb-5 flex items-center gap-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-white">First Stage</h2>
+        <span class="text-sm text-gray-500">2 games</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+          <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+            <span>First Stage · Group I</span><span>New York/New Jersey Stadium</span>
+          </div>
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">🇳🇴</span>
+              <span class="text-sm font-semibold truncate text-white">Norway</span>
+            </div>
+            <span class="text-gray-500 font-bold text-sm shrink-0">VS</span>
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">🇸🇳</span>
+              <span class="text-sm font-semibold truncate text-white">Senegal</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-sm text-gray-300 mb-4">
+            <span class="font-semibold" style="color:#28b2fb;">Mon, Jun 22</span>
+            <span>8:00 PM ET</span>
+          </div>
+          <div class="mb-5 text-sm">
+            <p class="text-gray-300">🍽️ Watch at <span class="text-white font-medium">Aquavit (Midtown)</span></p>
+          </div>
+          <div class="reserve-area" data-game-id="wc-demo-1">
+            <button class="reserve-btn w-full rounded-xl px-4 py-2.5 font-semibold text-black transition hover:opacity-90" style="background-color:#defe47;">Reserve a Spot</button>
+          </div>
+        </div>
+
+        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+          <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+            <span>First Stage · Group J</span><span>San Francisco Bay Area Stadium</span>
+          </div>
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">🇯🇴</span>
+              <span class="text-sm font-semibold truncate text-white">Jordan</span>
+            </div>
+            <span class="text-gray-500 font-bold text-sm shrink-0">VS</span>
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">🇩🇿</span>
+              <span class="text-sm font-semibold truncate text-white">Algeria</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-sm text-gray-300 mb-4">
+            <span class="font-semibold" style="color:#28b2fb;">Mon, Jun 22</span>
+            <span>11:00 PM ET</span>
+          </div>
+          <div class="mb-5 text-sm">
+            <p class="text-gray-300">🍽️ Watch at <span class="text-white font-medium">Naya (Midtown East)</span>
+              <span class="text-gray-500"> (suggested — please confirm before booking)</span></p>
+          </div>
+          <div class="reserve-area" data-game-id="wc-demo-2">
+            <button class="reserve-btn w-full rounded-xl px-4 py-2.5 font-semibold text-black transition hover:opacity-90" style="background-color:#defe47;">Reserve a Spot</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="mb-5 flex items-center gap-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Round of 16</h2>
+        <span class="text-sm text-gray-500">1 game</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+          <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+            <span>Round of 16</span><span>Dallas Stadium</span>
+          </div>
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">❓</span>
+              <span class="text-sm font-semibold truncate text-gray-400">Winner of Match 83</span>
+            </div>
+            <span class="text-gray-500 font-bold text-sm shrink-0">VS</span>
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">❓</span>
+              <span class="text-sm font-semibold truncate text-gray-400">Winner of Match 84</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-sm text-gray-300 mb-4">
+            <span class="font-semibold" style="color:#28b2fb;">Mon, Jul 6</span>
+            <span>3:00 PM ET</span>
+          </div>
+          <div class="mb-4 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-300">
+            ⚠️ Falls in the 9–5 workday — too big to skip, so it's listed anyway. Plan to step out or watch from your desk.
+          </div>
+          <div class="mb-5 text-sm">
+            <p class="text-gray-500">🍽️ Restaurant TBD — teams not yet determined</p>
+          </div>
+          <div class="reserve-area" data-game-id="wc-demo-3">
+            <button class="reserve-btn w-full rounded-xl px-4 py-2.5 font-semibold text-black transition hover:opacity-90" style="background-color:#defe47;">Reserve a Spot</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="mb-5 flex items-center gap-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Semi-final</h2>
+        <span class="text-sm text-gray-500">1 game</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+          <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+            <span>Semi-final</span><span>Dallas Stadium</span>
+          </div>
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">❓</span>
+              <span class="text-sm font-semibold truncate text-gray-400">Winner of Match 97</span>
+            </div>
+            <span class="text-gray-500 font-bold text-sm shrink-0">VS</span>
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">❓</span>
+              <span class="text-sm font-semibold truncate text-gray-400">Winner of Match 98</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-sm text-gray-300 mb-4">
+            <span class="font-semibold" style="color:#28b2fb;">Tue, Jul 14</span>
+            <span>3:00 PM ET</span>
+          </div>
+          <div class="mb-4 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-300">
+            ⚠️ Falls in the 9–5 workday — too big to skip, so it's listed anyway. Plan to step out or watch from your desk.
+          </div>
+          <div class="mb-5 text-sm">
+            <p class="text-gray-500">🍽️ Restaurant TBD — teams not yet determined</p>
+          </div>
+          <div class="reserve-area" data-game-id="wc-demo-4">
+            <button class="reserve-btn w-full rounded-xl px-4 py-2.5 font-semibold text-black transition hover:opacity-90" style="background-color:#defe47;">Reserve a Spot</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="mb-5 flex items-center gap-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Final</h2>
+        <span class="text-sm text-gray-500">1 game</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+          <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
+            <span>Final</span><span>New York/New Jersey Stadium</span>
+          </div>
+          <div class="flex items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">❓</span>
+              <span class="text-sm font-semibold truncate text-gray-400">Winner of Match 101</span>
+            </div>
+            <span class="text-gray-500 font-bold text-sm shrink-0">VS</span>
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="text-2xl leading-none">❓</span>
+              <span class="text-sm font-semibold truncate text-gray-400">Winner of Match 102</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-sm text-gray-300 mb-4">
+            <span class="font-semibold" style="color:#28b2fb;">Sun, Jul 19</span>
+            <span>3:00 PM ET</span>
+          </div>
+          <div class="mb-5 text-sm">
+            <p class="text-gray-500">🍽️ Restaurant TBD — teams not yet determined</p>
+          </div>
+          <div class="reserve-area" data-game-id="wc-demo-5">
+            <button class="reserve-btn w-full rounded-xl px-4 py-2.5 font-semibold text-black transition hover:opacity-90" style="background-color:#defe47;">Reserve a Spot</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 
   <script>
     const ACCENT_YELLOW = "#defe47";
-    const ACCENT_BLUE = "#28b2fb";
 
-    // A representative slice of the real WORLD_CUP_GAMES data — not all 48,
-    // just enough to show every card state (verified restaurant, unverified
-    // restaurant disclaimer, TBD knockout slot, work-hours conflict badge).
-    const demoData = [
-      {
-        stage: "First Stage",
-        games: [
-          {
-            id: "wc-demo-1", stage: "First Stage · Group I", venue: "New York/New Jersey Stadium",
-            date: "Mon, Jun 22", time: "8:00 PM ET",
-            teamA: { flag: "🇳🇴", name: "Norway", restaurant: "Aquavit (Midtown)", verified: true },
-            teamB: { flag: "🇸🇳", name: "Senegal" },
-            conflict: false,
-          },
-          {
-            id: "wc-demo-2", stage: "First Stage · Group J", venue: "San Francisco Bay Area Stadium",
-            date: "Mon, Jun 22", time: "11:00 PM ET",
-            teamA: { flag: "🇯🇴", name: "Jordan", restaurant: "Naya (Midtown East)", verified: false },
-            teamB: { flag: "🇩🇿", name: "Algeria" },
-            conflict: false,
-          },
-        ],
-      },
-      {
-        stage: "Round of 16",
-        games: [
-          {
-            id: "wc-demo-3", stage: "Round of 16", venue: "Dallas Stadium",
-            date: "Mon, Jul 6", time: "3:00 PM ET",
-            teamA: { flag: "❓", name: "Winner of Match 83", tbd: true },
-            teamB: { flag: "❓", name: "Winner of Match 84", tbd: true },
-            conflict: true,
-          },
-        ],
-      },
-      {
-        stage: "Semi-final",
-        games: [
-          {
-            id: "wc-demo-4", stage: "Semi-final", venue: "Dallas Stadium",
-            date: "Tue, Jul 14", time: "3:00 PM ET",
-            teamA: { flag: "❓", name: "Winner of Match 97", tbd: true },
-            teamB: { flag: "❓", name: "Winner of Match 98", tbd: true },
-            conflict: true,
-          },
-        ],
-      },
-      {
-        stage: "Final",
-        games: [
-          {
-            id: "wc-demo-5", stage: "Final", venue: "New York/New Jersey Stadium",
-            date: "Sun, Jul 19", time: "3:00 PM ET",
-            teamA: { flag: "❓", name: "Winner of Match 101", tbd: true },
-            teamB: { flag: "❓", name: "Winner of Match 102", tbd: true },
-            conflict: false,
-          },
-        ],
-      },
-    ];
-
-    function teamBadge(team) {
-      return `
-        <div class="flex items-center gap-2 min-w-0">
-          <span class="text-2xl leading-none">${team.flag}</span>
-          <span class="text-sm font-semibold truncate ${team.tbd ? "text-gray-400" : "text-white"}">${team.name}</span>
-        </div>`;
-    }
-
-    function restaurantLine(team) {
-      if (team.restaurant) {
-        return `<p class="text-gray-300">🍽️ Watch at <span class="text-white font-medium">${team.restaurant}</span>
-          ${!team.verified ? '<span class="text-gray-500"> (suggested — please confirm before booking)</span>' : ""}</p>`;
-      }
-      return `<p class="text-gray-500">🍽️ Restaurant TBD — teams not yet determined</p>`;
-    }
-
-    function gameCard(game) {
-      return `
-        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10"
-          style="background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);">
-          <div class="absolute left-0 top-0 h-1 w-full opacity-90"
-            style="background: linear-gradient(90deg, ${ACCENT_BLUE}, ${ACCENT_YELLOW});"></div>
-
-          <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
-            <span>${game.stage}</span><span>${game.venue}</span>
-          </div>
-
-          <div class="flex items-center justify-between gap-3 mb-4">
-            ${teamBadge(game.teamA)}
-            <span class="text-gray-500 font-bold text-sm shrink-0">VS</span>
-            ${teamBadge(game.teamB)}
-          </div>
-
-          <div class="flex items-center gap-4 text-sm text-gray-300 mb-4">
-            <span class="font-semibold" style="color: ${ACCENT_BLUE};">${game.date}</span>
-            <span>${game.time}</span>
-          </div>
-
-          ${game.conflict ? `
-            <div class="mb-4 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-300">
-              ⚠️ Falls in the 9–5 workday — too big to skip, so it's listed anyway. Plan to step out or watch from your desk.
-            </div>` : ""}
-
-          <div class="mb-5 text-sm">${restaurantLine(game.teamA)}</div>
-
-          <div class="reserve-area" data-game-id="${game.id}">
-            <button class="reserve-btn w-full rounded-xl px-4 py-2.5 font-semibold text-black transition hover:opacity-90"
-              style="background-color: ${ACCENT_YELLOW};">Reserve a Spot</button>
-          </div>
-        </div>`;
-    }
-
+    // Progressive enhancement only: cards above are already static HTML, so
+    // they render even if this script doesn't run. This just wires up the
+    // Reserve -> form -> confirmation flow, same as the real component.
     const container = document.getElementById("sections");
-    demoData.forEach(({ stage, games }) => {
-      const section = document.createElement("section");
-      section.innerHTML = `
-        <div class="mb-5 flex items-center gap-3">
-          <h2 class="text-xl sm:text-2xl font-bold text-white">${stage}</h2>
-          <span class="text-sm text-gray-500">${games.length} game${games.length !== 1 ? "s" : ""}</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          ${games.map(gameCard).join("")}
-        </div>`;
-      container.appendChild(section);
-    });
 
-    // Wire up the Reserve button -> form -> "reserved" state, same flow as the real component.
     container.addEventListener("click", (e) => {
       if (e.target.classList.contains("reserve-btn")) {
         const area = e.target.closest(".reserve-area");
