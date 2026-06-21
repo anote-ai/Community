@@ -6,26 +6,43 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { background-color: #111827; }
-  .game-card { background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); }
+  .game-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
   .accent-bar { background: linear-gradient(90deg, #28b2fb, #defe47); }
+  .glow { filter: blur(64px); }
 </style>
 </head>
-<body class="text-white pb-24">
+<body class="text-white pb-24 overflow-hidden relative">
+
+  <!-- Background glows, matching ArmorMain/StartAChapter -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="glow absolute -top-24 -left-24 h-72 w-72 rounded-full opacity-20" style="background-color:#28b2fb;"></div>
+    <div class="glow absolute top-32 right-0 h-80 w-80 rounded-full opacity-10" style="background-color:#defe47;"></div>
+    <div class="glow absolute bottom-0 left-1/3 h-72 w-72 rounded-full opacity-10" style="background-color:#28b2fb;"></div>
+  </div>
 
   <!-- Hero -->
-  <div class="max-w-7xl mx-auto px-6 pt-10 sm:pt-16">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-10 sm:pt-16">
     <div class="relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-14"
       style="background: linear-gradient(135deg, rgba(40,178,251,0.08) 0%, rgba(17,24,39,0.98) 35%, rgba(17,24,39,0.98) 70%, rgba(222,254,71,0.08) 100%);">
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">World Cup in NYC ⚽</h1>
-      <p class="mt-5 max-w-2xl text-base sm:text-lg text-gray-300 leading-relaxed">
-        Every 2026 World Cup game that lands outside the 9-to-5 workday — plus every Round of 16
-        game and beyond, work hours or not — watched together at a local NYC restaurant repping
-        the team. Pick a game, reserve your spot, and show up.
-      </p>
-      <p class="mt-4 max-w-2xl text-xs text-gray-500">
-        Restaurant picks marked "suggested" are best-effort recommendations and haven't been
-        live-verified — confirm hours and availability before counting on them for a reservation.
-      </p>
+      <div class="glow absolute top-0 left-0 h-40 w-40 rounded-full opacity-20" style="background-color:#28b2fb;"></div>
+      <div class="glow absolute bottom-0 right-0 h-40 w-40 rounded-full opacity-10" style="background-color:#defe47;"></div>
+
+      <div class="relative max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] mb-3" style="color:#28b2fb;">Community Watch Parties</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">World Cup in NYC ⚽</h1>
+        <p class="mt-5 max-w-2xl text-base sm:text-lg text-gray-300 leading-relaxed">
+          Every 2026 World Cup game that lands outside the 9-to-5 workday — plus every Round of 16
+          game and beyond, work hours or not — watched together at a local NYC restaurant repping
+          the team. Pick a game, reserve your spot, and show up.
+        </p>
+        <p class="mt-4 max-w-2xl text-xs text-gray-500">
+          Restaurant picks marked "suggested" are best-effort recommendations and haven't been
+          live-verified — confirm hours and availability before counting on them for a reservation.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -33,16 +50,19 @@
        the inline script is blocked/sandboxed by whatever is previewing this
        file. The script only adds the Reserve -> form -> confirmation
        interactivity on top, via event delegation on #sections. -->
-  <div class="max-w-7xl mx-auto px-6 pt-12 space-y-12" id="sections">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-12 space-y-14" id="sections">
 
     <section>
-      <div class="mb-5 flex items-center gap-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-white">First Stage</h2>
-        <span class="text-sm text-gray-500">2 games</span>
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em]" style="color:#28b2fb;">Stage</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">First Stage</h2>
+        </div>
+        <span class="text-sm text-gray-400 shrink-0">2 games</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+        <div class="game-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
           <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
             <span>First Stage · Group I</span><span>New York/New Jersey Stadium</span>
@@ -70,7 +90,7 @@
           </div>
         </div>
 
-        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+        <div class="game-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
           <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
             <span>First Stage · Group J</span><span>San Francisco Bay Area Stadium</span>
@@ -103,13 +123,16 @@
     </section>
 
     <section>
-      <div class="mb-5 flex items-center gap-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-white">Round of 16</h2>
-        <span class="text-sm text-gray-500">1 game</span>
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em]" style="color:#28b2fb;">Stage</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">Round of 16</h2>
+        </div>
+        <span class="text-sm text-gray-400 shrink-0">1 game</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+        <div class="game-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
           <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
             <span>Round of 16</span><span>Dallas Stadium</span>
@@ -144,13 +167,16 @@
     </section>
 
     <section>
-      <div class="mb-5 flex items-center gap-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-white">Semi-final</h2>
-        <span class="text-sm text-gray-500">1 game</span>
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em]" style="color:#28b2fb;">Stage</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">Semi-final</h2>
+        </div>
+        <span class="text-sm text-gray-400 shrink-0">1 game</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+        <div class="game-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
           <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
             <span>Semi-final</span><span>Dallas Stadium</span>
@@ -185,13 +211,16 @@
     </section>
 
     <section>
-      <div class="mb-5 flex items-center gap-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-white">Final</h2>
-        <span class="text-sm text-gray-500">1 game</span>
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em]" style="color:#28b2fb;">Stage</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">Final</h2>
+        </div>
+        <span class="text-sm text-gray-400 shrink-0">1 game</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-        <div class="game-card group relative overflow-hidden rounded-[1.5rem] p-6 shadow-xl border border-white/10">
+        <div class="game-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div class="accent-bar absolute left-0 top-0 h-1 w-full opacity-90"></div>
           <div class="flex items-center justify-between text-xs text-gray-400 mb-4">
             <span>Final</span><span>New York/New Jersey Stadium</span>
@@ -236,12 +265,18 @@
       if (e.target.classList.contains("reserve-btn")) {
         const area = e.target.closest(".reserve-area");
         area.innerHTML = `
-          <form class="rsvp-form flex flex-col gap-2">
-            <input type="text" placeholder="Your name" class="rounded-lg px-3 py-2 bg-white/10 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-white/30" />
-            <input type="email" required placeholder="your@email.com" class="rounded-lg px-3 py-2 bg-white/10 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-white/30" />
-            <div class="flex gap-2 mt-1">
-              <button type="submit" class="flex-1 rounded-lg px-4 py-2 text-sm font-semibold text-black transition hover:opacity-90" style="background-color: ${ACCENT_YELLOW};">Confirm spot</button>
-              <button type="button" class="cancel-btn rounded-lg px-4 py-2 text-sm font-medium border border-white/15 text-gray-300 hover:bg-white/5">Cancel</button>
+          <form class="rsvp-form space-y-3">
+            <div>
+              <label class="block text-xs text-gray-400 mb-1.5">Your name</label>
+              <input type="text" placeholder="Jane Smith" class="w-full rounded-xl px-3 py-2 bg-white/10 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-white/30" />
+            </div>
+            <div>
+              <label class="block text-xs text-gray-400 mb-1.5">Email</label>
+              <input type="email" required placeholder="your@email.com" class="w-full rounded-xl px-3 py-2 bg-white/10 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-white/30" />
+            </div>
+            <div class="flex gap-2 pt-1">
+              <button type="submit" class="flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold text-black transition hover:opacity-90" style="background-color: ${ACCENT_YELLOW};">Confirm spot</button>
+              <button type="button" class="cancel-btn rounded-xl px-4 py-2.5 text-sm font-medium border border-white/15 text-gray-300 hover:bg-white/5">Cancel</button>
             </div>
           </form>`;
       }
@@ -256,8 +291,10 @@
         e.preventDefault();
         const area = e.target.closest(".reserve-area");
         area.innerHTML = `
-          <div class="rounded-xl px-4 py-2.5 text-center text-xs font-semibold text-black" style="background-color: ${ACCENT_YELLOW};">
-            Request sent — check your email for a confirmation + calendar invite (or a waitlist note if the table's full) 🎉
+          <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center">
+            <div class="text-2xl mb-2">🎉</div>
+            <p class="text-sm font-semibold text-white">Request sent</p>
+            <p class="mt-1 text-xs text-gray-400">Check your email for a confirmation + calendar invite (or a waitlist note if the table's full).</p>
           </div>`;
       }
     });
