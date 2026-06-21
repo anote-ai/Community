@@ -38,6 +38,16 @@ no-backend pattern already used for the other event RSVP pages in this repo.
   shows an optimistic "request sent, check your email" message immediately —
   the actual confirmed/waitlisted outcome only reaches the guest by email.
 
+## Booking real tables
+
+Restaurants in `worldCupData.js` are research suggestions, not confirmed
+bookings. `BOOKING-TRACKER.md` in this folder lists every restaurant, which
+games/dates it's needed for, and a checklist column to track outreach —
+calling/emailing a restaurant to ask about a group reservation doesn't cost
+anything by itself, and most won't require payment upfront for a casual
+group booking (some may ask for a deposit on large parties — that's their
+call, not something this project requires).
+
 ## Not yet done / known gaps
 
 - Nothing currently promotes someone off the waitlist if a confirmed guest
