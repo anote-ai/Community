@@ -14,6 +14,7 @@ import {
   communityAcademyOverviewPath,
   communityAmbassadorPath,
   communityStartChapterPath,
+  communityWorldCupPath,
 } from "../../constants/RouteConstants";
 import ArmorHubs from "./ArmorHubs";
 import ImpactDashboard from "./ImpactDashboard";
@@ -82,6 +83,11 @@ export default function ArmorMain() {
       title: "Start a Chapter",
       path: communityStartChapterPath,
       blurb: "Bring Anote's AI community to your city. Apply to become a local chapter organizer.",
+    },
+    {
+      title: "World Cup in NYC",
+      path: communityWorldCupPath,
+      blurb: "Watch FIFA World Cup 2026 games with the community at local NYC restaurants. Reserve your spot.",
     },
   ];
 
