@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   communityEventsPath,
@@ -20,12 +21,15 @@ import ImpactDashboard from "./ImpactDashboard";
 import SEO from "../../util/SEO";
 import NewsletterSignup from "./NewsletterSignup";
 import NewsletterModal from "./NewsletterModal";
+import LearningPathQuiz from "./LearningPathQuiz";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
 const BG_DARK = "#111827";
 
 export default function ArmorMain() {
+  const [quizOpen, setQuizOpen] = useState(false);
+
   const sections = [
     {
       title: "Academy",
@@ -178,6 +182,13 @@ export default function ArmorMain() {
         >
           Visit the AI Academy
         </Link>
+
+        <button
+          onClick={() => setQuizOpen(true)}
+          className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
+        >
+          Find your path →
+        </button>
       </div>
     </div>
   </div>
@@ -322,6 +333,7 @@ export default function ArmorMain() {
     </div>
     <NewsletterSignup />
     <NewsletterModal />
+    <LearningPathQuiz forceOpen={quizOpen} />
   </>
   );
 }
