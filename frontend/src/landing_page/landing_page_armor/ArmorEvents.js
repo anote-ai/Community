@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ShareButton from "./ShareButton";
 import SEO from "../../util/SEO";
 import {
   aiDayPath,
@@ -361,9 +362,16 @@ const ArmorEvents = () => {
                 <div className="text-gray-400 text-sm mb-2">{event.date}</div>
                 <h3 className="text-white text-2xl font-semibold mb-4">{event.title}</h3>
                 <p className="text-gray-300 mb-6">{event.description}</p>
-                <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-500">
-                  {event.external ? 'Watch Now' : 'Learn More'}
-                </button>
+                <div className="flex items-center gap-3">
+                  <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-500">
+                    {event.external ? 'Watch Now' : 'Learn More'}
+                  </button>
+                  <ShareButton
+                    title={event.title}
+                    description={event.description}
+                    url={event.external ? event.path : `${window.location.origin}${event.path}`}
+                  />
+                </div>
               </div>
             </div>
           ))}
