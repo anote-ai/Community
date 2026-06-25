@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import SEO from "../../util/SEO";
+import ShareButton from "./ShareButton";
 
 const SHEET_ID = "1IREd2vCxo7rDGOoDUYtzoywVGLqqUFCsu3qGsA0HsMc";
 const API_KEY = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
@@ -94,11 +95,12 @@ function ArmorMembers() {
         <table className="w-full text-sm text-left text-gray-400">
           <thead className="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
-              <th className="px-3 py-3 w-1/5 break-words">First Name</th>
-              <th className="px-3 py-3 w-1/5 break-words">Last Name</th>
-              <th className="px-3 py-3 w-1/5 break-words">Company</th>
-              <th className="px-3 py-3 w-1/5 break-words">Job Title</th>
-              <th className="px-3 py-3 w-1/5 break-words">LinkedIn</th>
+              <th className="px-3 py-3 w-1/6 break-words">First Name</th>
+              <th className="px-3 py-3 w-1/6 break-words">Last Name</th>
+              <th className="px-3 py-3 w-1/6 break-words">Company</th>
+              <th className="px-3 py-3 w-1/6 break-words">Job Title</th>
+              <th className="px-3 py-3 w-1/6 break-words">LinkedIn</th>
+              <th className="px-3 py-3 w-1/6 break-words">Share</th>
             </tr>
           </thead>
           <tbody>
@@ -116,6 +118,13 @@ function ArmorMembers() {
                   ) : (
                     "-"
                   )}
+                </td>
+                <td className="px-3 py-2">
+                  <ShareButton
+                    title={`${member.firstName} ${member.lastName}`}
+                    description={`${member.title}${member.company ? ` at ${member.company}` : ""}`}
+                    url={`${window.location.origin}/members`}
+                  />
                 </td>
               </tr>
             ))}
