@@ -75,19 +75,26 @@ function getRecommendations(answers) {
     .slice(0, 4);
 }
 
-export default function LearningPathQuiz() {
-  const [open, setOpen] = useState(false);
+export default function LearningPathQuiz({ forceOpen = false }) {
+  const [open, setOpen] = useState(forceOpen);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (forceOpen) {
+      setOpen(true);
+      setStep(0);
+      setAnswers({});
+      setDone(false);
+      return;
+    }
     const seen = localStorage.getItem("quizSeen");
     if (!seen) {
       const t = setTimeout(() => setOpen(true), 4000);
       return () => clearTimeout(t);
     }
-  }, []);
+  }, [forceOpen]);
 
   const dismiss = () => {
     localStorage.setItem("quizSeen", "true");
