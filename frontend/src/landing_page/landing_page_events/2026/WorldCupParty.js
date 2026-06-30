@@ -97,7 +97,7 @@ function WorldCupParty() {
             <p className="text-sm text-gray-400 mb-6 text-center">
               Confirm your registration for Anote's World Cup Finals Watch Party.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm mb-1">First Name</label>
                 <input
