@@ -50,12 +50,14 @@ import {
   armorMainPath,
   databricksPath,
   holidayPartyPath,
+  worldCupPartyPath,
   aiDayFall2025Path,
   aiAcademySpring2026Path,
   jan2026Path,
   feb2026Path
 } from "../constants/RouteConstants";
 import HolidayParty from "./landing_page_events/fall2025/HolidayParty";
+import WorldCupParty from "./landing_page_events/2026/WorldCupParty";
 import Databricks from "./landing_page_events/fall2025/Databricks";
 import AIDayFall2025 from "./landing_page_events/fall2025/AIDayFall2025";
 import Footer from "./landing_page_components/Footer";
@@ -157,6 +159,7 @@ function LandingPage() {
           <Route path={mindstoneDecemberPath} index element={<MindstoneDecemberAfter />} />
           <Route path={mindstoneFebruaryPath} index element={<MindstoneFebruaryAfter />} />
           <Route path={holidayPartyPath} index element={<HolidayParty />} />
+          <Route path={worldCupPartyPath} index element={<WorldCupParty />} />
           <Route path={jan2026Path} index element={<Jan2026 />} />
           <Route path={feb2026Path} index element={<Feb2026 />} />
           <Route path={aiDayFall2025Path} index element={<AIDayFall2025 />} />

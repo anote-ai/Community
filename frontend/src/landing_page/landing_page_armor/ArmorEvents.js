@@ -31,7 +31,8 @@ import {
   aiAcademySpring2026Path,
   holidayPartyPath,
   jan2026Path,
-  feb2026Path
+  feb2026Path,
+  worldCupPartyPath,
 } from "../../constants/RouteConstants";
 import {
   BrowserRouter as Router,
@@ -57,6 +58,13 @@ const eventsData = [
   //   title: "January AI Meetup NYC",
   //   description: "Network and learn at our AI Meetup in January, focused on practical AI applications."
   // },
+    {
+    path: worldCupPartyPath,
+    image: "/events_images/worldcup.png",
+    date: "July 19th, 2026",
+    title: "Anote World Cup Finals Watch Party",
+    description: "Anote's World Cup Finals Watch Party celebrating Soccer in New York City."
+  },
   {
     path: aiAcademySpring2026Path,
     image: "/events_images/aidayspring2026.png",
@@ -366,11 +374,11 @@ const ArmorEvents = () => {
                   <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-500">
                     {event.external ? 'Watch Now' : 'Learn More'}
                   </button>
-                  <ShareButton
+                  {/* <ShareButton
                     title={event.title}
                     description={event.description}
                     url={event.external ? event.path : `${window.location.origin}${event.path}`}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>

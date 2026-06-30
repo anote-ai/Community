@@ -111,6 +111,7 @@ export const videosPath = "/videos";
 export const syntheticDataPath = "/syntheticdata";
 export const blogArticle1Path = "/blog/enhancingrag";
 export const holidayPartyPath = "/holidayparty";
+export const worldCupPartyPath = "/worldcup";
 export const aiDayFall2025Path = "/aidayfall2025";
 export const aiAcademySpring2026Path = "/aiacademyspring2026";
 export const databricksPath = "/databricks";
