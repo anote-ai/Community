@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AIDayVideo from "../AIDayVideo";
 import SEO from "../../../util/SEO";
+import EventActions from "../../landing_page_armor/EventActions";
 import "../../landing_page_styles/Agenda.css";
 import "../../landing_page_styles/Registrations.css";
 import AIDayVideoNew from "../AIDayVideoNew";
@@ -201,9 +202,20 @@ function WorldCupParty() {
             <p className="text-lg mb-2">
               📅 {formData.event_date} — {formData.event_time}
             </p>
-            <p className="text-md text-gray-300">
+            <p className="text-md text-gray-300 mb-6">
               You should receive a confirmation email shortly.
             </p>
+            <div className="flex justify-center">
+              <EventActions
+                event={{
+                  title: formData.event_title,
+                  description: `${formData.event_date} — ${formData.event_time}`,
+                  startISO: formData.event_dateTimeStart,
+                  endISO: formData.event_dateTimeEnd,
+                  location: formData.event_location,
+                }}
+              />
+            </div>
           </div>
         )}
       </div>
