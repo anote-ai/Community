@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ShareButton from "./ShareButton";
+import EventActions from "./EventActions";
 import SEO from "../../util/SEO";
 import {
   aiDayPath,
@@ -58,12 +59,15 @@ const eventsData = [
   //   title: "January AI Meetup NYC",
   //   description: "Network and learn at our AI Meetup in January, focused on practical AI applications."
   // },
-    {
+  {
     path: worldCupPartyPath,
     image: "/events_images/worldcup.png",
     date: "July 19th, 2026",
     title: "Anote World Cup Finals Watch Party",
-    description: "Anote's World Cup Finals Watch Party celebrating Soccer in New York City."
+    description: "Anote's World Cup Finals Watch Party celebrating Soccer in New York City.",
+    startISO: "2026-07-19T14:00:00-04:00",
+    endISO: "2026-07-19T18:00:00-04:00",
+    location: "New York City",
   },
   {
     path: aiAcademySpring2026Path,
@@ -374,12 +378,13 @@ const ArmorEvents = () => {
                   <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-500">
                     {event.external ? 'Watch Now' : 'Learn More'}
                   </button>
-                  {/* <ShareButton
+                  <ShareButton
                     title={event.title}
                     description={event.description}
                     url={event.external ? event.path : `${window.location.origin}${event.path}`}
-                  /> */}
+                  />
                 </div>
+                <EventActions event={event} className="mt-3" />
               </div>
             </div>
           ))}
