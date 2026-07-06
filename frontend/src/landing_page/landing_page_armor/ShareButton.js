@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Check, Link, Linkedin, Share2, Twitter } from "lucide-react";
 
 export default function ShareButton({ title, description, url, className = "" }) {
   const [copied, setCopied] = useState(false);
@@ -41,25 +42,48 @@ export default function ShareButton({ title, description, url, className = "" })
   return (
     <div className={`relative inline-block ${className}`}>
       <button
+        type="button"
         onClick={toggleOpen}
-        className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white border border-white/10 hover:border-white/30 rounded-lg px-2.5 py-1.5 transition"
+        aria-expanded={open}
+        className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-black/20 transition hover:-translate-y-0.5 hover:border-blue-300/60 hover:bg-blue-500/20 hover:text-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-300/70 focus:ring-offset-2 focus:ring-offset-gray-900"
       >
-        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-        </svg>
-        Share
+        <Share2 className="h-4 w-4" strokeWidth={2.2} />
+        <span>Share</span>
       </button>
       {open && (
-        <div className="absolute left-0 top-9 z-50 bg-gray-800 border border-white/10 rounded-xl p-2 shadow-xl min-w-[150px]">
-          <button onClick={handleLinkedIn} className="w-full text-left px-3 py-2 text-sm text-gray-200 hover:bg-white/10 rounded-lg flex items-center gap-2">
-            <span className="text-blue-400 font-bold text-xs">in</span> LinkedIn
+        <div className="absolute left-0 top-12 z-50 min-w-[190px] rounded-xl border border-white/15 bg-gray-900/95 p-2 shadow-2xl shadow-black/35 backdrop-blur">
+          <button
+            type="button"
+            onClick={handleLinkedIn}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-gray-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-300/60"
+          >
+            <Linkedin className="h-4 w-4 text-blue-300" strokeWidth={2.2} />
+            <span>LinkedIn</span>
           </button>
-          <button onClick={handleTwitter} className="w-full text-left px-3 py-2 text-sm text-gray-200 hover:bg-white/10 rounded-lg flex items-center gap-2">
-            <span className="text-xs">𝕏</span> Twitter / X
+          <button
+            type="button"
+            onClick={handleTwitter}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-gray-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-300/60"
+          >
+            <Twitter className="h-4 w-4 text-sky-300" strokeWidth={2.2} />
+            <span>Twitter / X</span>
           </button>
-          <button onClick={handleCopy} className="w-full text-left px-3 py-2 text-sm text-gray-200 hover:bg-white/10 rounded-lg flex items-center gap-2">
-            {copied ? "✓ Copied!" : "🔗 Copy Link"}
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-gray-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-300/60"
+          >
+            {copied ? (
+              <>
+                <Check className="h-4 w-4 text-green-300" strokeWidth={2.2} />
+                <span>Copied</span>
+              </>
+            ) : (
+              <>
+                <Link className="h-4 w-4 text-gray-300" strokeWidth={2.2} />
+                <span>Copy Link</span>
+              </>
+            )}
           </button>
         </div>
       )}
