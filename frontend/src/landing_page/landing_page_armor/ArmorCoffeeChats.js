@@ -3,7 +3,7 @@ import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import SEO from "../../util/SEO";
 
 const SHEET_ID   = "1Tr9-EvVLRroabQN7r5Xdu1W9gGKve4_WF4Lp8mZcEU4";
-const API_KEY    = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
+const API_KEY    = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
 const SHEET_NAME = "Anote Alumni For Coffee Chats";
 
 export default function ArmorCoffeeChats() {

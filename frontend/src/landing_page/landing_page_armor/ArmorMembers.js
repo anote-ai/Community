@@ -4,7 +4,7 @@ import SEO from "../../util/SEO";
 import ShareButton from "./ShareButton";
 
 const SHEET_ID = "1IREd2vCxo7rDGOoDUYtzoywVGLqqUFCsu3qGsA0HsMc";
-const API_KEY = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
+const API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
 const SHEET_NAME = "Sheet-1";
 
 function ArmorMembers() {

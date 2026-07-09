@@ -45,6 +45,24 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 
+// ─── Google Calendar live feed ───────────────────────────────────────────────
+// 1. Create a Google Calendar for Anote events and make it public:
+//    calendar.google.com → three-dot menu → Settings → Share → "Make available to public"
+// 2. Copy the Calendar ID:
+//    Settings → Integrate calendar → Calendar ID
+// 3. Ensure the Google Calendar API is enabled for this project's API key in Google Cloud Console.
+const GCAL_ID = "e88890e803003d95935e56c48dc68aedfd5311e3204360f781830c06287f4f24@group.calendar.google.com";
+const GCAL_API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
+
+// For calendar events that also have a dedicated community page, map event title
+// → internal route + image. Events not listed here link to the Google Calendar page.
+const EVENT_ROUTE_MAP = {
+  "Anote World Cup Finals Watch Party": {
+    path: worldCupPartyPath,
+    image: "/events_images/worldcup.png",
+  },
+};
+
 const eventsData = [
   //   {
   //   path: feb2026Path,
@@ -279,8 +297,61 @@ const eventsData = [
   }
 ];
 
+function formatDisplayDate(isoString) {
+  const d = new Date(isoString);
+  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
+
+function parseCalendarEvent(gcalEvent) {
+  const startISO = gcalEvent.start?.dateTime || gcalEvent.start?.date;
+  const endISO   = gcalEvent.end?.dateTime   || gcalEvent.end?.date;
+  const title    = gcalEvent.summary || "Untitled Event";
+  const override = EVENT_ROUTE_MAP[title] || {};
+
+  // Support an optional "image: /path.png" first line in the calendar description.
+  let rawDesc = gcalEvent.description || "";
+  let image = override.image || "/events_images/aiday.png";
+  const imageMatch = rawDesc.match(/^image:\s*(\S+)\s*\n?/i);
+  if (imageMatch) {
+    image = imageMatch[1];
+    rawDesc = rawDesc.replace(imageMatch[0], "").trim();
+  }
+
+  return {
+    title,
+    date: formatDisplayDate(startISO),
+    description: rawDesc || title,
+    startISO,
+    endISO,
+    location: gcalEvent.location || "",
+    image,
+    path: override.path || gcalEvent.htmlLink,
+    external: !override.path,
+    fromCalendar: true,
+  };
+}
+
 const ArmorEvents = () => {
   const navigate = useNavigate();
+  const [calendarEvents, setCalendarEvents] = useState([]);
+
+  useEffect(() => {
+    if (GCAL_ID === "REPLACE_WITH_YOUR_CALENDAR_ID") return;
+    const now = new Date().toISOString();
+    const url =
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(GCAL_ID)}/events` +
+      `?key=${GCAL_API_KEY}&singleEvents=true&orderBy=startTime&timeMin=${now}&maxResults=20`;
+
+    fetch(url)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.items) {
+          setCalendarEvents(data.items.map(parseCalendarEvent));
+        }
+      })
+      .catch(() => {}); // silently fall back to hardcoded list
+  }, []);
+
   const getToday = () => {
     const now = new Date();
     return new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -307,7 +378,14 @@ const ArmorEvents = () => {
   //   .map(event => ({ ...event, dateObject: parseDate(event.date) }))
   //   .sort((a, b) => a.dateObject - b.dateObject);
 
-  const sortedEvents = eventsData
+  // Merge live calendar events with hardcoded list.
+  // Calendar events take precedence; deduplicate by title so the World Cup
+  // Party (which is hardcoded AND may appear in the calendar) shows only once.
+  const calendarTitles = new Set(calendarEvents.map((e) => e.title));
+  const dedupedStatic = eventsData.filter((e) => !calendarTitles.has(e.title));
+  const mergedEvents = [...calendarEvents, ...dedupedStatic];
+
+  const sortedEvents = mergedEvents
   .map(event => ({ ...event, dateObject: parseDate(event.date) }))
   .sort((a, b) => b.dateObject - a.dateObject);
 
@@ -316,6 +394,7 @@ const ArmorEvents = () => {
 
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("all");
+  const [viewMode, setViewMode] = useState("cards"); // "cards" | "calendar"
 
 
   const applyFilter = (ev) => {
@@ -341,18 +420,19 @@ const ArmorEvents = () => {
         path="/community/events"
       />
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Tabs */}
-        <div className="mb-6 space-x-4">
-          {[
+        {/* Toolbar: filter tabs + view toggle */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex gap-2">
+            {[
               { label: "All", value: "all" },
               { label: "Upcoming", value: "upcoming" },
               { label: "Past", value: "past" },
             ].map(({ label, value }) => (
-            <button
+              <button
                 key={label}
-                onClick={() => setFilterType(value)}
+                onClick={() => setViewMode("cards") || setFilterType(value)}
                 className={`px-4 py-2 rounded-full border text-sm transition ${
-                  filterType === value
+                  filterType === value && viewMode === "cards"
                     ? "bg-blue-600 text-white border-blue-600"
                     : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
                 }`}
@@ -360,15 +440,34 @@ const ArmorEvents = () => {
                 {label}
               </button>
             ))}
+          </div>
+          <button
+            onClick={() => setViewMode(viewMode === "calendar" ? "cards" : "calendar")}
+            className={`px-4 py-2 rounded-full border text-sm transition ${
+              viewMode === "calendar"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+            }`}
+          >
+            📅 Calendar View
+          </button>
         </div>
-            {/* <input
-            type="text"
-            placeholder="Search events…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full sm:w-64 px-4 py-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          /> */}
-        </div>
+
+        {/* Google Calendar embed */}
+        {viewMode === "calendar" && (
+          <div className="mb-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
+            <iframe
+              src={`https://calendar.google.com/calendar/embed?src=e88890e803003d95935e56c48dc68aedfd5311e3204360f781830c06287f4f24%40group.calendar.google.com&ctz=America%2FNew_York&bgcolor=%23111827&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&mode=AGENDA`}
+              style={{ border: 0 }}
+              width="100%"
+              height="600"
+              title="Anote Community Events Calendar"
+            />
+          </div>
+        )}
+
+        {/* Event cards grid */}
+        {viewMode === "cards" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {filteredEvents.map((event, index) => (
             <div
@@ -400,7 +499,9 @@ const ArmorEvents = () => {
             </div>
           ))}
         </div>
+        )}
       </div>
+    </div>
   );
 };
 
