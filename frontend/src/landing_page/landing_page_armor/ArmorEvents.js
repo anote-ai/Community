@@ -383,6 +383,7 @@ const ArmorEvents = () => {
 
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("all");
+  const [viewMode, setViewMode] = useState("cards"); // "cards" | "calendar"
 
 
   const applyFilter = (ev) => {
@@ -408,18 +409,19 @@ const ArmorEvents = () => {
         path="/community/events"
       />
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Tabs */}
-        <div className="mb-6 space-x-4">
-          {[
+        {/* Toolbar: filter tabs + view toggle */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex gap-2">
+            {[
               { label: "All", value: "all" },
               { label: "Upcoming", value: "upcoming" },
               { label: "Past", value: "past" },
             ].map(({ label, value }) => (
-            <button
+              <button
                 key={label}
-                onClick={() => setFilterType(value)}
+                onClick={() => setViewMode("cards") || setFilterType(value)}
                 className={`px-4 py-2 rounded-full border text-sm transition ${
-                  filterType === value
+                  filterType === value && viewMode === "cards"
                     ? "bg-blue-600 text-white border-blue-600"
                     : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
                 }`}
@@ -427,15 +429,34 @@ const ArmorEvents = () => {
                 {label}
               </button>
             ))}
+          </div>
+          <button
+            onClick={() => setViewMode(viewMode === "calendar" ? "cards" : "calendar")}
+            className={`px-4 py-2 rounded-full border text-sm transition ${
+              viewMode === "calendar"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+            }`}
+          >
+            📅 Calendar View
+          </button>
         </div>
-            {/* <input
-            type="text"
-            placeholder="Search events…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full sm:w-64 px-4 py-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          /> */}
-        </div>
+
+        {/* Google Calendar embed */}
+        {viewMode === "calendar" && (
+          <div className="mb-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
+            <iframe
+              src={`https://calendar.google.com/calendar/embed?src=e88890e803003d95935e56c48dc68aedfd5311e3204360f781830c06287f4f24%40group.calendar.google.com&ctz=America%2FNew_York&bgcolor=%23111827&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&mode=AGENDA`}
+              style={{ border: 0 }}
+              width="100%"
+              height="600"
+              title="Anote Community Events Calendar"
+            />
+          </div>
+        )}
+
+        {/* Event cards grid */}
+        {viewMode === "cards" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {filteredEvents.map((event, index) => (
             <div
@@ -467,7 +488,9 @@ const ArmorEvents = () => {
             </div>
           ))}
         </div>
+        )}
       </div>
+    </div>
   );
 };
 
