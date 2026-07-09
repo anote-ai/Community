@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // After deploying create-event.gs as a web app, paste the URL here.
-const SCRIPT_URL = "REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypiWD1M4ne-qXKQR8tNraVVHTdknu_ixBUPS8EHJLqTMUMfNtfUAE0EWGfQ6jS2ltL/exec";
 
 const FIELD_DEFS = [
   { name: "title",         label: "Event Title",       type: "text",           required: true },
