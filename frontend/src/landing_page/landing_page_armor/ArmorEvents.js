@@ -44,6 +44,24 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 
+// ─── Google Calendar live feed ───────────────────────────────────────────────
+// 1. Create a Google Calendar for Anote events and make it public:
+//    calendar.google.com → three-dot menu → Settings → Share → "Make available to public"
+// 2. Copy the Calendar ID:
+//    Settings → Integrate calendar → Calendar ID
+// 3. Ensure the Google Calendar API is enabled for this project's API key in Google Cloud Console.
+const GCAL_ID = "e88890e803003d95935e56c48dc68aedfd5311e3204360f781830c06287f4f24@group.calendar.google.com";
+const GCAL_API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
+
+// For calendar events that also have a dedicated community page, map event title
+// → internal route + image. Events not listed here link to the Google Calendar page.
+const EVENT_ROUTE_MAP = {
+  "Anote World Cup Finals Watch Party": {
+    path: worldCupPartyPath,
+    image: "/events_images/worldcup.png",
+  },
+};
+
 const eventsData = [
   //   {
   //   path: feb2026Path,
@@ -268,8 +286,61 @@ const eventsData = [
   }
 ];
 
+function formatDisplayDate(isoString) {
+  const d = new Date(isoString);
+  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
+
+function parseCalendarEvent(gcalEvent) {
+  const startISO = gcalEvent.start?.dateTime || gcalEvent.start?.date;
+  const endISO   = gcalEvent.end?.dateTime   || gcalEvent.end?.date;
+  const title    = gcalEvent.summary || "Untitled Event";
+  const override = EVENT_ROUTE_MAP[title] || {};
+
+  // Support an optional "image: /path.png" first line in the calendar description.
+  let rawDesc = gcalEvent.description || "";
+  let image = override.image || "/events_images/aiday.png";
+  const imageMatch = rawDesc.match(/^image:\s*(\S+)\s*\n?/i);
+  if (imageMatch) {
+    image = imageMatch[1];
+    rawDesc = rawDesc.replace(imageMatch[0], "").trim();
+  }
+
+  return {
+    title,
+    date: formatDisplayDate(startISO),
+    description: rawDesc || title,
+    startISO,
+    endISO,
+    location: gcalEvent.location || "",
+    image,
+    path: override.path || gcalEvent.htmlLink,
+    external: !override.path,
+    fromCalendar: true,
+  };
+}
+
 const ArmorEvents = () => {
   const navigate = useNavigate();
+  const [calendarEvents, setCalendarEvents] = useState([]);
+
+  useEffect(() => {
+    if (GCAL_ID === "REPLACE_WITH_YOUR_CALENDAR_ID") return;
+    const now = new Date().toISOString();
+    const url =
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(GCAL_ID)}/events` +
+      `?key=${GCAL_API_KEY}&singleEvents=true&orderBy=startTime&timeMin=${now}&maxResults=20`;
+
+    fetch(url)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.items) {
+          setCalendarEvents(data.items.map(parseCalendarEvent));
+        }
+      })
+      .catch(() => {}); // silently fall back to hardcoded list
+  }, []);
+
   const getToday = () => {
     const now = new Date();
     return new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -296,7 +367,14 @@ const ArmorEvents = () => {
   //   .map(event => ({ ...event, dateObject: parseDate(event.date) }))
   //   .sort((a, b) => a.dateObject - b.dateObject);
 
-  const sortedEvents = eventsData
+  // Merge live calendar events with hardcoded list.
+  // Calendar events take precedence; deduplicate by title so the World Cup
+  // Party (which is hardcoded AND may appear in the calendar) shows only once.
+  const calendarTitles = new Set(calendarEvents.map((e) => e.title));
+  const dedupedStatic = eventsData.filter((e) => !calendarTitles.has(e.title));
+  const mergedEvents = [...calendarEvents, ...dedupedStatic];
+
+  const sortedEvents = mergedEvents
   .map(event => ({ ...event, dateObject: parseDate(event.date) }))
   .sort((a, b) => b.dateObject - a.dateObject);
 

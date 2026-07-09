@@ -10,7 +10,7 @@ const LocalPOCs = () => {
   const [showGuide, setShowGuide] = useState(false); // State for showing/hiding guide
 
   const SHEET_ID = "1f5XnPzK-h1nn7d9iNCscTc5jycSZHOMhU0fljB3zC6I";
-  const API_KEY = "AIzaSyAgE4vhIZ-PR4XuGVRd8PZpyRFMfXIjNFM";
+  const API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
   const SHEET_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Overview?key=${API_KEY}`;
 
   useEffect(() => {
