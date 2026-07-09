@@ -54,6 +54,7 @@ import ArmorAIAcademy from "./ArmorAIAcademy";
 import ArmorAIAcademyOverview from "./ArmorAIAcademyOverview";
 import AmbassadorProgram from "./AmbassadorProgram";
 import StartAChapter from "./StartAChapter";
+import CreateEventAdmin from "./CreateEventAdmin";
 
 // ─── Nav config ──────────────────────────────────────────────────
 const navigation = [
@@ -301,6 +302,7 @@ export default function Main() {
                     <Route path="/regionalhubs" element={<ArmorHubs />} />
                     <Route path="/ambassador" element={<AmbassadorProgram />} />
                     <Route path="/start-a-chapter" element={<StartAChapter />} />
+                    <Route path="/admin/create-event" element={<CreateEventAdmin />} />
                     {/* Fallback */}
                     <Route path="/academy" element={<ArmorAIAcademy />} />
                 </Routes>
