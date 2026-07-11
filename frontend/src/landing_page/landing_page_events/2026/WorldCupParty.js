@@ -22,7 +22,7 @@ function WorldCupParty() {
     event_time: "2:00 PM EST to 6:00 PM EST",
     event_dateTimeStart: "2026-07-19T14:00:00-04:00",
     event_dateTimeEnd: "2026-07-19T18:00:00-04:00",
-    event_location: "To Be Confirmed"
+    event_location: "NYC - exact location to be shared upon registration confirmation"
   });
 
   const [submissionStatus, setSubmissionStatus] = useState("");
@@ -32,7 +32,7 @@ function WorldCupParty() {
 
   // const scriptURL = "https://script.google.com/macros/s/AKfycbygdbgHUNF-eSIW75nHR4MkQiCXheujnDUrXxZgDhxRsxZFSPggX4rNfoJ2M1fyQhpUAA/exec"; // Replace with your Web App URL
   // const scriptURL = "https://script.google.com/macros/s/AKfycbyIlSXrM57J4VdUyHd1iAeGbfzGqFVyTvMmxzW-PcXI1l85pBSsQ7fe_2_b5eDCR9qhIw/exec";
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxGf60XlmZagcwpt-zAtGdha0uQq2y1DNEakO3_CNgkDqqEJZj_wJVQ-l3pgdTj9mqzjw/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxBe0cSw3ntvLAKiEsmK60WuhrOa8bNSHnc8vhMl_Rxs6ASwa2jIhOBpgSL7LvzH2Luvw/exec";
   const handleSubmit = async (e) => {
   e.preventDefault();
   setIsLoading(true); // start loading immediately
@@ -98,6 +98,17 @@ function WorldCupParty() {
             <p className="text-sm text-gray-400 mb-6 text-center">
               Confirm your registration for Anote's World Cup Finals Watch Party.
             </p>
+            <div className="mb-6 rounded-md border border-gray-700 bg-gray-900/50 p-4 text-sm text-gray-200">
+              <p className="mb-1">
+                <span className="font-semibold text-white">Date:</span> July 19th
+              </p>
+              <p className="mb-1">
+                <span className="font-semibold text-white">Time:</span> 2 PM EST to 6 PM EST
+              </p>
+              <p>
+                <span className="font-semibold text-white">Location:</span> NYC, to be shared upon registration confirmation
+              </p>
+            </div>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm mb-1">First Name</label>
@@ -201,6 +212,9 @@ function WorldCupParty() {
             </p>
             <p className="text-lg mb-2">
               📅 {formData.event_date} — {formData.event_time}
+            </p>
+            <p className="text-lg mb-2">
+              Location: NYC, to be shared upon registration confirmation
             </p>
             <p className="text-md text-gray-300 mb-6">
               You should receive a confirmation email shortly.
