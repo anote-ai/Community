@@ -96,19 +96,9 @@ function WorldCupParty() {
               World Cup Party Registration
             </h2>
             <p className="text-sm text-gray-400 mb-6 text-center">
-              Confirm your registration for Anote's World Cup Finals Watch Party.
+              Confirm your registration for Anote's World Cup Finals Watch Party on July 19th from 2 PM EST to 6 PM EST in NYC.
+              The exact location will be shared upon registration confirmation.
             </p>
-            <div className="mb-6 rounded-md border border-gray-700 bg-gray-900/50 p-4 text-sm text-gray-200">
-              <p className="mb-1">
-                <span className="font-semibold text-white">Date:</span> July 19th
-              </p>
-              <p className="mb-1">
-                <span className="font-semibold text-white">Time:</span> 2 PM EST to 6 PM EST
-              </p>
-              <p>
-                <span className="font-semibold text-white">Location:</span> NYC, to be shared upon registration confirmation
-              </p>
-            </div>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm mb-1">First Name</label>
@@ -213,8 +203,8 @@ function WorldCupParty() {
             <p className="text-lg mb-2">
               📅 {formData.event_date} — {formData.event_time}
             </p>
-            <p className="text-lg mb-2">
-              Location: NYC, to be shared upon registration confirmation
+            <p className="text-lg mb-2 text-gray-200">
+              NYC location shared after registration confirmation.
             </p>
             <p className="text-md text-gray-300 mb-6">
               You should receive a confirmation email shortly.
