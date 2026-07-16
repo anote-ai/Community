@@ -83,6 +83,16 @@ const eventsData = [
   //   title: "January AI Meetup NYC",
   //   description: "Network and learn at our AI Meetup in January, focused on practical AI applications."
   // },
+    {
+    path: summerTeamPartyPath,
+    image: "/events_images/august.png",
+    date: "August 7th, 2026",
+    title: "Anote Summer Team Party",
+    description: "Anote's Summer Team Party celebrating our amazing team in New York City.",
+    startISO: "2026-08-07T18:00:00-04:00",
+    endISO: "2026-08-07T21:00:00-04:00",
+    location: "New York City",
+  },
   {
     path: worldCupPartyPath,
     image: "/events_images/worldcup.png",
