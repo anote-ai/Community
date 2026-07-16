@@ -17,12 +17,12 @@ const SCRIPT_URL =
 // Add more objects as needed for future events before running.
 const EVENTS_TO_SYNC = [
   {
-    title: "Anote World Cup Finals Watch Party",
-    description: "Anote's World Cup Finals Watch Party celebrating Soccer in New York City.",
-    startDateTime: "2026-07-19T14:00:00-04:00",
-    endDateTime: "2026-07-19T18:00:00-04:00",
-    location: "New York City",
-    imagePath: "/events_images/worldcup.png",
+    title: "Anote AI Research Fellowship - Anote Summer Team Celebration",
+    description: "Anote Summer Team Celebration.",
+    startDateTime: "2026-08-07T18:00:00-04:00",
+    endDateTime: "2026-08-07T21:00:00-04:00",
+    location: "",
+    imagePath: "/events_images/august.png",
   },
   // Add more events here, e.g.:
   // {

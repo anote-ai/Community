@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ShareButton from "./ShareButton";
 import EventActions from "./EventActions";
+import EventRegistrationModal from "./EventRegistrationModal";
 import SEO from "../../util/SEO";
 import {
   aiDayPath,
@@ -34,7 +35,7 @@ import {
   jan2026Path,
   feb2026Path,
   worldCupPartyPath,
-  summerTeamPartyPath
+  summerPartyPath,
 } from "../../constants/RouteConstants";
 import {
   BrowserRouter as Router,
@@ -60,6 +61,10 @@ const EVENT_ROUTE_MAP = {
   "Anote World Cup Finals Watch Party": {
     path: worldCupPartyPath,
     image: "/events_images/worldcup.png",
+  },
+  "Anote Summer Team Party": {
+    path: summerPartyPath,
+    image: "/events_images/august.png",
   },
 };
 
@@ -310,7 +315,7 @@ function parseCalendarEvent(gcalEvent) {
 
   // Support an optional "image: /path.png" first line in the calendar description.
   let rawDesc = gcalEvent.description || "";
-  let image = override.image || "/events_images/aiday.png";
+  let image = override.image || "/events_images/july.png";
   const imageMatch = rawDesc.match(/^image:\s*(\S+)\s*\n?/i);
   if (imageMatch) {
     image = imageMatch[1];
@@ -395,6 +400,7 @@ const ArmorEvents = () => {
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [viewMode, setViewMode] = useState("cards"); // "cards" | "calendar"
+  const [modalEvent, setModalEvent] = useState(null);
 
 
   const applyFilter = (ev) => {
@@ -413,6 +419,7 @@ const ArmorEvents = () => {
   const filteredEvents = sortedEvents.filter(applyFilter);
 
   return (
+    <>
     <div className="bg-gray-900 py-20">
       <SEO
         title="Events"
@@ -441,16 +448,26 @@ const ArmorEvents = () => {
               </button>
             ))}
           </div>
-          <button
-            onClick={() => setViewMode(viewMode === "calendar" ? "cards" : "calendar")}
-            className={`px-4 py-2 rounded-full border text-sm transition ${
-              viewMode === "calendar"
-                ? "bg-blue-600 text-white border-blue-600"
-                : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
-            }`}
-          >
-            📅 Calendar View
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setViewMode(viewMode === "calendar" ? "cards" : "calendar")}
+              className={`px-4 py-2 rounded-full border text-sm transition ${
+                viewMode === "calendar"
+                  ? "bg-blue-600 text-white border-blue-600"
+                  : "bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+              }`}
+            >
+              📅 Calendar View
+            </button>
+            <a
+              href="https://calendar.google.com/calendar/u/0?cid=ZTg4ODkwZTgwMzAwM2Q5NTkzNWU1NmM0OGRjNjhhZWRmZDUzMTFlMzIwNDM2MGY3ODE4MzBjMDYyODdmNGYyNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border text-sm transition bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700"
+            >
+              + Subscribe
+            </a>
+          </div>
         </div>
 
         {/* Google Calendar embed */}
@@ -469,11 +486,13 @@ const ArmorEvents = () => {
         {/* Event cards grid */}
         {viewMode === "cards" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          {filteredEvents.map((event, index) => (
+          {filteredEvents.map((event, index) => {
+            const isCalendarOnly = event.fromCalendar && event.path?.includes('google.com/calendar');
+            return (
             <div
               key={index}
-              onClick={() => handleNavigation(event.path, event.external)}
-              className={`bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg cursor-pointer transition-all duration-300 ${index === nextEventIndex ? 'hover:border-white' : 'hover:border-white'}`}
+              onClick={() => isCalendarOnly ? setModalEvent(event) : handleNavigation(event.path, event.external)}
+              className={`bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:border-white`}
             >
               <img
                 className="w-full h-48 object-cover"
@@ -485,8 +504,11 @@ const ArmorEvents = () => {
                 <h3 className="text-white text-2xl font-semibold mb-4">{event.title}</h3>
                 <p className="text-gray-300 mb-6">{event.description}</p>
                 <div className="flex items-center gap-3">
-                  <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-500">
-                    {event.external ? 'Watch Now' : 'Learn More'}
+                  <button
+                    className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-500"
+                    onClick={(e) => { e.stopPropagation(); isCalendarOnly ? setModalEvent(event) : handleNavigation(event.path, event.external); }}
+                  >
+                    {event.path?.includes('youtube.com') || event.path?.includes('youtu.be') ? 'Watch Now' : 'Learn More'}
                   </button>
                   <ShareButton
                     title={event.title}
@@ -497,11 +519,20 @@ const ArmorEvents = () => {
                 <EventActions event={event} className="mt-3" />
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
         )}
       </div>
     </div>
+
+    {modalEvent && (
+      <EventRegistrationModal
+        event={modalEvent}
+        onClose={() => setModalEvent(null)}
+      />
+    )}
+    </>
   );
 };
 
