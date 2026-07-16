@@ -30,8 +30,9 @@ import SEO from "../../util/SEO";
  */
 
 // --------------------------- Props & Defaults --------------------------- //
-const DEFAULT_SHEET_ID = "16_bm-EskCFDZfJ_lPfEGe7HtO9-ZQFVqp_x0I4vto44";
-const DEFAULT_NEWS_GID = "444563147"; // News sheet gid
+// Exported for reuse by the homepage highlights carousel (communityHighlights.js).
+export const DEFAULT_SHEET_ID = "16_bm-EskCFDZfJ_lPfEGe7HtO9-ZQFVqp_x0I4vto44";
+export const DEFAULT_NEWS_GID = "444563147"; // News sheet gid
 
 export default function ArmorNews({
   sheetId = DEFAULT_SHEET_ID,
@@ -257,7 +258,7 @@ export default function ArmorNews({
 /**
  * Try multiple CSV export URLs until one works. Returns CSV string or null.
  */
-async function tryCsvFallbacks(sheetId, gid, addDebug) {
+export async function tryCsvFallbacks(sheetId, gid, addDebug) {
   const attempts = [
     {
       name: "export?format=csv&gid=GID",
@@ -298,7 +299,7 @@ async function tryCsvFallbacks(sheetId, gid, addDebug) {
 }
 
 /** quick + forgiving CSV → matrix */
-function csvToMatrix(csv, addDebug) {
+export function csvToMatrix(csv, addDebug) {
   const rows = [];
   let cur = [];
   let field = "";
@@ -330,7 +331,7 @@ function csvToMatrix(csv, addDebug) {
 }
 
 /** Take raw rows array → normalized article objects */
-function normalizeRows(values, addDebug) {
+export function normalizeRows(values, addDebug) {
   if (!values || values.length === 0) return [];
   const headers = values[0].map((h) => (h || "").toString().trim().toLowerCase());
   const idx = (nameArr) => {

@@ -22,6 +22,7 @@ import SEO from "../../util/SEO";
 import NewsletterSignup from "./NewsletterSignup";
 import NewsletterModal from "./NewsletterModal";
 import LearningPathQuiz from "./LearningPathQuiz";
+import CommunityHighlightsCarousel from "./CommunityHighlightsCarousel";
 
 const ACCENT_YELLOW = "#defe47";
 const ACCENT_BLUE = "#28b2fb";
@@ -240,6 +241,8 @@ export default function ArmorMain() {
             </div>
           </div>
         </section> */}
+
+        <CommunityHighlightsCarousel />
 
         <ImpactDashboard />
 

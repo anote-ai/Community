@@ -2,7 +2,11 @@ import React from "react";
 import SEO from "../../util/SEO";
 
 // Curated AI Learning Resources
-const resources = [
+// Exported for reuse by the homepage highlights carousel (communityHighlights.js).
+// NOTE: entries have no publishedAt/createdAt/addedAt metadata, so the homepage
+// cannot truthfully label any course as "new". Instead, exactly one entry should
+// carry `featured: true`; that entry appears on the homepage as "Featured Course".
+export const resources = [
   // Foundational AI & ML Courses
   {
     name: "Andrew Ng – AI for Everyone",
@@ -41,6 +45,10 @@ const resources = [
     url: "https://huggingface.co/learn/llm-course/chapter1/1",
     type: "LLMs",
     icon: "🤗",
+    // Featured on the homepage highlights carousel (see note above).
+    featured: true,
+    description:
+      "Free, hands-on course covering transformers, fine-tuning, and building applications with open-source LLMs.",
   },
   {
     name: "Hugging Face – Agents Course",

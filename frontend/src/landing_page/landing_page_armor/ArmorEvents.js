@@ -52,8 +52,10 @@ import {
 // 2. Copy the Calendar ID:
 //    Settings → Integrate calendar → Calendar ID
 // 3. Ensure the Google Calendar API is enabled for this project's API key in Google Cloud Console.
-const GCAL_ID = "e88890e803003d95935e56c48dc68aedfd5311e3204360f781830c06287f4f24@group.calendar.google.com";
-const GCAL_API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
+// Exported for reuse by the homepage highlights carousel (communityHighlights.js)
+// so the calendar config is not duplicated into another file.
+export const GCAL_ID = "e88890e803003d95935e56c48dc68aedfd5311e3204360f781830c06287f4f24@group.calendar.google.com";
+export const GCAL_API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
 
 // For calendar events that also have a dedicated community page, map event title
 // → internal route + image. Events not listed here link to the Google Calendar page.
@@ -68,7 +70,7 @@ const EVENT_ROUTE_MAP = {
   },
 };
 
-const eventsData = [
+export const eventsData = [
   //   {
   //   path: feb2026Path,
   //   image: "/events_images/february.png",
@@ -307,7 +309,7 @@ function formatDisplayDate(isoString) {
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
-function parseCalendarEvent(gcalEvent) {
+export function parseCalendarEvent(gcalEvent) {
   const startISO = gcalEvent.start?.dateTime || gcalEvent.start?.date;
   const endISO   = gcalEvent.end?.dateTime   || gcalEvent.end?.date;
   const title    = gcalEvent.summary || "Untitled Event";
