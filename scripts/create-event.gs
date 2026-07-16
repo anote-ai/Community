@@ -39,6 +39,7 @@ function doPost(e) {
     };
 
     const event = cal.createEvent(data.title, start, end, options);
+    event.setVisibility(CalendarApp.Visibility.PUBLIC);
 
     return respond({ success: true, eventId: event.getId(), title: data.title });
   } catch (err) {
