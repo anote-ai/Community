@@ -84,7 +84,7 @@ const eventsData = [
   //   description: "Network and learn at our AI Meetup in January, focused on practical AI applications."
   // },
     {
-    path: summerTeamPartyPath,
+    path: summerPartyPath,
     image: "/events_images/august.png",
     date: "August 7th, 2026",
     title: "Anote Summer Team Party",
