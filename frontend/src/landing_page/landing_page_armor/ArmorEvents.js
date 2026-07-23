@@ -494,6 +494,19 @@ const ArmorEvents = () => {
           </div>
         </div>
 
+        {/* Search bar */}
+        {viewMode === "cards" && (
+          <div className="mb-6">
+            <input
+              type="text"
+              placeholder="Search events..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full sm:w-80 px-4 py-2 rounded-full bg-gray-800 border border-gray-600 text-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-blue-500"
+            />
+          </div>
+        )}
+
         {/* Google Calendar embed */}
         {viewMode === "calendar" && (
           <div className="mb-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
@@ -526,6 +539,19 @@ const ArmorEvents = () => {
         )}
 
         {/* Event cards grid */}
+        {viewMode === "cards" && filteredEvents.length === 0 && !calendarLoading && (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <p className="text-gray-400 text-lg mb-2">No events found</p>
+            {query && (
+              <p className="text-gray-500 text-sm">
+                No results for "{query}" —{" "}
+                <button className="text-blue-400 hover:underline" onClick={() => setQuery("")}>
+                  clear search
+                </button>
+              </p>
+            )}
+          </div>
+        )}
         {viewMode === "cards" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {filteredEvents.map((event, index) => {
