@@ -57,6 +57,22 @@ const GCAL_API_KEY = "AIzaSyCjxXVDGAolugKgrTXpJ0HmAjL0lLxLN1E";
 
 // For calendar events that also have a dedicated community page, map event title
 // → internal route + image. Events not listed here link to the Google Calendar page.
+const MONTH_IMAGES = [
+  null,
+  "/events_images/january.png",
+  "/events_images/february.png",
+  "/events_images/march.png",
+  "/events_images/april.png",
+  "/events_images/may.png",
+  "/events_images/june.png",
+  "/events_images/july.png",
+  "/events_images/august.png",
+  "/events_images/september.png",
+  "/events_images/october.png",
+  "/events_images/november.png",
+  "/events_images/december.png",
+];
+
 const EVENT_ROUTE_MAP = {
   "Anote World Cup Finals Watch Party": {
     path: worldCupPartyPath,
@@ -315,11 +331,14 @@ function parseCalendarEvent(gcalEvent) {
 
   // Support an optional "image: /path.png" first line in the calendar description.
   let rawDesc = gcalEvent.description || "";
-  let image = override.image || "/events_images/july.png";
+  let image = override.image;
   const imageMatch = rawDesc.match(/^image:\s*(\S+)\s*\n?/i);
   if (imageMatch) {
     image = imageMatch[1];
     rawDesc = rawDesc.replace(imageMatch[0], "").trim();
+  } else if (!image) {
+    const month = startISO ? new Date(startISO).getMonth() + 1 : 7;
+    image = MONTH_IMAGES[month] || "/events_images/july.png";
   }
 
   return {
@@ -339,9 +358,13 @@ function parseCalendarEvent(gcalEvent) {
 const ArmorEvents = () => {
   const navigate = useNavigate();
   const [calendarEvents, setCalendarEvents] = useState([]);
+  const [calendarLoading, setCalendarLoading] = useState(true);
 
   useEffect(() => {
-    if (GCAL_ID === "REPLACE_WITH_YOUR_CALENDAR_ID") return;
+    if (GCAL_ID === "REPLACE_WITH_YOUR_CALENDAR_ID") {
+      setCalendarLoading(false);
+      return;
+    }
     const now = new Date().toISOString();
     const url =
       `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(GCAL_ID)}/events` +
@@ -354,7 +377,8 @@ const ArmorEvents = () => {
           setCalendarEvents(data.items.map(parseCalendarEvent));
         }
       })
-      .catch(() => {}); // silently fall back to hardcoded list
+      .catch(() => {})
+      .finally(() => setCalendarLoading(false));
   }, []);
 
   const getToday = () => {
@@ -480,6 +504,24 @@ const ArmorEvents = () => {
               height="600"
               title="Anote Community Events Calendar"
             />
+          </div>
+        )}
+
+        {/* Loading skeleton — shown while live calendar data fetches */}
+        {calendarLoading && viewMode === "cards" && filterType !== "past" && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg animate-pulse">
+                <div className="w-full h-48 bg-gray-700" />
+                <div className="p-6 space-y-3">
+                  <div className="h-3 bg-gray-700 rounded w-1/3" />
+                  <div className="h-5 bg-gray-700 rounded w-3/4" />
+                  <div className="h-3 bg-gray-700 rounded w-full" />
+                  <div className="h-3 bg-gray-700 rounded w-5/6" />
+                  <div className="mt-4 h-9 bg-gray-700 rounded-full w-32" />
+                </div>
+              </div>
+            ))}
           </div>
         )}
 
